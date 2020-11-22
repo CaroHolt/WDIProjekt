@@ -7,6 +7,7 @@ import java.time.temporal.ChronoField;
 import java.util.Locale;
 
 import model.Sight;
+import model.SightXMLFormatter;
 import model.SightXMLReader;
 import org.apache.logging.log4j.Logger;
 import de.uni_mannheim.informatik.dws.winter.datafusion.CorrespondenceSet;
@@ -41,15 +42,15 @@ public class SightFusion_Main {
         // Load the Data into FusibleDataSet
         System.out.println("*\n*\tLoading datasets\n*");
         FusibleDataSet<Sight, Attribute> ds1 = new FusibleHashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/.xml"), "/sights/sight", ds1);
+        new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", ds1);
         ds1.printDataSetDensityReport();
 
         FusibleDataSet<Sight, Attribute> ds2 = new FusibleHashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/.xml"), "/sights/sight", ds2);
+        new SightXMLReader().loadFromXML(new File("data/input/opentripmap.xml"), "/sights/sight", ds2);
         ds2.printDataSetDensityReport();
 
         FusibleDataSet<Sight, Attribute> ds3 = new FusibleHashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/.xml"), "/sights/sight", ds3);
+        new SightXMLReader().loadFromXML(new File("data/input/wikidata.xml"), "/sights/sight", ds3);
         ds3.printDataSetDensityReport();
 
         // Maintain Provenance

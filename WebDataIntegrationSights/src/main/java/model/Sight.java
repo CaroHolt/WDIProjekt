@@ -1,7 +1,14 @@
 package model;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 
 import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
@@ -88,6 +95,39 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
         this.popularity = popularity;
     }
 
+
+    private Map<Attribute, Collection<String>> provenance = new HashMap<>();
+    private Collection<String> recordProvenance;
+
+    public void setRecordProvenance(Collection<String> provenance) {
+        recordProvenance = provenance;
+    }
+
+    public Collection<String> getRecordProvenance() {
+        return recordProvenance;
+    }
+
+    public void setAttributeProvenance(Attribute attribute,
+                                       Collection<String> provenance) {
+        this.provenance.put(attribute, provenance);
+    }
+
+
+    public Collection<String> getAttributeProvenance(String attribute) {
+        return provenance.get(attribute);
+    }
+
+    public String getMergedAttributeProvenance(Attribute attribute) {
+        Collection<String> prov = provenance.get(attribute);
+
+        if (prov != null) {
+            return StringUtils.join(prov, "+");
+        } else {
+            return "";
+        }
+    }
+
+
     public static final Attribute NAME = new Attribute("Name");
     public static final Attribute DESCRIPTION = new Attribute("Description");
     public static final Attribute TYPES = new Attribute("Types");
@@ -119,5 +159,11 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
             return getPopularity() != 0;
         else
             return false;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[String %s: %s / %s / %s]", getIdentifier(), getName(),
+                getTypes(), getCity().toString());
     }
 }
