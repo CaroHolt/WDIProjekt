@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
 
+import evaluation.*;
 import model.Sight;
 import model.SightXMLFormatter;
 import model.SightXMLReader;
@@ -75,8 +76,8 @@ public class SightFusion_Main {
         // !!! INSERT OUR CORRESPONDENCES !!!
         System.out.println("*\n*\tLoading correspondences\n*");
         CorrespondenceSet<Sight, Attribute> correspondences = new CorrespondenceSet<>();
-        correspondences.loadCorrespondences(new File("data/correspondences/academy_awards_2_actors_correspondences.csv"),ds1, ds2);
-        correspondences.loadCorrespondences(new File("data/correspondences/actors_2_golden_globes_correspondences.csv"),ds2, ds3);
+        correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Opentripmap_Geonames.csv"),ds1, ds2);
+        correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Wikidata_Geonames.csv"),ds1, ds3);
 
         // write group size distribution
         correspondences.printGroupSizeDistribution();
@@ -97,14 +98,11 @@ public class SightFusion_Main {
 
         // add attribute fusers
         // !!! INSERT OUR FUSERS !!!
-        strategy.addAttributeFuser(Sight.NAME, new TitleFuserShortestString(),new TitleEvaluationRule());
-        strategy.addAttributeFuser(Sight.DESCRIPTION,new DirectorFuserLongestString(), new DirectorEvaluationRule());
-        strategy.addAttributeFuser(Sight.TYPES, new DateFuserFavourSource(),new DateEvaluationRule());
-        strategy.addAttributeFuser(Sight.CITY,new ActorsFuserUnion(),new ActorsEvaluationRule());
-        strategy.addAttributeFuser(Sight.COUNTRY,new ActorsFuserUnion(),new ActorsEvaluationRule());
-        strategy.addAttributeFuser(Sight.LONGITUDE,new ActorsFuserUnion(),new ActorsEvaluationRule());
-        strategy.addAttributeFuser(Sight.LATITUDE,new ActorsFuserUnion(),new ActorsEvaluationRule());
-        strategy.addAttributeFuser(Sight.POPULARITY,new ActorsFuserUnion(),new ActorsEvaluationRule());
+        strategy.addAttributeFuser(Sight.NAME, new TitleFuserShortestString(),new NameEvaluationRule());
+        strategy.addAttributeFuser(Sight.CITY,new ActorsFuserUnion(),new CityEvaluationRule());
+        strategy.addAttributeFuser(Sight.COUNTRY,new ActorsFuserUnion(),new CountryEvaluationRule());
+        strategy.addAttributeFuser(Sight.LONGITUDE,new ActorsFuserUnion(),new LongitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LATITUDE,new ActorsFuserUnion(),new LatitudeEvaluationRule());
 
         // create the fusion engine
         DataFusionEngine<Sight, Attribute> engine = new DataFusionEngine<>(strategy);
