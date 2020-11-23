@@ -73,7 +73,6 @@ public class SightFusion_Main {
         ds3.setDate(LocalDateTime.parse("2008-01-01", formatter));
 
         // load correspondences
-        // !!! INSERT OUR CORRESPONDENCES !!!
         System.out.println("*\n*\tLoading correspondences\n*");
         CorrespondenceSet<Sight, Attribute> correspondences = new CorrespondenceSet<>();
         correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Opentripmap_Geonames.csv"),ds1, ds2);
