@@ -99,6 +99,8 @@ public class IR_using_machine_learning {
         matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorJaccard());
         matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLevenshtein());
         matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorNGramJaccard());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLowercaseJaccard());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLowercasePunctuationJaccard());
         matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightLatitudeComparatorRound4());
         matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightLongitudeComparatorAbsDiff());
 
@@ -117,12 +119,12 @@ public class IR_using_machine_learning {
 
         // Execute the matching
         System.out.println("*\n*\tRunning identity resolution\n*");
-        Processable<Correspondence<Sight, Attribute>> correspondences = engine.runIdentityResolution(
+        Processable<Correspondence<Sight, Attribute>> correspondences_wiki_geo = engine.runIdentityResolution(
                 dataGeonames, dataOpentripmap, null, matchingRule_geonames_wikidata,
                 blocker);
 
         // write the correspondences to the output file
-        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
+        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences_wiki_geo);
 
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
@@ -133,7 +135,7 @@ public class IR_using_machine_learning {
         // evaluate your result
         System.out.println("*\n*\tEvaluating result\n*");
         MatchingEvaluator<Sight, Attribute> evaluator = new MatchingEvaluator<Sight, Attribute>();
-        Performance perfTest = evaluator.evaluateMatching(correspondences,
+        Performance perfTest = evaluator.evaluateMatching(correspondences_wiki_geo,
                 gsTest);
 
         // print the evaluation result
