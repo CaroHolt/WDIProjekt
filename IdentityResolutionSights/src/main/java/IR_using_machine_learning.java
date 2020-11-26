@@ -2,6 +2,7 @@ import java.io.File;
 
 
 import Blocking.SightBlockingKeyByNameGenerator;
+import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.MaximumBipartiteMatchingAlgorithm;
@@ -94,21 +95,18 @@ public class IR_using_machine_learning {
         matchingRule_geonames_wikidata.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsGEO_OPEN);
 
         // add comparators for geonames and wikidata
-        matchingRule_geonames_wikidata.addComparator(new MovieTitleComparatorEqual());
-        matchingRule_geonames_wikidata.addComparator(new MovieDateComparator2Years());
-        matchingRule_geonames_wikidata.addComparator(new MovieDateComparator10Years());
-        matchingRule_geonames_wikidata.addComparator(new MovieDirectorComparatorJaccard());
-        matchingRule_geonames_wikidata.addComparator(new MovieDirectorComparatorLevenshtein());
-        matchingRule_geonames_wikidata.addComparator(new MovieDirectorComparatorLowerCaseJaccard());
-        matchingRule_geonames_wikidata.addComparator(new MovieTitleComparatorLevenshtein());
-        matchingRule_geonames_wikidata.addComparator(new MovieTitleComparatorJaccard());
-
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorEqual());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorJaccard());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLevenshtein());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorNGramJaccard());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightLatitudeComparatorRound4());
+        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightLongitudeComparatorAbsDiff());
 
         // train the matching rule's model
         System.out.println("*\n*\tLearning matching rule\n*");
         RuleLearner<Sight, Attribute> learner = new RuleLearner<>();
-        learner.learnMatchingRule(dataGeonames, dataOpentripmap, null, matchingRule, gsGEO_OPEN);
-        System.out.println(String.format("Matching rule is:\n%s", matchingRule.getModelDescription()));
+        learner.learnMatchingRule(dataGeonames, dataOpentripmap, null, matchingRule_geonames_wikidata, gsWIKI_GEO);
+        System.out.println(String.format("Matching rule is:\n%s", matchingRule_geonames_wikidata.getModelDescription()));
 
         // create a blocker (blocking strategy)
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
@@ -120,11 +118,11 @@ public class IR_using_machine_learning {
         // Execute the matching
         System.out.println("*\n*\tRunning identity resolution\n*");
         Processable<Correspondence<Sight, Attribute>> correspondences = engine.runIdentityResolution(
-                dataGeonames, dataOpentripmap, null, matchingRule,
+                dataGeonames, dataOpentripmap, null, matchingRule_geonames_wikidata,
                 blocker);
 
         // write the correspondences to the output file
-        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/academy_awards_2_actors_correspondences.csv"), correspondences);
+        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
 
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
