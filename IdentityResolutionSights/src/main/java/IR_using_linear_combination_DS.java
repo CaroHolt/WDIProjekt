@@ -73,11 +73,11 @@ public class IR_using_linear_combination_DS {
         //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
+        //matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
         
         	// FOR COORDINATES
         //matchingRule.addComparator(new SightLatitudeComparatorRound4(), 0.5);     
-        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
+        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 1);
         
         
         // create a blocker (blocking strategy)
