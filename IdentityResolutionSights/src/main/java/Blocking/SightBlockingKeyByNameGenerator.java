@@ -16,7 +16,8 @@ public class SightBlockingKeyByNameGenerator extends RecordBlockingKeyGenerator<
     private static final long serialVersionUID = 1L;
 
     @Override
-    public void generateBlockingKeys(Sight record, Processable<Correspondence<Attribute, Matchable>> processable, DataIterator<Pair<String, Sight>> dataIterator) {
+    public void generateBlockingKeys(Sight record, Processable<Correspondence<Attribute, Matchable>> correspondences, 
+    		DataIterator<Pair<String, Sight>> resultCollector) {
 
         String[] tokens  = record.getName().split(" ");
 
@@ -26,7 +27,7 @@ public class SightBlockingKeyByNameGenerator extends RecordBlockingKeyGenerator<
             blockingKeyValue += tokens[i].substring(0, Math.min(2,tokens[i].length())).toUpperCase();
         }
 
-        dataIterator.next(new Pair<>(blockingKeyValue, record));
+        resultCollector.next(new Pair<>(blockingKeyValue, record));
 
     }
 }
