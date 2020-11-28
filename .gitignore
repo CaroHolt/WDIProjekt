@@ -3,3 +3,6 @@ IdentityResolutionSights/.settings/org.eclipse.m2e.core.prefs
 IdentityResolutionSights/.settings/org.eclipse.core.resources.prefs
 IdentityResolutionSights/.settings/org.eclipse.jdt.core.prefs
 IdentityResolutionSights/.project
+IdentityResolutionSights/data/output/debugResultsBlocking.csv
+IdentityResolutionSights/data/output/debugResultsMatchingRule.csv
+IdentityResolutionSights/data/output/debugResultsMatchingRule.csv_short

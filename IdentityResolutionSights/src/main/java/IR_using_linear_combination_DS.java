@@ -91,7 +91,7 @@ public class IR_using_linear_combination_DS {
 //		 correspondences = maxWeight.getResult();
 
         // write the correspondences to the output file
-        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/academy_awards_2_actors_correspondences.csv"), correspondences);
+        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wikidata_2_otm_correspondences.csv"), correspondences);
 
 
 
