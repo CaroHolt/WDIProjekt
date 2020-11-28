@@ -1,6 +1,12 @@
 import Blocking.SightBlockingKeyByNameGenerator;
+import Comparators.SightLatitudeComparatorRound4;
+import Comparators.SightLongitudeComparatorAbsDiff;
 import Comparators.SightNameComparatorEqual;
 import Comparators.SightNameComparatorJaccard;
+import Comparators.SightNameComparatorLevenshtein;
+import Comparators.SightNameComparatorLowercaseJaccard;
+import Comparators.SightNameComparatorLowercasePunctuationJaccard;
+import Comparators.SightNameComparatorNGramJaccard;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
@@ -61,9 +67,19 @@ public class IR_using_linear_combination_DS {
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
         // add comparators
-        matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.8);
-
+                // FOR NAME
+        //matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
+        //matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
+        //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
+        //matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
+        //matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
+        
+        	// FOR COORDINATES
+        //matchingRule.addComparator(new SightLatitudeComparatorRound4(), 0.5);     
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
+        
+        
         // create a blocker (blocking strategy)
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
         
