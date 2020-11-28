@@ -1,6 +1,7 @@
 package Comparators;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 import de.uni_mannheim.informatik.dws.winter.matching.rules.Comparator;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.ComparatorLogger;
@@ -26,12 +27,16 @@ public class SightLongitudeComparatorAbsDiff4Decimals implements Comparator<Sigh
         double roundedRecord1 = record1.getLongitude();
         double roundedRecord2 = record2.getLongitude();
         
+        // Set new decimal format and decimal separator
+        DecimalFormat df = new DecimalFormat("#.####");
+        DecimalFormatSymbols dfs = df.getDecimalFormatSymbols();
+        dfs.setDecimalSeparator('.');
+        df.setDecimalFormatSymbols(dfs);
+        
         // Cut double to only contain 4 decimal places
-        DecimalFormat df = new DecimalFormat("#,#");
-         
         double roundedRecord1_cut = Double.parseDouble(df.format(roundedRecord1));
         double roundedRecord2_cut = Double.parseDouble(df.format(roundedRecord2));
-
+ 
         double similarity = sim.calculate(roundedRecord1_cut, roundedRecord2_cut);
 
         if(this.comparisonLog != null){
