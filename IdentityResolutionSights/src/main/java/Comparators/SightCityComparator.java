@@ -24,9 +24,7 @@ public class SightCityComparator implements Comparator<Sight, Attribute> {
 
         String s1 = record1.getCity();
         String s2 = record2.getCity();
-        
-        System.out.println(s1);
-
+       
         double similarity = sim.calculate(s1, s2);
 
         if(this.comparisonLog != null){
