@@ -15,7 +15,7 @@ import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import model.Sight;
 import model.SightXMLReader;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
@@ -34,7 +34,7 @@ public class IR_using_linear_combination {
      *
      */
 
-    //private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
+    private static final Logger logger = WinterLogManager.activateLogger("default");
 
     public static void main( String[] args ) throws Exception
     {

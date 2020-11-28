@@ -34,7 +34,7 @@ public class IR_using_machine_learning {
      *
      */
 
-    //private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
+    private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
 
     public static void main( String[] args ) throws Exception
     {
@@ -135,7 +135,7 @@ public class IR_using_machine_learning {
                 gsTest);
 
         // print the evaluation result
-        System.out.println("Academy Awards <-> Actors");
+        System.out.println("Wikidata <-> OpentripMap");
         System.out.println(String.format(
                 "Precision: %.4f",perfTest.getPrecision()));
         System.out.println(String.format(
