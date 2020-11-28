@@ -14,7 +14,7 @@ import de.uni_mannheim.informatik.dws.winter.processing.DataIterator;
 import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import model.Sight;
 
-public class SightBlockingKeyByNameGenerator extends RecordBlockingKeyGenerator<Sight, Attribute> {
+public class SightBlockingKeyByCityGenerator extends RecordBlockingKeyGenerator<Sight, Attribute> {
 
     private static final long serialVersionUID = 1L;
 
