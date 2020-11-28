@@ -9,7 +9,7 @@ import de.uni_mannheim.informatik.dws.winter.similarity.string.JaccardOnNGramsSi
 import de.uni_mannheim.informatik.dws.winter.similarity.string.TokenizingJaccardSimilarity;
 import model.Sight;
 
-public class Wiki_Geo_SightNameComparatorNGramJaccard implements Comparator<Sight, Attribute> {
+public class SightNameComparatorNGramJaccard implements Comparator<Sight, Attribute> {
 
     private static final long serialVersionUID = 1L;
     JaccardOnNGramsSimilarity sim = new JaccardOnNGramsSimilarity(3);

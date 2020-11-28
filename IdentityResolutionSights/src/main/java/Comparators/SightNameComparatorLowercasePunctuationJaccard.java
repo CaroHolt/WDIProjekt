@@ -8,7 +8,7 @@ import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.similarity.string.TokenizingJaccardSimilarity;
 import model.Sight;
 
-public class Wiki_Geo_SightNameComparatorLowercaseJaccard implements Comparator<Sight, Attribute> {
+public class SightNameComparatorLowercasePunctuationJaccard implements Comparator<Sight, Attribute> {
 
     private static final long serialVersionUID = 1L;
     TokenizingJaccardSimilarity sim = new TokenizingJaccardSimilarity();
@@ -21,8 +21,8 @@ public class Wiki_Geo_SightNameComparatorLowercaseJaccard implements Comparator<
             Sight record2,
             Correspondence<Attribute, Matchable> schemaCorrespondences) {
 
-        String s1 = record1.getName().toLowerCase();
-        String s2 = record2.getName().toLowerCase();
+        String s1 = removePunctuation(record1.getName().toLowerCase());
+        String s2 = removePunctuation(record2.getName().toLowerCase());
 
         // calculate similarity
         double similarity = sim.calculate(s1, s2);
@@ -47,4 +47,9 @@ public class Wiki_Geo_SightNameComparatorLowercaseJaccard implements Comparator<
     public void setComparisonLog(ComparatorLogger comparatorLog) {
         this.comparisonLog = comparatorLog;
     }
+
+    public static String removePunctuation(String s){
+        return s.replaceAll("\\p{Punct}", "");
+    }
 }
+

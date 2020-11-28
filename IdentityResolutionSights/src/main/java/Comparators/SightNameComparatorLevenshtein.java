@@ -5,14 +5,13 @@ import de.uni_mannheim.informatik.dws.winter.matching.rules.ComparatorLogger;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
-import de.uni_mannheim.informatik.dws.winter.similarity.EqualsSimilarity;
+import de.uni_mannheim.informatik.dws.winter.similarity.string.LevenshteinSimilarity;
 import model.Sight;
 
-public class Wiki_Geo_SightNameComparatorEqual implements Comparator<Sight, Attribute> {
-
+public class SightNameComparatorLevenshtein implements Comparator<Sight, Attribute> {
 
     private static final long serialVersionUID = 1L;
-    private EqualsSimilarity<String> sim = new EqualsSimilarity<String>();
+    private LevenshteinSimilarity sim = new LevenshteinSimilarity();
 
     private ComparatorLogger comparisonLog;
 
@@ -35,9 +34,10 @@ public class Wiki_Geo_SightNameComparatorEqual implements Comparator<Sight, Attr
 
             this.comparisonLog.setSimilarity(Double.toString(similarity));
         }
-        return similarity;
-    }
 
+        return similarity;
+
+    }
 
     @Override
     public ComparatorLogger getComparisonLog() {
@@ -48,4 +48,5 @@ public class Wiki_Geo_SightNameComparatorEqual implements Comparator<Sight, Attr
     public void setComparisonLog(ComparatorLogger comparatorLog) {
         this.comparisonLog = comparatorLog;
     }
+
 }

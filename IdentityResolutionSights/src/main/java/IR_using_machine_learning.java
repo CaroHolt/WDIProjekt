@@ -95,14 +95,14 @@ public class IR_using_machine_learning {
         matchingRule_geonames_wikidata.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsGEO_OPEN);
 
         // add comparators for geonames and wikidata
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorEqual());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorJaccard());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLevenshtein());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorNGramJaccard());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLowercaseJaccard());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightNameComparatorLowercasePunctuationJaccard());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightLatitudeComparatorRound4());
-        matchingRule_geonames_wikidata.addComparator(new Wiki_Geo_SightLongitudeComparatorAbsDiff());
+        matchingRule_geonames_wikidata.addComparator(new SightNameComparatorEqual());
+        matchingRule_geonames_wikidata.addComparator(new SightNameComparatorJaccard());
+        matchingRule_geonames_wikidata.addComparator(new SightNameComparatorLevenshtein());
+        matchingRule_geonames_wikidata.addComparator(new SightNameComparatorNGramJaccard());
+        matchingRule_geonames_wikidata.addComparator(new SightNameComparatorLowercaseJaccard());
+        matchingRule_geonames_wikidata.addComparator(new SightNameComparatorLowercasePunctuationJaccard());
+        matchingRule_geonames_wikidata.addComparator(new SightLatitudeComparatorRound4());
+        matchingRule_geonames_wikidata.addComparator(new SightLongitudeComparatorAbsDiff());
 
         // train the matching rule's model
         System.out.println("*\n*\tLearning matching rule\n*");

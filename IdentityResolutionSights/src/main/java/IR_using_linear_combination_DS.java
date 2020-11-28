@@ -1,6 +1,6 @@
 import Blocking.SightBlockingKeyByNameGenerator;
-import Comparators.Wiki_Geo_SightNameComparatorEqual;
-import Comparators.Wiki_Geo_SightNameComparatorJaccard;
+import Comparators.SightNameComparatorEqual;
+import Comparators.SightNameComparatorJaccard;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
@@ -61,8 +61,8 @@ public class IR_using_linear_combination_DS {
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
         // add comparators
-        matchingRule.addComparator(new Wiki_Geo_SightNameComparatorEqual(), 0.2);
-        matchingRule.addComparator(new Wiki_Geo_SightNameComparatorJaccard(), 0.8);
+        matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.8);
 
         // create a blocker (blocking strategy)
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
@@ -112,6 +112,6 @@ public class IR_using_linear_combination_DS {
         
         long stopTime = System.nanoTime();
 		// Print execution time in ms
-		System.out.println("required time: " + (stopTime - startTime) / 1000000 + "ms");
+		System.out.println("required time: " + (stopTime - startTime) / 1000000 + " ms");
     }
 }

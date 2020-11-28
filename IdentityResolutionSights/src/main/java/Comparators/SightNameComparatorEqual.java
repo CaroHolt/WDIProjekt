@@ -5,13 +5,14 @@ import de.uni_mannheim.informatik.dws.winter.matching.rules.ComparatorLogger;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
-import de.uni_mannheim.informatik.dws.winter.similarity.string.TokenizingJaccardSimilarity;
+import de.uni_mannheim.informatik.dws.winter.similarity.EqualsSimilarity;
 import model.Sight;
 
-public class Wiki_Geo_SightNameComparatorLowercasePunctuationJaccard implements Comparator<Sight, Attribute> {
+public class SightNameComparatorEqual implements Comparator<Sight, Attribute> {
+
 
     private static final long serialVersionUID = 1L;
-    TokenizingJaccardSimilarity sim = new TokenizingJaccardSimilarity();
+    private EqualsSimilarity<String> sim = new EqualsSimilarity<String>();
 
     private ComparatorLogger comparisonLog;
 
@@ -21,10 +22,9 @@ public class Wiki_Geo_SightNameComparatorLowercasePunctuationJaccard implements 
             Sight record2,
             Correspondence<Attribute, Matchable> schemaCorrespondences) {
 
-        String s1 = removePunctuation(record1.getName().toLowerCase());
-        String s2 = removePunctuation(record2.getName().toLowerCase());
+        String s1 = record1.getName();
+        String s2 = record2.getName();
 
-        // calculate similarity
         double similarity = sim.calculate(s1, s2);
 
         if(this.comparisonLog != null){
@@ -38,6 +38,7 @@ public class Wiki_Geo_SightNameComparatorLowercasePunctuationJaccard implements 
         return similarity;
     }
 
+
     @Override
     public ComparatorLogger getComparisonLog() {
         return this.comparisonLog;
@@ -47,9 +48,4 @@ public class Wiki_Geo_SightNameComparatorLowercasePunctuationJaccard implements 
     public void setComparisonLog(ComparatorLogger comparatorLog) {
         this.comparisonLog = comparatorLog;
     }
-
-    public static String removePunctuation(String s){
-        return s.replaceAll("\\p{Punct}", "");
-    }
 }
-
