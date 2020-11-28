@@ -32,28 +32,29 @@ public class IR_using_linear_combination_DS {
      *
      */
 
-    private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
+    //private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
 
     public static void main( String[] args ) throws Exception
     {
-        // loading data
+    	// Add time measuring
+    	long startTime = System.nanoTime();
+    	
+    	// loading data
         System.out.println("*\n*\tLoading datasets\n*");
-        HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);
+        //HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
+        //new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);
         HashedDataSet<Sight, Attribute> dataOpentripmap = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/opentripmap.xml"), "/sights/sight", dataOpentripmap);
+        new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataOpentripmap);
         HashedDataSet<Sight, Attribute> dataWikidata = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/wikidata.xml"), "/sights/sight", dataWikidata);
+        new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataWikidata);
 
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File(
-                "data/goldstandard/gs_academy_awards_2_actors_test.csv"));
+        gsTest.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
 
         // create a matching rule
-        LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(
-                0.7);
+        LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
         // add comparators
@@ -74,7 +75,7 @@ public class IR_using_linear_combination_DS {
         // Execute the matching
         System.out.println("*\n*\tRunning identity resolution\n*");
         Processable<Correspondence<Sight, Attribute>> correspondences = engine.runIdentityResolution(
-                dataGeonames, dataOpentripmap, null, matchingRule,
+                dataWikidata, dataOpentripmap, null, matchingRule,
                 blocker);
 
         // Create a top-1 global matching
@@ -104,5 +105,9 @@ public class IR_using_linear_combination_DS {
                 "Recall: %.4f",	perfTest.getRecall()));
         System.out.println(String.format(
                 "F1: %.4f",perfTest.getF1()));
+        
+        long stopTime = System.nanoTime();
+		// Print execution time in ms
+		System.out.println( (stopTime - startTime) / 1000000);
     }
 }
