@@ -5,12 +5,8 @@ import Blocking.SightBlockingKeyByNameGenerator;
 import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
-import de.uni_mannheim.informatik.dws.winter.matching.algorithms.MaximumBipartiteMatchingAlgorithm;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.RuleLearner;
-import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
-import de.uni_mannheim.informatik.dws.winter.matching.blockers.SortedNeighbourhoodBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
-import de.uni_mannheim.informatik.dws.winter.matching.rules.LinearCombinationMatchingRule;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.WekaMatchingRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.HashedDataSet;
@@ -38,61 +34,61 @@ public class IR_using_machine_learning {
      *
      */
 
-    private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
+    //private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
 
     public static void main( String[] args ) throws Exception
     {
         // loading data
         System.out.println("*\n*\tLoading datasets\n*");
-        HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);
+        /*HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
+        new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);*/
         HashedDataSet<Sight, Attribute> dataOpentripmap = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/opentripmap.xml"), "/sights/sight", dataOpentripmap);
+        new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataOpentripmap);
         HashedDataSet<Sight, Attribute> dataWikidata = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/wikidata.xml"), "/sights/sight", dataWikidata);
+        new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataWikidata);
 
         // load the training set
-        MatchingGoldStandard gsGEO_OPEN = new MatchingGoldStandard();
-        gsGEO_OPEN.loadFromCSVFile(new File("data/goldstandard/gs_academy_awards_2_actors_training.csv"));
+        /*MatchingGoldStandard gsGEO_OPEN = new MatchingGoldStandard();
+        gsGEO_OPEN.loadFromCSVFile(new File("data/goldstandard/.csv"));*/
         MatchingGoldStandard gsOPEN_WIKI = new MatchingGoldStandard();
-        gsOPEN_WIKI.loadFromCSVFile(new File("data/goldstandard/gs_academy_awards_2_actors_training.csv"));
-        MatchingGoldStandard gsWIKI_GEO = new MatchingGoldStandard();
-        gsWIKI_GEO.loadFromCSVFile(new File("data/goldstandard/gs_academy_awards_2_actors_training.csv"));
+        gsOPEN_WIKI.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+        /*MatchingGoldStandard gsWIKI_GEO = new MatchingGoldStandard();
+        gsWIKI_GEO.loadFromCSVFile(new File("data/goldstandard/.csv"));*/
 
         // create a matching rule for each goldstandard
         // create a matching rule for opentrip and geonames
         String options[] = new String[] { "-S" };
         String modelType = "SimpleLogistic"; // use a logistic regression
-        WekaMatchingRule<Sight, Attribute> matchingRule_opentrip_geonames = new WekaMatchingRule<>(0.7, modelType, options);
+        /*WekaMatchingRule<Sight, Attribute> matchingRule_opentrip_geonames = new WekaMatchingRule<>(0.7, modelType, options);
         matchingRule_opentrip_geonames.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsGEO_OPEN);
 
         // add comparators for Geonames and OpenTripMap
-        matchingRule_opentrip_geonames.addComparator(new MovieTitleComparatorEqual());
-        matchingRule_opentrip_geonames.addComparator(new MovieDateComparator2Years());
-        matchingRule_opentrip_geonames.addComparator(new MovieDateComparator10Years());
-        matchingRule_opentrip_geonames.addComparator(new MovieDirectorComparatorJaccard());
-        matchingRule_opentrip_geonames.addComparator(new MovieDirectorComparatorLevenshtein());
-        matchingRule_opentrip_geonames.addComparator(new MovieDirectorComparatorLowerCaseJaccard());
-        matchingRule_opentrip_geonames.addComparator(new MovieTitleComparatorLevenshtein());
-        matchingRule_opentrip_geonames.addComparator(new MovieTitleComparatorJaccard());
+        matchingRule_opentrip_geonames.addComparator(new SightNameComparatorEqual());
+        matchingRule_opentrip_geonames.addComparator(new SightNameComparatorJaccard());
+        matchingRule_opentrip_geonames.addComparator(new SightNameComparatorLevenshtein());
+        matchingRule_opentrip_geonames.addComparator(new SightNameComparatorNGramJaccard());
+        matchingRule_opentrip_geonames.addComparator(new SightNameComparatorLowercaseJaccard());
+        matchingRule_opentrip_geonames.addComparator(new SightNameComparatorLowercasePunctuationJaccard());
+        matchingRule_opentrip_geonames.addComparator(new SightLocationComparator());
+        matchingRule_opentrip_geonames.addComparator(new SightLongitudeComparatorAbsDiff());*/
 
         // create a matching rule for opentrip and wikidata
         WekaMatchingRule<Sight, Attribute> matchingRule_opentrip_wikidata = new WekaMatchingRule<>(0.7, modelType, options);
-        matchingRule_opentrip_wikidata.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsGEO_OPEN);
+        matchingRule_opentrip_wikidata.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsOPEN_WIKI);
 
         // add comparators for opentrip and wikidata
-        matchingRule_opentrip_wikidata.addComparator(new MovieTitleComparatorEqual());
-        matchingRule_opentrip_wikidata.addComparator(new MovieDateComparator2Years());
-        matchingRule_opentrip_wikidata.addComparator(new MovieDateComparator10Years());
-        matchingRule_opentrip_wikidata.addComparator(new MovieDirectorComparatorJaccard());
-        matchingRule_opentrip_wikidata.addComparator(new MovieDirectorComparatorLevenshtein());
-        matchingRule_opentrip_wikidata.addComparator(new MovieDirectorComparatorLowerCaseJaccard());
-        matchingRule_opentrip_wikidata.addComparator(new MovieTitleComparatorLevenshtein());
-        matchingRule_opentrip_wikidata.addComparator(new MovieTitleComparatorJaccard());
+        matchingRule_opentrip_wikidata.addComparator(new SightNameComparatorEqual());
+        matchingRule_opentrip_wikidata.addComparator(new SightNameComparatorJaccard());
+        matchingRule_opentrip_wikidata.addComparator(new SightNameComparatorLevenshtein());
+        matchingRule_opentrip_wikidata.addComparator(new SightNameComparatorNGramJaccard());
+        matchingRule_opentrip_wikidata.addComparator(new SightNameComparatorLowercaseJaccard());
+        matchingRule_opentrip_wikidata.addComparator(new SightNameComparatorLowercasePunctuationJaccard());
+        matchingRule_opentrip_wikidata.addComparator(new SightLocationComparator());
+        matchingRule_opentrip_wikidata.addComparator(new SightLongitudeComparatorAbsDiff());
 
         // create a matching rule for geonames and wikidata
-        WekaMatchingRule<Sight, Attribute> matchingRule_geonames_wikidata = new WekaMatchingRule<>(0.7, modelType, options);
-        matchingRule_geonames_wikidata.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsGEO_OPEN);
+        /*WekaMatchingRule<Sight, Attribute> matchingRule_geonames_wikidata = new WekaMatchingRule<>(0.7, modelType, options);
+        matchingRule_geonames_wikidata.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsWIKI_GEO);
 
         // add comparators for geonames and wikidata
         matchingRule_geonames_wikidata.addComparator(new SightNameComparatorEqual());
@@ -101,14 +97,14 @@ public class IR_using_machine_learning {
         matchingRule_geonames_wikidata.addComparator(new SightNameComparatorNGramJaccard());
         matchingRule_geonames_wikidata.addComparator(new SightNameComparatorLowercaseJaccard());
         matchingRule_geonames_wikidata.addComparator(new SightNameComparatorLowercasePunctuationJaccard());
-        matchingRule_geonames_wikidata.addComparator(new SightLatitudeComparatorRound4());
-        matchingRule_geonames_wikidata.addComparator(new SightLongitudeComparatorAbsDiff());
+        matchingRule_geonames_wikidata.addComparator(new SightLocationComparator());
+        matchingRule_geonames_wikidata.addComparator(new SightLongitudeComparatorAbsDiff());*/
 
         // train the matching rule's model
         System.out.println("*\n*\tLearning matching rule\n*");
         RuleLearner<Sight, Attribute> learner = new RuleLearner<>();
-        learner.learnMatchingRule(dataGeonames, dataOpentripmap, null, matchingRule_geonames_wikidata, gsWIKI_GEO);
-        System.out.println(String.format("Matching rule is:\n%s", matchingRule_geonames_wikidata.getModelDescription()));
+        learner.learnMatchingRule(dataWikidata, dataOpentripmap, null, matchingRule_opentrip_wikidata, gsOPEN_WIKI);
+        System.out.println(String.format("Matching rule is:\n%s", matchingRule_opentrip_wikidata.getModelDescription()));
 
         // create a blocker (blocking strategy)
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
@@ -120,7 +116,7 @@ public class IR_using_machine_learning {
         // Execute the matching
         System.out.println("*\n*\tRunning identity resolution\n*");
         Processable<Correspondence<Sight, Attribute>> correspondences_wiki_geo = engine.runIdentityResolution(
-                dataGeonames, dataOpentripmap, null, matchingRule_geonames_wikidata,
+                dataWikidata, dataOpentripmap, null, matchingRule_opentrip_wikidata,
                 blocker);
 
         // write the correspondences to the output file
@@ -130,7 +126,7 @@ public class IR_using_machine_learning {
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
         gsTest.loadFromCSVFile(new File(
-                "data/goldstandard/gs_academy_awards_2_actors_test.csv"));
+                "data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
 
         // evaluate your result
         System.out.println("*\n*\tEvaluating result\n*");

@@ -1,6 +1,8 @@
 import Blocking.SightBlockingKeyByNameGenerator;
+import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
+import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.LinearCombinationMatchingRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -32,37 +34,41 @@ public class IR_using_linear_combination {
      *
      */
 
-    private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
+    //private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
 
     public static void main( String[] args ) throws Exception
     {
+        // Add time measuring
+        long startTime = System.nanoTime();
+
         // loading data
         System.out.println("*\n*\tLoading datasets\n*");
-        HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);
+        //HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
+        //new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);
         HashedDataSet<Sight, Attribute> dataOpentripmap = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/opentripmap.xml"), "/sights/sight", dataOpentripmap);
+        new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataOpentripmap);
         HashedDataSet<Sight, Attribute> dataWikidata = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/wikidata.xml"), "/sights/sight", dataWikidata);
+        new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataWikidata);
 
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File(
-                "data/goldstandard/gs_academy_awards_2_actors_test.csv"));
+        gsTest.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
 
         // create a matching rule
-        LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(
-                0.7);
+        LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
         // add comparators
-        //matchingRule.addComparator(new MovieDateComparator2Years(), 0.5);
-        //matchingRule.addComparator(new MovieTitleComparatorJaccard(), 0.5);
+        matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.4);
+        matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
+        matchingRule.addComparator(new SightLocationComparator(), 0.2);
 
         // create a blocker (blocking strategy)
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
-//		NoBlocker<Movie, Attribute> blocker = new NoBlocker<>();
+
+//		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
 //		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
@@ -74,7 +80,7 @@ public class IR_using_linear_combination {
         // Execute the matching
         System.out.println("*\n*\tRunning identity resolution\n*");
         Processable<Correspondence<Sight, Attribute>> correspondences = engine.runIdentityResolution(
-                dataGeonames, dataOpentripmap, null, matchingRule,
+                dataWikidata, dataOpentripmap, null, matchingRule,
                 blocker);
 
         // Create a top-1 global matching
@@ -86,7 +92,7 @@ public class IR_using_linear_combination {
 //		 correspondences = maxWeight.getResult();
 
         // write the correspondences to the output file
-        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/academy_awards_2_actors_correspondences.csv"), correspondences);
+        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wikidata_2_otm_correspondences.csv"), correspondences);
 
 
 
@@ -97,12 +103,16 @@ public class IR_using_linear_combination {
                 gsTest);
 
         // print the evaluation result
-        System.out.println("Academy Awards <-> Actors");
+        System.out.println("Wikidata <-> OpenTripMap");
         System.out.println(String.format(
                 "Precision: %.4f",perfTest.getPrecision()));
         System.out.println(String.format(
                 "Recall: %.4f",	perfTest.getRecall()));
         System.out.println(String.format(
                 "F1: %.4f",perfTest.getF1()));
+
+        long stopTime = System.nanoTime();
+        // Print execution time in ms
+        System.out.println("required time: " + (stopTime - startTime) / 1000000 + " ms");
     }
 }
