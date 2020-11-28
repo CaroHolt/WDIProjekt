@@ -1,4 +1,6 @@
+import Blocking.SightBlockingKeyByCountryGenerator;
 import Blocking.SightBlockingKeyByNameGenerator;
+import Comparators.SightCityComparator;
 import Comparators.SightLatitudeComparatorAbsDiff;
 import Comparators.SightLatitudeComparatorAbsDiff4Decimals;
 import Comparators.SightLongitudeComparatorAbsDiff;
@@ -24,7 +26,7 @@ import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import model.Sight;
 import model.SightXMLReader;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
@@ -43,7 +45,7 @@ public class IR_using_linear_combination_DS {
      *
      */
 
-    //private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
+    private static final Logger logger = (Logger) WinterLogManager.activateLogger("default");
 
     public static void main( String[] args ) throws Exception
     {
@@ -62,7 +64,7 @@ public class IR_using_linear_combination_DS {
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train.csv"));
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
@@ -71,7 +73,7 @@ public class IR_using_linear_combination_DS {
         // add comparators
                 // FOR NAME
         //matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.1);
+        //matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
@@ -79,16 +81,18 @@ public class IR_using_linear_combination_DS {
         
         	// FOR COORDINATES    
         //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
-        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.4);
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 1);
         //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.4);
-        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.4);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.4);
+        matchingRule.addComparator(new SightCityComparator(), 1);
         
         
         // create a blocker (blocking strategy)
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
         
+//      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
 //		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
-//		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);
+//		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);      
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
         blocker.collectBlockSizeData("data/output/debugResultsBlocking_wikidata_2_otm.csv", 100);
