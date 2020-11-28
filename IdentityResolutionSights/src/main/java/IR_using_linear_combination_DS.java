@@ -1,8 +1,11 @@
 import Blocking.SightBlockingKeyByCountryGenerator;
 import Blocking.SightBlockingKeyByNameGenerator;
 import Comparators.SightCityComparator;
+import Comparators.SightCityComparatorTokenJaccard;
+import Comparators.SightCountryComparator;
 import Comparators.SightLatitudeComparatorAbsDiff;
 import Comparators.SightLatitudeComparatorAbsDiff4Decimals;
+import Comparators.SightLocationComparator;
 import Comparators.SightLongitudeComparatorAbsDiff;
 import Comparators.SightLongitudeComparatorAbsDiff4Decimals;
 import Comparators.SightNameComparatorEqual;
@@ -68,11 +71,11 @@ public class IR_using_linear_combination_DS {
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
-        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule_.csv", 1000, gsTest);
+        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule_.csv", 10, gsTest);
 
         // add comparators
                 // FOR NAME
-        //matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
@@ -81,10 +84,16 @@ public class IR_using_linear_combination_DS {
         
         	// FOR COORDINATES    
         //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
-        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 1);
-        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.4);
-        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.4);
-        matchingRule.addComparator(new SightCityComparator(), 1);
+        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.2);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.2);
+        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.2);
+        matchingRule.addComparator(new SightLocationComparator(), 0.2);
+        	
+        	// FOR COUNTRY
+        // matchingRule.addComparator(new SightCountryComparator(), 0.1); -> Doesn't work here, as OTM does not contain this information
+        	// FOR CITY
+        //matchingRule.addComparator(new SightCityComparator(), 0.1);
+        matchingRule.addComparator(new SightCityComparatorTokenJaccard(), 0.1);
         
         
         // create a blocker (blocking strategy)
