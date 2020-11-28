@@ -1,4 +1,6 @@
 import Blocking.SightBlockingKeyByNameGenerator;
+import Comparators.Wiki_Geo_SightNameComparatorEqual;
+import Comparators.Wiki_Geo_SightNameComparatorJaccard;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
@@ -59,13 +61,13 @@ public class IR_using_linear_combination_DS {
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
         // add comparators
-        //matchingRule.addComparator(new MovieDateComparator2Years(), 0.5);
-        //matchingRule.addComparator(new MovieTitleComparatorJaccard(), 0.5);
+        matchingRule.addComparator(new Wiki_Geo_SightNameComparatorEqual(), 0.2);
+        matchingRule.addComparator(new Wiki_Geo_SightNameComparatorJaccard(), 0.8);
 
         // create a blocker (blocking strategy)
-//      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
+        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
         
-		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
+//		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
 //		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
@@ -110,6 +112,6 @@ public class IR_using_linear_combination_DS {
         
         long stopTime = System.nanoTime();
 		// Print execution time in ms
-		System.out.println( (stopTime - startTime) / 1000000);
+		System.out.println("required time: " + (stopTime - startTime) / 1000000 + "ms");
     }
 }
