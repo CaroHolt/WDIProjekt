@@ -49,9 +49,9 @@ public class SightXMLReader extends XMLMatchableReader<Sight, Attribute> {
         }
 
         try{
-            String latitude = getValueFromChildElement(node, "longitude");
-            if(latitude != null && !latitude.isEmpty()){
-                float fLongitude = Float.parseFloat(latitude);
+            String longitude = getValueFromChildElement(node, "longitude");
+            if(longitude != null && !longitude.isEmpty()){
+                float fLongitude = Float.parseFloat(longitude);
                 sight.setLongitude(fLongitude);
             }
         } catch (Exception e){

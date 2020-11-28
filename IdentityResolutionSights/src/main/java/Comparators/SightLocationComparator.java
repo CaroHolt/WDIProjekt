@@ -65,7 +65,7 @@ public class SightLocationComparator implements Comparator <Sight, Attribute>{
     /** calculates the distance between two locations in MILES so we converted to kilometers*/
     private double distance(double lat1, double long1, double lat2, double long2) {
 
-        double earthRadius = 3958.75; // in miles, change to 6371 for kilometer output
+        double earthRadius = 6371;
 
         double dLat = Math.toRadians(lat2-lat1);
         double dLng = Math.toRadians(long2-long1);
@@ -80,9 +80,7 @@ public class SightLocationComparator implements Comparator <Sight, Attribute>{
 
         double dist = earthRadius * c;
 
-        double distInKM = dist * 1.6;
-
-        return distInKM; // output distance, in MILES
+        return dist; // output distance, in MILES
     }
 
     @Override
