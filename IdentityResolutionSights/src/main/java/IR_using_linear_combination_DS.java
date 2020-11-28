@@ -1,6 +1,8 @@
 import Blocking.SightBlockingKeyByNameGenerator;
-import Comparators.SightLatitudeComparatorRound4;
+import Comparators.SightLatitudeComparatorAbsDiff;
+import Comparators.SightLatitudeComparatorAbsDiff4Decimals;
 import Comparators.SightLongitudeComparatorAbsDiff;
+import Comparators.SightLongitudeComparatorAbsDiff4Decimals;
 import Comparators.SightNameComparatorEqual;
 import Comparators.SightNameComparatorJaccard;
 import Comparators.SightNameComparatorLevenshtein;
@@ -64,20 +66,22 @@ public class IR_using_linear_combination_DS {
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
-        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
+        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule_.csv", 1000, gsTest);
 
         // add comparators
                 // FOR NAME
         //matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
-        //matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
+        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.1);
         //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
         
-        	// FOR COORDINATES
-        //matchingRule.addComparator(new SightLatitudeComparatorRound4(), 0.5);     
-        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 1);
+        	// FOR COORDINATES    
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
+        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.4);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.4);
+        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.4);
         
         
         // create a blocker (blocking strategy)
@@ -87,7 +91,7 @@ public class IR_using_linear_combination_DS {
 //		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
-        blocker.collectBlockSizeData("data/output/debugResultsBlocking.csv", 100);
+        blocker.collectBlockSizeData("data/output/debugResultsBlocking_wikidata_2_otm.csv", 100);
 
         // Initialize Matching Engine
         MatchingEngine<Sight, Attribute> engine = new MatchingEngine<>();
@@ -118,7 +122,7 @@ public class IR_using_linear_combination_DS {
                 gsTest);
 
         // print the evaluation result
-        System.out.println("Academy Awards <-> Actors");
+        System.out.println("wikiData <-> OTM");
         System.out.println(String.format(
                 "Precision: %.4f",perfTest.getPrecision()));
         System.out.println(String.format(
