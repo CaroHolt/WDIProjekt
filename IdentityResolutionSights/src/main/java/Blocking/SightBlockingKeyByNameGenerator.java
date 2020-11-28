@@ -1,6 +1,9 @@
 package Blocking;
 
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.generators.RecordBlockingKeyGenerator;
+
+import java.text.Normalizer;
+
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.generators.BlockingKeyGenerator;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.generators.RecordBlockingKeyGenerator;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -16,18 +19,19 @@ public class SightBlockingKeyByNameGenerator extends RecordBlockingKeyGenerator<
     private static final long serialVersionUID = 1L;
 
     @Override
-    public void generateBlockingKeys(Sight record, Processable<Correspondence<Attribute, Matchable>> correspondences, 
-    		DataIterator<Pair<String, Sight>> resultCollector) {
+    public void generateBlockingKeys(Sight record, Processable<Correspondence<Attribute, Matchable>> processable, DataIterator<Pair<String, Sight>> dataIterator) {
 
-        String[] tokens  = record.getName().split(" ");
+        String name  = record.getName();
+        
+        //System.out.println(name);
+        // Remove blanks & lower-case string
+        //String name_prep = name.toLowerCase();
+        
+        //String blockingKeyValue = "";
 
-        String blockingKeyValue = "";
+        //String blockingKeyValue = "";
 
-        for(int i = 0; i <= 2 && i < tokens.length; i++) {
-            blockingKeyValue += tokens[i].substring(0, Math.min(2,tokens[i].length())).toUpperCase();
-        }
-
-        resultCollector.next(new Pair<>(blockingKeyValue, record));
+        dataIterator.next(new Pair<>(name, record));
 
     }
 }
