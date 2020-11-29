@@ -51,7 +51,7 @@ public class IR_using_machine_learning {
         HashedDataSet<Sight, Attribute> dataset2 = new HashedDataSet<>();
         switch (selected){
             case PAIR_GEO_WIKI:
-                new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset1);
                 new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset2);
                 break;
             case PAIR_OPEN_WIKI:
@@ -60,7 +60,7 @@ public class IR_using_machine_learning {
                 break;
             case PAIR_OPEN_GEO:
                 new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset1);
-                new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataset2);
+                new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset2);
                 break;
         }
 
@@ -69,13 +69,13 @@ public class IR_using_machine_learning {
         MatchingGoldStandard gsTrainset = new MatchingGoldStandard();
         switch (selected){
             case PAIR_GEO_WIKI:
-                gsTrainset.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                gsTrainset.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_train.csv"));
                 break;
             case PAIR_OPEN_WIKI:
-                gsTrainset.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+                gsTrainset.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train.csv"));
                 break;
             case PAIR_OPEN_GEO:
-                gsTrainset.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                gsTrainset.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_train.csv"));
                 break;
         }
 
@@ -120,10 +120,10 @@ public class IR_using_machine_learning {
                 new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
                 break;
             case PAIR_OPEN_WIKI:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/open_2_wiki_correspondences.csv"), correspondences);
                 break;
             case PAIR_OPEN_GEO:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/open_2_geo_correspondences.csv"), correspondences);
                 break;
         }
 
@@ -132,13 +132,13 @@ public class IR_using_machine_learning {
         MatchingGoldStandard gsTestset = new MatchingGoldStandard();
         switch (selected){
             case PAIR_GEO_WIKI:
-                gsTestset.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                gsTestset.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_test.csv"));
                 break;
             case PAIR_OPEN_WIKI:
-                gsTestset.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+                gsTestset.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_test.csv"));
                 break;
             case PAIR_OPEN_GEO:
-                gsTestset.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                gsTestset.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_test.csv"));
                 break;
         }
 
