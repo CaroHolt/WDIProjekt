@@ -57,8 +57,8 @@ public class IR_using_linear_combination_DS {
     	
     	// loading data
         System.out.println("*\n*\tLoading datasets\n*");
-        //HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
-        //new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataGeonames);
+        HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
+        new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataGeonames);
         HashedDataSet<Sight, Attribute> dataOpentripmap = new HashedDataSet<>();
         new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataOpentripmap);
         HashedDataSet<Sight, Attribute> dataWikidata = new HashedDataSet<>();
