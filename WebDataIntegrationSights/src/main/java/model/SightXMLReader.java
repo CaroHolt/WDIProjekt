@@ -24,7 +24,7 @@ public class SightXMLReader extends XMLMatchableReader<Sight, Attribute> impleme
     protected void initialiseDataset(DataSet<Sight, Attribute> dataset) {
         super.initialiseDataset(dataset);
 
-        // the schema is defined in the Movie class and not interpreted from the file, so we have to set the attributes manually
+        // the schema is defined in the Sight class and not interpreted from the file, so we have to set the attributes manually
         dataset.addAttribute(Sight.NAME);
         dataset.addAttribute(Sight.LATITUDE);
         dataset.addAttribute(Sight.CITY);
