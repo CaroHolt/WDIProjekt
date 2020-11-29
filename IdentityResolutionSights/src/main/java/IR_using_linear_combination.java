@@ -44,7 +44,7 @@ public class IR_using_linear_combination {
          *      - PAIR_OPEN_WIKI
          *      - PAIR_GEO_WIKI
          */
-        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_GEO_WIKI;
+        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_OPEN_GEO;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -55,7 +55,7 @@ public class IR_using_linear_combination {
         HashedDataSet<Sight, Attribute> dataset2 = new HashedDataSet<>();
         switch (selected){
             case PAIR_GEO_WIKI:
-                new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset1);
                 new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset2);
                 break;
             case PAIR_OPEN_WIKI:
@@ -64,7 +64,7 @@ public class IR_using_linear_combination {
                 break;
             case PAIR_OPEN_GEO:
                 new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset1);
-                new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataset2);
+                new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset2);
                 break;
         }
 
@@ -73,13 +73,13 @@ public class IR_using_linear_combination {
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
         switch (selected){
             case PAIR_GEO_WIKI:
-                gsTest.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_test.csv"));
                 break;
             case PAIR_OPEN_WIKI:
-                gsTest.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+                gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_test.csv"));
                 break;
             case PAIR_OPEN_GEO:
-                gsTest.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                gsTest.loadFromCSVFile(new File("data/goldstandard/gs_opentripmap_geonames_test.csv"));
                 break;
         }
 

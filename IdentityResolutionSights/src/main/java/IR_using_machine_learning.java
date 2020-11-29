@@ -15,8 +15,7 @@ import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import model.Sight;
 import model.SightXMLReader;
-import org.jgrapht.alg.interfaces.MatchingAlgorithm;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 public class IR_using_machine_learning {
     /*
@@ -42,7 +41,7 @@ public class IR_using_machine_learning {
          *      - PAIR_OPEN_WIKI
          *      - PAIR_GEO_WIKI
          */
-        MatchingPair selected = MatchingPair.PAIR_GEO_WIKI;
+        MatchingPair selected = MatchingPair.PAIR_OPEN_GEO;
 
 
         // loading data
@@ -75,7 +74,7 @@ public class IR_using_machine_learning {
                 gsTrainset.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train.csv"));
                 break;
             case PAIR_OPEN_GEO:
-                gsTrainset.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_train.csv"));
+                gsTrainset.loadFromCSVFile(new File("data/goldstandard/gs_opentripmap_geonames_train.csv"));
                 break;
         }
 
@@ -138,7 +137,7 @@ public class IR_using_machine_learning {
                 gsTestset.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_test.csv"));
                 break;
             case PAIR_OPEN_GEO:
-                gsTestset.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_test.csv"));
+                gsTestset.loadFromCSVFile(new File("data/goldstandard/gs_opentripmap_geonames_test.csv"));
                 break;
         }
 
