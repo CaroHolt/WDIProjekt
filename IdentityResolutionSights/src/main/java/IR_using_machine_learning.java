@@ -65,6 +65,7 @@ public class IR_using_machine_learning {
         }
 
         // load the training set
+        System.out.println("*\n*\tLoading goldstandard\n*");
         MatchingGoldStandard gsTrainset = new MatchingGoldStandard();
         switch (selected){
             case PAIR_GEO_WIKI:
@@ -147,7 +148,7 @@ public class IR_using_machine_learning {
         Performance perfTest = evaluator.evaluateMatching(correspondences, gsTestset);
 
         // print the evaluation result
-        System.out.println("Wikidata <-> OpentripMap");
+        System.out.println(selected.PAIRINFO);
         System.out.println(String.format(
                 "Precision: %.4f",perfTest.getPrecision()));
         System.out.println(String.format(

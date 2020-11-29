@@ -38,31 +38,67 @@ public class IR_using_linear_combination {
 
     public static void main( String[] args ) throws Exception
     {
+        /* Define Data pair that should be matched
+         * The options are:
+         *      - PAIR_OPEN_GEO
+         *      - PAIR_OPEN_WIKI
+         *      - PAIR_GEO_WIKI
+         */
+        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_GEO_WIKI;
+
         // Add time measuring
         long startTime = System.nanoTime();
 
         // loading data
         System.out.println("*\n*\tLoading datasets\n*");
-        //HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
-        //new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataGeonames);
-        HashedDataSet<Sight, Attribute> dataOpentripmap = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataOpentripmap);
-        HashedDataSet<Sight, Attribute> dataWikidata = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataWikidata);
+        HashedDataSet<Sight, Attribute> dataset1 = new HashedDataSet<>();
+        HashedDataSet<Sight, Attribute> dataset2 = new HashedDataSet<>();
+        switch (selected){
+            case PAIR_GEO_WIKI:
+                new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset2);
+                break;
+            case PAIR_OPEN_WIKI:
+                new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset2);
+                break;
+            case PAIR_OPEN_GEO:
+                new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", dataset2);
+                break;
+        }
 
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+        switch (selected){
+            case PAIR_GEO_WIKI:
+                gsTest.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                break;
+            case PAIR_OPEN_WIKI:
+                gsTest.loadFromCSVFile(new File("data/goldstandard/goldstandard_wikidata_opentripmap.csv"));
+                break;
+            case PAIR_OPEN_GEO:
+                gsTest.loadFromCSVFile(new File("data/goldstandard/.csv"));
+                break;
+        }
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
         // add comparators
+        // Matchers for Name
         matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.4);
+        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
         matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
+        matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
+
+        // Matchers for Location
+        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.2);
+        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.2);
         matchingRule.addComparator(new SightLocationComparator(), 0.2);
 
         // create a blocker (blocking strategy)
@@ -80,7 +116,7 @@ public class IR_using_linear_combination {
         // Execute the matching
         System.out.println("*\n*\tRunning identity resolution\n*");
         Processable<Correspondence<Sight, Attribute>> correspondences = engine.runIdentityResolution(
-                dataWikidata, dataOpentripmap, null, matchingRule,
+                dataset1, dataset2, null, matchingRule,
                 blocker);
 
         // Create a top-1 global matching
@@ -103,7 +139,7 @@ public class IR_using_linear_combination {
                 gsTest);
 
         // print the evaluation result
-        System.out.println("Wikidata <-> OpenTripMap");
+        System.out.println(selected.PAIRINFO);
         System.out.println(String.format(
                 "Precision: %.4f",perfTest.getPrecision()));
         System.out.println(String.format(
@@ -114,5 +150,16 @@ public class IR_using_linear_combination {
         long stopTime = System.nanoTime();
         // Print execution time in ms
         System.out.println("required time: " + (stopTime - startTime) / 1000000 + " ms");
+    }
+
+    public enum MatchingPair{
+        PAIR_OPEN_GEO("OpenTripMap <-> Geonames"),
+        PAIR_OPEN_WIKI("OpenTripMap <-> Wikidata"),
+        PAIR_GEO_WIKI("Geonames <-> Wikidata");
+
+        final String PAIRINFO;
+        MatchingPair(String info) {
+            PAIRINFO = info;
+        }
     }
 }
