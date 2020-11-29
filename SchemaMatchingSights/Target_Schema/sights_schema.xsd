@@ -1,0 +1,29 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="sights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sight">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="id"/>
+              <xs:element type="xs:string" name="name"/>
+              <xs:element name="types">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="type" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="description"/>
+              <xs:element type="xs:string" name="country"/>
+              <xs:element type="xs:string" name="city"/>
+              <xs:element type="xs:float" name="longitude"/>
+              <xs:element type="xs:float" name="latitude"/>
+              <xs:element type="xs:byte" name="popularity"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

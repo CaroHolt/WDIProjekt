@@ -57,8 +57,8 @@ public class IR_using_linear_combination_DS {
     	
     	// loading data
         System.out.println("*\n*\tLoading datasets\n*");
-        HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataGeonames);
+        //HashedDataSet<Sight, Attribute> dataGeonames = new HashedDataSet<>();
+        //new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataGeonames);
         HashedDataSet<Sight, Attribute> dataOpentripmap = new HashedDataSet<>();
         new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataOpentripmap);
         HashedDataSet<Sight, Attribute> dataWikidata = new HashedDataSet<>();
@@ -67,11 +67,11 @@ public class IR_using_linear_combination_DS {
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train.csv"));
+        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train_false.csv"));
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
-        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule_.csv", 10, gsTest);
+        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule_.csv", 1000000000, gsTest);
 
         // add comparators
                 // FOR NAME

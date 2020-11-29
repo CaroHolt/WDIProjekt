@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2021 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="java"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="9" kind="2">
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="406" lty="134" rbx="478" rby="151"/>
+					<data>
+						<constant value="10000" datatype="string"/>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="8" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="20"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="527" lty="97" rbx="669" rby="183"/>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="563" lty="45" rbx="669" rby="62"/>
+					<data>
+						<constant value="wikidata_id_" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="6" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="23"/>
+						<datapoint pos="1" key="24"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="795" lty="62" rbx="877" rby="118"/>
+				</component>
+				<component name="Wikidata" library="text" uid="2" kind="16">
+					<properties/>
+					<view ltx="67" lty="188" rbx="348" rby="476"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Zeilen" outkey="10" expanded="1">
+										<entry name="attractionName" outkey="12"/>
+										<entry name="attractionDescription" outkey="13"/>
+										<entry name="country" outkey="14"/>
+										<entry name="latitude" outkey="15"/>
+										<entry name="longitude" outkey="16"/>
+										<entry name="type" outkey="34"/>
+										<entry name="city" outkey="18"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="newWikiAttractions.csv.csv">
+							<settings separator=";" quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="newWikiAttractions.csv" block="Zeilen">
+									<field0 name="Field1" type="string"/>
+									<field1 name="wikidataID" type="string"/>
+									<field2 name="attractionName" type="string"/>
+									<field3 name="attractionDescription" type="string"/>
+									<field4 name="country" type="string"/>
+									<field5 name="latitude" type="string"/>
+									<field6 name="longitude" type="string"/>
+									<field7 name="type" type="string"/>
+									<field8 name="namedAfter" type="string"/>
+									<field9 name="city" type="string"/>
+									<field10 name="inception" type="string"/>
+									<field11 name="height" type="string"/>
+									<field12 name="elevation_above_sea_level" type="string"/>
+									<field13 name="visitors_per_year" type="string"/>
+									<field14 name="inceptionYear" type="integer"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="tokenize-regexp" library="core" uid="12" kind="5">
+					<sources>
+						<datapoint pos="0" key="31"/>
+						<datapoint pos="1" key="32"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="563" lty="429" rbx="673" rby="499"/>
+				</component>
+				<component name="empty" library="lang" uid="23" kind="5">
+					<sources>
+						<datapoint pos="0" key="35"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="36"/>
+					</targets>
+					<view ltx="700" lty="514" rbx="776" rby="552"/>
+				</component>
+				<component name="sights_schema" library="xml" uid="4" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1085" lty="188" rbx="1287" rby="412"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="sights" expanded="1">
+										<entry name="sight" inpkey="1" expanded="1">
+											<entry name="id" inpkey="2"/>
+											<entry name="name" inpkey="3"/>
+											<entry name="types" expanded="1">
+												<entry name="type" inpkey="28"/>
+											</entry>
+											<entry name="description" inpkey="5"/>
+											<entry name="country" inpkey="6"/>
+											<entry name="city" inpkey="7"/>
+											<entry name="longitude" inpkey="8"/>
+											<entry name="latitude" inpkey="9"/>
+											<entry name="popularity" inpkey="29"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="sights_schema.xsd" instanceroot="{}sights" outputinstance="schema.xml"/>
+					</data>
+				</component>
+				<component name="filter" library="core" uid="26" kind="3">
+					<sources>
+						<datapoint pos="0" key="37"/>
+						<datapoint pos="1" key="38"/>
+					</sources>
+					<targets>
+						<datapoint/>
+						<datapoint pos="1" key="39"/>
+					</targets>
+					<view ltx="803" lty="445" rbx="916" rby="499"/>
+				</component>
+				<component name="constant" library="core" uid="14" kind="2">
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="1016" lty="418" rbx="1060" rby="435"/>
+					<data>
+						<constant value="-1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="13" kind="2">
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="445" lty="471" rbx="525" rby="488"/>
+					<data>
+						<constant value="\[&apos;|&apos;, &apos;|&apos;\]" datatype="string"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="1"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="25">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="12">
+						<edges>
+							<edge vertexkey="3"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="13">
+						<edges>
+							<edge vertexkey="5"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="14">
+						<edges>
+							<edge vertexkey="6"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="18">
+						<edges>
+							<edge vertexkey="7"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="8"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="9"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="19">
+						<edges>
+							<edge vertexkey="20"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="22">
+						<edges>
+							<edge vertexkey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="24"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="39">
+						<edges>
+							<edge vertexkey="28"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="29"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="34">
+						<edges>
+							<edge vertexkey="31"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="32"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="33">
+						<edges>
+							<edge vertexkey="35"/>
+							<edge vertexkey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="36">
+						<edges>
+							<edge vertexkey="38"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="if-else" library="user" uid="24" inline="1" editable="1" blackbox="0">
+		<description/>
+		<structure>
+			<children/>
+		</structure>
+	</component>
+</mapping>

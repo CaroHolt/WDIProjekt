@@ -1,0 +1,1639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2021 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<resources/>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="auto-number" library="core" uid="10" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="29"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="321" lty="18" rbx="463" rby="104"/>
+				</component>
+				<component name="constant" library="core" uid="14" kind="2">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="178" lty="-12" rbx="226" rby="5"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="13" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="9"/>
+						<datapoint pos="1" key="10"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view ltx="487" lty="-40" rbx="569" rby="16"/>
+				</component>
+				<component name="constant" library="core" uid="11" kind="2">
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="321" lty="-78" rbx="436" rby="-61"/>
+					<data>
+						<constant value="geonames_id_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="43"/>
+					</targets>
+					<view ltx="694" lty="355" rbx="764" rby="372"/>
+					<data>
+						<constant value="None" datatype="string"/>
+					</data>
+				</component>
+				<component name="value-map" library="core" uid="17" kind="23">
+					<sources>
+						<datapoint pos="0" key="12"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="359" lty="466" rbx="487" rby="504"/>
+					<data>
+						<valuemap defaultValueMode="input">
+							<valuemapTable>
+								<entry from="AD" to="Andorra"/>
+								<entry from="AL" to="Albania"/>
+								<entry from="AT" to="Austria"/>
+								<entry from="AX" to="Åland"/>
+								<entry from="BA" to="Bosnia and Herzegovina"/>
+								<entry from="BE" to="Belgium"/>
+								<entry from="BG" to="Bulgaria"/>
+								<entry from="BY" to="Belarus"/>
+								<entry from="CH" to="Switzerland"/>
+								<entry from="CY" to="Cyprus"/>
+								<entry from="CZ" to="Czechia"/>
+								<entry from="DE" to="Germany"/>
+								<entry from="DK" to="Denmark"/>
+								<entry from="EE" to="Estonia"/>
+								<entry from="ES" to="Spain"/>
+								<entry from="FI" to="Finland"/>
+								<entry from="FO" to="Faroe Islands"/>
+								<entry from="FR" to="France"/>
+								<entry from="GB" to="United Kingdom"/>
+								<entry from="GG" to="Guernsey"/>
+								<entry from="GI" to="Gibraltar"/>
+								<entry from="GR" to="Greece"/>
+								<entry from="HR" to="Croatia"/>
+								<entry from="HU" to="Hungary"/>
+								<entry from="IE" to="Ireland"/>
+								<entry from="IM" to="Isle of Man"/>
+								<entry from="IS" to="Iceland"/>
+								<entry from="IT" to="Italy"/>
+								<entry from="JE" to="Jersey"/>
+								<entry from="LI" to="Liechtenstein"/>
+								<entry from="LT" to="Lithuania"/>
+								<entry from="LU" to="Luxembourg"/>
+								<entry from="LV" to="Latvia"/>
+								<entry from="MC" to="Monaco"/>
+								<entry from="MD" to="Moldova"/>
+								<entry from="ME" to="Montenegro"/>
+								<entry from="MK" to="North Macedonia"/>
+								<entry from="MT" to="Malta"/>
+								<entry from="NL" to="Netherlands"/>
+								<entry from="NO" to="Norway"/>
+								<entry from="PL" to="Poland"/>
+								<entry from="PT" to="Portugal"/>
+								<entry from="RO" to="Romania"/>
+								<entry from="RS" to="Serbia"/>
+								<entry from="RU" to="Russia"/>
+								<entry from="SE" to="Sweden"/>
+								<entry from="SI" to="Slovenia"/>
+								<entry from="SJ" to="Svalbard and Jan Mayen"/>
+								<entry from="SK" to="Slovakia"/>
+								<entry from="SM" to="San Marino"/>
+								<entry from="UA" to="Ukraine"/>
+								<entry from="VA" to="Vatican City"/>
+								<entry from="XK" to="Kosovo"/>
+							</valuemapTable>
+							<input name="country_code" type="string"/>
+							<result name="country" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="value-map" library="core" uid="21" kind="23">
+					<sources>
+						<datapoint pos="0" key="33"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="34"/>
+					</targets>
+					<view ltx="359" lty="355" rbx="546" rby="393"/>
+					<data>
+						<valuemap defaultValueMode="input">
+							<valuemapTable>
+								<entry from="ADM1" to="a primary administrative division of a country, such as a state in the United States"/>
+								<entry from="ADM1H" to="a former first-order administrative division"/>
+								<entry from="ADM2" to="a subdivision of a first-order administrative division"/>
+								<entry from="ADM2H" to="a former second-order administrative division"/>
+								<entry from="ADM3" to="a subdivision of a second-order administrative division"/>
+								<entry from="ADM3H" to="a former third-order administrative division"/>
+								<entry from="ADM4" to="a subdivision of a third-order administrative division"/>
+								<entry from="ADM4H" to="a former fourth-order administrative division"/>
+								<entry from="ADM5" to="a subdivision of a fourth-order administrative division"/>
+								<entry from="ADM5H" to="a former fifth-order administrative division"/>
+								<entry from="ADMD" to="an administrative division of a country, undifferentiated as to administrative level"/>
+								<entry from="ADMDH" to="a former administrative division of a political entity, undifferentiated as to administrative level"/>
+								<entry from="LTER" to="a tract of land leased to another country, usually for military installations"/>
+								<entry from="PCL"/>
+								<entry from="PCLD"/>
+								<entry from="PCLF"/>
+								<entry from="PCLH" to="a former political entity"/>
+								<entry from="PCLI"/>
+								<entry from="PCLIX"/>
+								<entry from="PCLS"/>
+								<entry from="PRSH" to="an ecclesiastical district"/>
+								<entry from="TERR"/>
+								<entry from="ZN"/>
+								<entry from="ZNB" to="a zone recognized as a buffer between two nations in which military presence is minimal or absent"/>
+								<entry from="AIRS" to="a place on a waterbody where floatplanes land and take off"/>
+								<entry from="ANCH" to="an area where vessels may anchor"/>
+								<entry from="BAY" to="a coastal indentation between two capes or headlands, larger than a cove but smaller than a gulf"/>
+								<entry from="BAYS" to="coastal indentations between two capes or headlands, larger than a cove but smaller than a gulf"/>
+								<entry from="BGHT" to="an open body of water forming a slight recession in a coastline"/>
+								<entry from="BNK" to="an elevation, typically located on a shelf, over which the depth of water is relatively shallow but sufficient for most surface navigation"/>
+								<entry from="BNKR" to="a sloping margin of a stream channel which normally confines the stream to its channel on land"/>
+								<entry from="BNKX"/>
+								<entry from="BOG" to="a wetland characterized by peat forming sphagnum moss, sedge, and other acid-water plants"/>
+								<entry from="CAPG" to="a dome-shaped mass of glacial ice covering an area of mountain summits or other high lands"/>
+								<entry from="CHN" to="the deepest part of a stream, bay, lagoon, or strait, through which the main current flows"/>
+								<entry from="CHNL" to="that part of a lake having water deep enough for navigation between islands, shoals, etc."/>
+								<entry from="CHNM" to="that part of a body of water deep enough for navigation through an area otherwise not suitable"/>
+								<entry from="CHNN" to="a buoyed channel of sufficient depth for the safe navigation of vessels"/>
+								<entry from="CNFL" to="a place where two or more streams or intermittent streams flow together"/>
+								<entry from="CNL" to="an artificial watercourse"/>
+								<entry from="CNLA" to="a conduit used to carry water"/>
+								<entry from="CNLB" to="a conspicuously curved or bent section of a canal"/>
+								<entry from="CNLD" to="an artificial waterway carrying water away from a wetland or from drainage ditches"/>
+								<entry from="CNLI" to="a canal which serves as a main conduit for irrigation water"/>
+								<entry from="CNLN" to="a watercourse constructed for navigation of vessels"/>
+								<entry from="CNLQ"/>
+								<entry from="CNLSB" to="a gently inclined underground tunnel bringing water for irrigation from aquifers"/>
+								<entry from="CNLX"/>
+								<entry from="COVE" to="a small coastal indentation, smaller than a bay"/>
+								<entry from="CRKT" to="a meandering channel in a coastal wetland subject to bi-directional tidal currents"/>
+								<entry from="CRNT" to="a horizontal flow of water in a given direction with uniform velocity"/>
+								<entry from="CUTF" to="a channel formed as a result of a stream cutting through a meander neck"/>
+								<entry from="DCK" to="a waterway between two piers, or cut into the land for the berthing of ships"/>
+								<entry from="DCKB" to="a part of a harbor where ships dock"/>
+								<entry from="DOMG" to="a comparatively elevated area on an icecap"/>
+								<entry from="DPRG" to="a comparatively depressed area on an icecap"/>
+								<entry from="DTCH" to="a small artificial watercourse dug for draining or irrigating the land"/>
+								<entry from="DTCHD" to="a ditch which serves to drain the land"/>
+								<entry from="DTCHI" to="a ditch which serves to distribute irrigation water"/>
+								<entry from="DTCHM" to="an area where a drainage ditch enters a lagoon, lake or bay"/>
+								<entry from="ESTY" to="a funnel-shaped stream mouth or embayment where fresh water mixes with sea water under tidal influences"/>
+								<entry from="FISH" to="a fishing ground, bank or area where fishermen go to catch fish"/>
+								<entry from="FJD" to="a long, narrow, steep-walled, deep-water arm of the sea at high latitudes, usually along mountainous coasts"/>
+								<entry from="FJDS" to="long, narrow, steep-walled, deep-water arms of the sea at high latitudes, usually along mountainous coasts"/>
+								<entry from="FLLS" to="a perpendicular or very steep descent of the water of a stream"/>
+								<entry from="FLLSX"/>
+								<entry from="FLTM" to="a relatively level area of mud either between high and low tide lines, or subject to flooding"/>
+								<entry from="FLTT" to="a large flat area of mud or sand attached to the shore and alternately covered and uncovered by the tide"/>
+								<entry from="GLCR" to="a mass of ice, usually at high latitudes or high elevations, with sufficient thickness to flow away from the source area in lobes, tongues, or masses"/>
+								<entry from="GULF" to="a large recess in the coastline, larger than a bay"/>
+								<entry from="GYSR" to="a type of hot spring with intermittent eruptions of jets of hot water and steam"/>
+								<entry from="HBR" to="a haven or space of deep water so sheltered by the adjacent land as to afford a safe anchorage for ships"/>
+								<entry from="HBRX"/>
+								<entry from="INLT" to="a narrow waterway extending into the land, or connecting a bay or lagoon with a larger body of water"/>
+								<entry from="INLTQ" to="an inlet which has been filled in, or blocked by deposits"/>
+								<entry from="LBED" to="a dried up or drained area of a former lake"/>
+								<entry from="LGN" to="a shallow coastal waterbody, completely or partly separated from a larger body of water by a barrier island, coral reef or other depositional feature"/>
+								<entry from="LGNS" to="shallow coastal waterbodies, completely or partly separated from a larger body of water by a barrier island, coral reef or other depositional feature"/>
+								<entry from="LGNX"/>
+								<entry from="LK" to="a large inland body of standing water"/>
+								<entry from="LKC" to="a lake in a crater or caldera"/>
+								<entry from="LKI"/>
+								<entry from="LKN" to="an inland body of salt water with no outlet"/>
+								<entry from="LKNI"/>
+								<entry from="LKO" to="a crescent-shaped lake commonly found adjacent to meandering streams"/>
+								<entry from="LKOI"/>
+								<entry from="LKS" to="large inland bodies of standing water"/>
+								<entry from="LKSB" to="a standing body of water in a cave"/>
+								<entry from="LKSC" to="lakes in a crater or caldera"/>
+								<entry from="LKSI"/>
+								<entry from="LKSN" to="inland bodies of salt water with no outlet"/>
+								<entry from="LKSNI"/>
+								<entry from="LKX"/>
+								<entry from="MFGN" to="diked salt ponds used in the production of solar evaporated salt"/>
+								<entry from="MGV" to="a tropical tidal mud flat characterized by mangrove vegetation"/>
+								<entry from="MOOR" to="an area of open ground overlaid with wet peaty soils"/>
+								<entry from="MRSH" to="a wetland dominated by grass-like vegetation"/>
+								<entry from="MRSHN" to="a flat area, subject to periodic salt water inundation, dominated by grassy salt-tolerant plants"/>
+								<entry from="NRWS" to="a navigable narrow part of a bay, strait, river, etc."/>
+								<entry from="OCN" to="one of the major divisions of the vast expanse of salt water covering part of the earth"/>
+								<entry from="OVF" to="an area of breaking waves caused by the meeting of currents or by waves moving against the current"/>
+								<entry from="PND" to="a small standing waterbody"/>
+								<entry from="PNDI"/>
+								<entry from="PNDN" to="a small standing body of salt water often in a marsh or swamp, usually along a seacoast"/>
+								<entry from="PNDNI"/>
+								<entry from="PNDS" to="small standing waterbodies"/>
+								<entry from="PNDSF" to="ponds or enclosures in which fish are kept or raised"/>
+								<entry from="PNDSI"/>
+								<entry from="PNDSN" to="small standing bodies of salt water often in a marsh or swamp, usually along a seacoast"/>
+								<entry from="POOL" to="a small and comparatively still, deep part of a larger body of water such as a stream or harbor"/>
+								<entry from="POOLI"/>
+								<entry from="RCH" to="a straight section of a navigable stream or channel between two bends"/>
+								<entry from="RDGG" to="a linear elevation on an icecap"/>
+								<entry from="RDST" to="an open anchorage affording less protection than a harbor"/>
+								<entry from="RF" to="a surface-navigation hazard composed of consolidated material"/>
+								<entry from="RFC" to="a surface-navigation hazard composed of coral"/>
+								<entry from="RFX"/>
+								<entry from="RPDS" to="a turbulent section of a stream associated with a steep, irregular stream bed"/>
+								<entry from="RSV" to="an artificial pond or lake"/>
+								<entry from="RSVI"/>
+								<entry from="RSVT" to="a contained pool or tank of water at, below, or above ground level"/>
+								<entry from="RVN" to="a small, narrow, deep, steep-sided stream channel, smaller than a gorge"/>
+								<entry from="SBKH" to="a salt flat or salt encrusted plain subject to periodic inundation from flooding or high tides"/>
+								<entry from="SD" to="a long arm of the sea forming a channel between the mainland and an island or islands"/>
+								<entry from="SEA" to="a large body of salt water more or less confined by continuous land or chains of islands forming a subdivision of an ocean"/>
+								<entry from="SHOL" to="a surface-navigation hazard composed of unconsolidated material"/>
+								<entry from="SILL" to="the low part of an underwater gap or saddle separating basins, including a similar feature at the mouth of a fjord"/>
+								<entry from="SPNG" to="a place where ground water flows naturally out of the ground"/>
+								<entry from="SPNS" to="a place where sulphur ground water flows naturally out of the ground"/>
+								<entry from="SPNT" to="a place where hot ground water flows naturally out of the ground"/>
+								<entry from="STM" to="a body of running water moving to a lower level in a channel on land"/>
+								<entry from="STMA" to="a diverging branch flowing out of a main stream and rejoining it downstream"/>
+								<entry from="STMB" to="a conspicuously curved or bent segment of a stream"/>
+								<entry from="STMC" to="a stream that has been substantially ditched, diked, or straightened"/>
+								<entry from="STMD" to="a branch which flows away from the main stream, as in a delta or irrigation canal"/>
+								<entry from="STMH" to="the source and upper part of a stream, including the upper drainage basin"/>
+								<entry from="STMI"/>
+								<entry from="STMIX"/>
+								<entry from="STMM" to="a place where a stream discharges into a lagoon, lake, or the sea"/>
+								<entry from="STMQ" to="a former stream or distributary no longer carrying flowing water, but still evident due to lakes, wetland, topographic or vegetation patterns"/>
+								<entry from="STMS" to="bodies of running water moving to a lower level in a channel on land"/>
+								<entry from="STMSB" to="a surface stream that disappears into an underground channel, or dries up in an arid area"/>
+								<entry from="STMX"/>
+								<entry from="STRT" to="a relatively narrow waterway, usually narrower and less extensive than a sound, connecting two larger bodies of water"/>
+								<entry from="SWMP" to="a wetland dominated by tree vegetation"/>
+								<entry from="SYSI" to="a network of ditches and one or more of the following elements: water supply, reservoir, canal, pump, well, drain, etc."/>
+								<entry from="TNLC" to="a tunnel through which a canal passes"/>
+								<entry from="WAD" to="a valley or ravine, bounded by relatively steep banks, which in the rainy season becomes a watercourse"/>
+								<entry from="WADB" to="a conspicuously curved or bent segment of a wadi"/>
+								<entry from="WADJ" to="a place where two or more wadies join"/>
+								<entry from="WADM" to="the lower terminus of a wadi where it widens into an adjoining floodplain, depression, or waterbody"/>
+								<entry from="WADS" to="valleys or ravines, bounded by relatively steep banks, which in the rainy season become watercourses"/>
+								<entry from="WADX"/>
+								<entry from="WHRL" to="a turbulent, rotating movement of water in a stream"/>
+								<entry from="WLL" to="a cylindrical hole, pit, or tunnel drilled or dug down to a depth from which water, oil, or gas can be pumped or brought to the surface"/>
+								<entry from="WLLQ"/>
+								<entry from="WLLS" to="cylindrical holes, pits, or tunnels drilled or dug down to a depth from which water, oil, or gas can be pumped or brought to the surface"/>
+								<entry from="WTLD" to="an area subject to inundation, usually characterized by bog, marsh, or swamp vegetation"/>
+								<entry from="WTLDI"/>
+								<entry from="WTRC" to="a natural, well-defined channel produced by flowing water, or an artificial channel designed to carry flowing water"/>
+								<entry from="WTRH" to="a natural hole, hollow, or small depression that contains water, used by man and animals, especially in arid areas"/>
+								<entry from="AGRC" to="a tract of land set aside for agricultural settlement"/>
+								<entry from="AMUS" to="Amusement Park are theme parks, adventure parks offering entertainment, similar to funfairs but with a fix location"/>
+								<entry from="AREA" to="a tract of land without homogeneous character or boundaries"/>
+								<entry from="BSND" to="an area drained by a stream"/>
+								<entry from="BSNP" to="an area underlain by an oil-rich structural basin"/>
+								<entry from="BTL" to="a site of a land battle of historical importance"/>
+								<entry from="CLG" to="an area in a forest with trees removed"/>
+								<entry from="CMN" to="a park or pasture for community use"/>
+								<entry from="CNS" to="a lease of land by a government for economic development, e.g., mining, forestry"/>
+								<entry from="COLF" to="a region in which coal deposits of possible economic value occur"/>
+								<entry from="CONT" to="continent: Europe, Africa, Asia, North America, South America, Oceania, Antarctica"/>
+								<entry from="CST" to="a zone of variable width straddling the shoreline"/>
+								<entry from="CTRB" to="a place where a number of businesses are located"/>
+								<entry from="DEVH" to="a tract of land on which many houses of similar design are built according to a development plan"/>
+								<entry from="FLD" to="an open as opposed to wooded area"/>
+								<entry from="FLDI" to="a tract of level or terraced land which is irrigated"/>
+								<entry from="GASF" to="an area containing a subterranean store of natural gas of economic value"/>
+								<entry from="GRAZ" to="an area of grasses and shrubs used for grazing"/>
+								<entry from="GVL" to="an area covered with gravel"/>
+								<entry from="INDS" to="an area characterized by industrial activity"/>
+								<entry from="LAND" to="a tract of land in the Arctic"/>
+								<entry from="LCTY" to="a minor area or place of unspecified or mixed character and indefinite boundaries"/>
+								<entry from="MILB" to="a place used by an army or other armed service for storing arms and supplies, and for accommodating and training troops, a base from which operations can be initiated"/>
+								<entry from="MNA" to="an area of mine sites where minerals and ores are extracted"/>
+								<entry from="MVA" to="a tract of land where military field exercises are carried out"/>
+								<entry from="NVB" to="an area used to store supplies, provide barracks for troops and naval personnel, a port for naval vessels, and from which operations are initiated"/>
+								<entry from="OAS" to="an area in a desert made productive by the availability of water"/>
+								<entry from="OILF" to="an area containing a subterranean store of petroleum of economic value"/>
+								<entry from="PEAT" to="an area where peat is harvested"/>
+								<entry from="PRK" to="an area, often of forested land, maintained as a place of beauty, or for recreation"/>
+								<entry from="PRT" to="a place provided with terminal and transfer facilities for loading and discharging waterborne cargo or passengers, usually located in a harbor"/>
+								<entry from="QCKS" to="an area where loose sand with water moving through it may become unstable when heavy objects are placed at the surface, causing them to sink"/>
+								<entry from="RES" to="a tract of public land reserved for future use or restricted as to use"/>
+								<entry from="RESA" to="a tract of land reserved for agricultural reclamation and/or development"/>
+								<entry from="RESF" to="a forested area set aside for preservation or controlled use"/>
+								<entry from="RESH" to="a tract of land used primarily for hunting"/>
+								<entry from="RESN" to="an area reserved for the maintenance of a natural habitat"/>
+								<entry from="RESP" to="an area of palm trees where use is controlled"/>
+								<entry from="RESV" to="a tract of land set aside for aboriginal, tribal, or native populations"/>
+								<entry from="RESW" to="a tract of public land reserved for the preservation of wildlife"/>
+								<entry from="RGN" to="an area distinguished by one or more observable physical or cultural characteristics"/>
+								<entry from="RGNE" to="a region of a country established for economic development or for statistical purposes"/>
+								<entry from="RGNH" to="a former historic area distinguished by one or more observable physical or cultural characteristics"/>
+								<entry from="RGNL" to="a tract of land distinguished by numerous lakes"/>
+								<entry from="RNGA" to="a tract of land used for artillery firing practice"/>
+								<entry from="SALT" to="a shallow basin or flat where salt accumulates after periodic inundation"/>
+								<entry from="SNOW" to="an area of permanent snow and ice forming the accumulation area of a glacier"/>
+								<entry from="TRB" to="a tract of land used by nomadic or other tribes"/>
+								<entry from="PPL" to="a city, town, village, or other agglomeration of buildings where people live and work"/>
+								<entry from="PPLA" to="seat of a first-order administrative division (PPLC takes precedence over PPLA)"/>
+								<entry from="PPLA2"/>
+								<entry from="PPLA3"/>
+								<entry from="PPLA4"/>
+								<entry from="PPLA5"/>
+								<entry from="PPLC"/>
+								<entry from="PPLCH" to="a former capital of a political entity"/>
+								<entry from="PPLF" to="a populated place where the population is largely engaged in agricultural activities"/>
+								<entry from="PPLG"/>
+								<entry from="PPLH" to="a populated place that no longer exists"/>
+								<entry from="PPLL" to="an area similar to a locality but with a small group of dwellings or other buildings"/>
+								<entry from="PPLQ"/>
+								<entry from="PPLR" to="a populated place whose population is largely engaged in religious occupations"/>
+								<entry from="PPLS" to="cities, towns, villages, or other agglomerations of buildings where people live and work"/>
+								<entry from="PPLW" to="a village, town or city destroyed by a natural disaster, or by war"/>
+								<entry from="PPLX"/>
+								<entry from="STLMT"/>
+								<entry from="CSWY" to="a raised roadway across wet ground or shallow water"/>
+								<entry from="OILP" to="a pipeline used for transporting oil"/>
+								<entry from="PRMN" to="a place for public walking, usually along a beach front"/>
+								<entry from="PTGE" to="a place where boats, goods, etc., are carried overland between navigable waters"/>
+								<entry from="RD" to="an open way with improved surface for transportation of animals, people and vehicles"/>
+								<entry from="RDA" to="the remains of a road used by ancient cultures"/>
+								<entry from="RDB" to="a conspicuously curved or bent section of a road"/>
+								<entry from="RDCUT" to="an excavation cut through a hill or ridge for a road"/>
+								<entry from="RDJCT" to="a place where two or more roads join"/>
+								<entry from="RJCT" to="a place where two or more railroad tracks join"/>
+								<entry from="RR" to="a permanent twin steel-rail track on which freight and passenger cars move long distances"/>
+								<entry from="RRQ"/>
+								<entry from="RTE" to="the route taken by caravans"/>
+								<entry from="RYD" to="a system of tracks used for the making up of trains, and switching and storing freight cars"/>
+								<entry from="ST" to="a paved urban thoroughfare"/>
+								<entry from="STKR" to="a route taken by livestock herds"/>
+								<entry from="TNL" to="a subterranean passageway for transportation"/>
+								<entry from="TNLN" to="a cave that is open at both ends"/>
+								<entry from="TNLRD" to="a tunnel through which a road passes"/>
+								<entry from="TNLRR" to="a tunnel through which a railroad passes"/>
+								<entry from="TNLS" to="subterranean passageways for transportation"/>
+								<entry from="TRL" to="a path, track, or route used by pedestrians, animals, or off-road vehicles"/>
+								<entry from="ADMF" to="a government building"/>
+								<entry from="AGRF" to="a building and/or tract of land used for improving agriculture"/>
+								<entry from="AIRB" to="an area used to store supplies, provide barracks for air force personnel, hangars and runways for aircraft, and from which operations are initiated"/>
+								<entry from="AIRF" to="a place on land where aircraft land and take off"/>
+								<entry from="AIRH" to="a place where helicopters land and take off"/>
+								<entry from="AIRP" to="a place where aircraft regularly land and take off, with runways, navigational aids, and major facilities for the commercial handling of passengers and cargo"/>
+								<entry from="AIRQ"/>
+								<entry from="AIRT" to="airport facilities for the handling of freight and passengers"/>
+								<entry from="AMTH" to="an oval or circular structure with rising tiers of seats about a stage or open space"/>
+								<entry from="ANS" to="a place where archeological remains, old structures, or cultural artifacts are located"/>
+								<entry from="AQC" to="facility or area for the cultivation of aquatic animals and plants, especially fish, shellfish, and seaweed, in natural or controlled marine or freshwater environments"/>
+								<entry from="ARCH" to="a natural or man-made structure in the form of an arch"/>
+								<entry from="ARCHV" to="a place or institution where documents are preserved"/>
+								<entry from="ART" to="a piece of art, like a sculpture, painting. In contrast to monument (MNMT) it is not commemorative."/>
+								<entry from="ASTR" to="a point on the earth whose position has been determined by observations of celestial bodies"/>
+								<entry from="ASYL" to="a facility where the insane are cared for and protected"/>
+								<entry from="ATHF" to="a tract of land used for playing team sports, and athletic track and field events"/>
+								<entry from="ATM" to="An unattended electronic machine in a public place, connected to a data system and related equipment and activated by a bank customer to obtain cash withdrawals and other banking services."/>
+								<entry from="BANK" to="A business establishment in which money is kept for saving or commercial purposes or is invested, supplied for loans, or exchanged."/>
+								<entry from="BCN" to="a fixed artificial navigation mark"/>
+								<entry from="BDG" to="a structure erected across an obstacle such as a stream, road, etc., in order to carry roads, railroads, and pedestrians across"/>
+								<entry from="BDGQ" to="a destroyed or decayed bridge which is no longer functional"/>
+								<entry from="BLDA" to="a building containing several individual apartments"/>
+								<entry from="BLDG" to="a structure built for permanent use, as a house, factory, etc."/>
+								<entry from="BLDO" to="commercial building where business and/or services are conducted"/>
+								<entry from="BP" to="a fixture marking a point along a boundary"/>
+								<entry from="BRKS" to="a building for lodging military personnel"/>
+								<entry from="BRKW" to="a structure erected to break the force of waves at the entrance to a harbor or port"/>
+								<entry from="BSTN" to="a facility for baling agricultural products"/>
+								<entry from="BTYD" to="a waterside facility for servicing, repairing, and building small vessels"/>
+								<entry from="BUR" to="a cave used for human burials"/>
+								<entry from="BUSTN" to="a facility comprising ticket office, platforms, etc. for loading and unloading passengers"/>
+								<entry from="BUSTP" to="a place lacking station facilities"/>
+								<entry from="CARN" to="a heap of stones erected as a landmark or for other purposes"/>
+								<entry from="CAVE" to="an underground passageway or chamber, or cavity on the side of a cliff"/>
+								<entry from="CH" to="a building for public Christian worship"/>
+								<entry from="CMP" to="a site occupied by tents, huts, or other shelters for temporary use"/>
+								<entry from="CMPL" to="a camp used by loggers"/>
+								<entry from="CMPLA" to="a camp used by migrant or temporary laborers"/>
+								<entry from="CMPMN" to="a camp used by miners"/>
+								<entry from="CMPO" to="a camp used by oilfield workers"/>
+								<entry from="CMPQ"/>
+								<entry from="CMPRF" to="a camp used by refugees"/>
+								<entry from="CMTY" to="a burial place or ground"/>
+								<entry from="COMC" to="a facility, including buildings, antennae, towers and electronic equipment for receiving and transmitting information"/>
+								<entry from="CRRL" to="a pen or enclosure for confining or capturing animals"/>
+								<entry from="CSNO" to="a building used for entertainment, especially gambling"/>
+								<entry from="CSTL" to="a large fortified building or set of buildings"/>
+								<entry from="CSTM" to="a building in a port where customs and duties are paid, and where vessels are entered and cleared"/>
+								<entry from="CTHSE" to="a building in which courts of law are held"/>
+								<entry from="CTRA" to="a facility where atomic research is carried out"/>
+								<entry from="CTRCM" to="a facility for community recreation and other activities"/>
+								<entry from="CTRF" to="a place where more than one facility is situated"/>
+								<entry from="CTRM" to="a complex of health care buildings including two or more of the following: hospital, medical school, clinic, pharmacy, doctor&apos;s offices, etc."/>
+								<entry from="CTRR" to="a facility where more than one religious activity is carried out, e.g., retreat, school, monastery, worship"/>
+								<entry from="CTRS" to="a facility for launching, tracking, or controlling satellites and space vehicles"/>
+								<entry from="CVNT" to="a building where a community of nuns lives in seclusion"/>
+								<entry from="DAM" to="a barrier constructed across a stream to impound water"/>
+								<entry from="DAMQ" to="a destroyed or decayed dam which is no longer functional"/>
+								<entry from="DAMSB" to="a dam put down to bedrock in a sand river"/>
+								<entry from="DARY" to="a facility for the processing, sale and distribution of milk or milk products"/>
+								<entry from="DCKD" to="a dock providing support for a vessel, and means for removing the water so that the bottom of the vessel can be exposed"/>
+								<entry from="DCKY" to="a facility for servicing, building, or repairing ships"/>
+								<entry from="DIKE" to="an earth or stone embankment usually constructed for flood or stream control"/>
+								<entry from="DIP" to="office, residence, or facility of a foreign government, which may include an embassy, consulate, chancery, office of charge d&apos;affaires, or other diplomatic, economic, military, or cultural mission"/>
+								<entry from="DPOF" to="an area where fuel is stored"/>
+								<entry from="EST" to="a large commercialized agricultural landholding with associated buildings and other facilities"/>
+								<entry from="ESTO" to="an estate specializing in the cultivation of oil palm trees"/>
+								<entry from="ESTR" to="an estate which specializes in growing and tapping rubber trees"/>
+								<entry from="ESTSG" to="an estate that specializes in growing sugar cane"/>
+								<entry from="ESTT" to="an estate which specializes in growing tea bushes"/>
+								<entry from="ESTX"/>
+								<entry from="FCL" to="a building or buildings housing a center, institute, foundation, hospital, prison, mission, courthouse, etc."/>
+								<entry from="FNDY" to="a building or works where metal casting is carried out"/>
+								<entry from="FRM" to="a tract of land with associated buildings devoted to agriculture"/>
+								<entry from="FRMQ"/>
+								<entry from="FRMS" to="tracts of land with associated buildings devoted to agriculture"/>
+								<entry from="FRMT" to="the buildings and adjacent service areas of a farm"/>
+								<entry from="FT" to="a defensive structure or earthworks"/>
+								<entry from="FY" to="a boat or other floating conveyance and terminal facilities regularly used to transport people and vehicles across a waterbody"/>
+								<entry from="FYT" to="a place where ferries pick-up and discharge passengers, vehicles and or cargo"/>
+								<entry from="GATE" to="a controlled access entrance or exit"/>
+								<entry from="GDN" to="an enclosure for displaying selected plant or animal life"/>
+								<entry from="GHAT" to="a set of steps leading to a river, which are of religious significance, and at their base is usually a platform for bathing"/>
+								<entry from="GHSE" to="a house used to provide lodging for paying guests"/>
+								<entry from="GOSP" to="a facility for separating gas from oil"/>
+								<entry from="GOVL" to="a facility housing local governmental offices, usually a city, town, or village hall"/>
+								<entry from="GRVE" to="a burial site"/>
+								<entry from="HERM" to="a secluded residence, usually for religious sects"/>
+								<entry from="HLT" to="a place where caravans stop for rest"/>
+								<entry from="HMSD" to="a residence, owner&apos;s or manager&apos;s, on a sheep or cattle station, woolshed, outcamp, or Aboriginal outstation, specific to Australia and New Zealand"/>
+								<entry from="HSE" to="a building used as a human habitation"/>
+								<entry from="HSEC" to="a large house, mansion, or chateau, on a large estate"/>
+								<entry from="HSP" to="a building in which sick or injured, especially those confined to bed, are medically treated"/>
+								<entry from="HSPC" to="a medical facility associated with a hospital for outpatients"/>
+								<entry from="HSPD" to="a building where medical or dental aid is dispensed"/>
+								<entry from="HSPL" to="an asylum or hospital for lepers"/>
+								<entry from="HSTS" to="a place of historical importance"/>
+								<entry from="HTL" to="a building providing lodging and/or meals for the public"/>
+								<entry from="HUT" to="a small primitive house"/>
+								<entry from="HUTS" to="small primitive houses"/>
+								<entry from="INSM" to="a facility for use of and control by armed forces"/>
+								<entry from="ITTR" to="a facility where research is carried out"/>
+								<entry from="JTY" to="a structure built out into the water at a river mouth or harbor entrance to regulate currents and silting"/>
+								<entry from="LDNG" to="a place where boats receive or discharge passengers and freight, but lacking most port facilities"/>
+								<entry from="LEPC" to="a settled area inhabited by lepers in relative isolation"/>
+								<entry from="LIBR" to="A place in which information resources such as books are kept for reading, reference, or lending."/>
+								<entry from="LNDF" to="a place for trash and garbage disposal in which the waste is buried between layers of earth to build up low-lying land"/>
+								<entry from="LOCK" to="a basin in a waterway with gates at each end by means of which vessels are passed from one water level to another"/>
+								<entry from="LTHSE" to="a distinctive structure exhibiting a major navigation light"/>
+								<entry from="MALL" to="A large, often enclosed shopping complex containing various stores, businesses, and restaurants usually accessible by common passageways."/>
+								<entry from="MAR" to="a harbor facility for small boats, yachts, etc."/>
+								<entry from="MFG" to="one or more buildings where goods are manufactured, processed or fabricated"/>
+								<entry from="MFGB" to="one or more buildings where beer is brewed"/>
+								<entry from="MFGC" to="a building where food items are canned"/>
+								<entry from="MFGCU" to="a facility for processing copper ore"/>
+								<entry from="MFGLM" to="a furnace in which limestone is reduced to lime"/>
+								<entry from="MFGM" to="a factory where ammunition is made"/>
+								<entry from="MFGPH" to="a facility for producing fertilizer"/>
+								<entry from="MFGQ"/>
+								<entry from="MFGSG" to="a facility for converting raw sugar into refined sugar"/>
+								<entry from="MKT" to="a place where goods are bought and sold at regular intervals"/>
+								<entry from="ML" to="a building housing machines for transforming, shaping, finishing, grinding, or extracting products"/>
+								<entry from="MLM" to="a facility for improving the metal content of ore by concentration"/>
+								<entry from="MLO" to="a mill where oil is extracted from olives"/>
+								<entry from="MLSG" to="a facility where sugar cane is processed into raw sugar"/>
+								<entry from="MLSGQ" to="a sugar mill no longer used as a sugar mill"/>
+								<entry from="MLSW" to="a mill where logs or lumber are sawn to specified shapes and sizes"/>
+								<entry from="MLWND" to="a mill or water pump powered by wind"/>
+								<entry from="MLWTR" to="a mill powered by running water"/>
+								<entry from="MN" to="a site where mineral ores are extracted from the ground by excavating surface pits and subterranean passages"/>
+								<entry from="MNAU" to="a mine where gold ore, or alluvial gold is extracted"/>
+								<entry from="MNC" to="a mine where coal is extracted"/>
+								<entry from="MNCR" to="a mine where chrome ore is extracted"/>
+								<entry from="MNCU" to="a mine where copper ore is extracted"/>
+								<entry from="MNFE" to="a mine where iron ore is extracted"/>
+								<entry from="MNMT" to="a commemorative structure or statue"/>
+								<entry from="MNN" to="a mine from which salt is extracted"/>
+								<entry from="MNQ"/>
+								<entry from="MNQR" to="a surface mine where building stone or gravel and sand, etc. are extracted"/>
+								<entry from="MOLE" to="a massive structure of masonry or large stones serving as a pier or breakwater"/>
+								<entry from="MSQE" to="a building for public Islamic worship"/>
+								<entry from="MSSN" to="a place characterized by dwellings, school, church, hospital and other facilities operated by a religious group for the purpose of providing charitable services and to propagate religion"/>
+								<entry from="MSSNQ"/>
+								<entry from="MSTY" to="a building and grounds where a community of monks lives in seclusion"/>
+								<entry from="MTRO" to="metro station (Underground, Tube, or Metro)"/>
+								<entry from="MUS" to="a building where objects of permanent interest in one or more of the arts and sciences are preserved and exhibited"/>
+								<entry from="NOV" to="a religious house or school where novices are trained"/>
+								<entry from="NSY" to="a place where plants are propagated for transplanting or grafting"/>
+								<entry from="OBPT" to="a wildlife or scenic observation point"/>
+								<entry from="OBS" to="a facility equipped for observation of atmospheric or space phenomena"/>
+								<entry from="OBSR" to="a facility equipped with an array of antennae for receiving radio waves from space"/>
+								<entry from="OILJ" to="a section of an oil pipeline where two or more pipes join together"/>
+								<entry from="OILQ"/>
+								<entry from="OILR" to="a facility for converting crude oil into refined petroleum products"/>
+								<entry from="OILT" to="a tract of land occupied by large, cylindrical, metal tanks in which oil or liquid petrochemicals are stored"/>
+								<entry from="OILW" to="a well from which oil may be pumped"/>
+								<entry from="OPRA" to="A theater designed chiefly for the performance of operas."/>
+								<entry from="PAL" to="a large stately house, often a royal or presidential residence"/>
+								<entry from="PGDA" to="a tower-like storied structure, usually a Buddhist shrine"/>
+								<entry from="PIER" to="a structure built out into navigable water on piles providing berthing for ships and recreation"/>
+								<entry from="PKLT" to="an area used for parking vehicles"/>
+								<entry from="PMPO" to="a facility for pumping oil through a pipeline"/>
+								<entry from="PMPW" to="a facility for pumping water from a major well or through a pipeline"/>
+								<entry from="PO" to="a public building in which mail is received, sorted and distributed"/>
+								<entry from="PP" to="a building in which police are stationed"/>
+								<entry from="PPQ"/>
+								<entry from="PRKGT" to="a controlled access to a park"/>
+								<entry from="PRKHQ" to="a park administrative facility"/>
+								<entry from="PRN" to="a facility for confining prisoners"/>
+								<entry from="PRNJ" to="a facility for confining, training, and reforming young law offenders"/>
+								<entry from="PRNQ"/>
+								<entry from="PS" to="a facility for generating electric power"/>
+								<entry from="PSH" to="a building where electricity is generated from water power"/>
+								<entry from="PSN" to="nuclear power station"/>
+								<entry from="PSTB" to="a post or station at an international boundary for the regulation of movement of people and goods"/>
+								<entry from="PSTC" to="a building at an international boundary where customs and duties are paid on goods"/>
+								<entry from="PSTP" to="a post from which patrols are sent out"/>
+								<entry from="PYR" to="an ancient massive structure of square ground plan with four triangular faces meeting at a point and used for enclosing tombs"/>
+								<entry from="PYRS" to="ancient massive structures of square ground plan with four triangular faces meeting at a point and used for enclosing tombs"/>
+								<entry from="QUAY" to="a structure of solid construction along a shore or bank which provides berthing for ships and which generally provides cargo handling facilities"/>
+								<entry from="RDCR" to="a road junction formed around a central circle about which traffic moves in one direction only"/>
+								<entry from="RDIN" to="a junction of two or more highways by a system of separate levels that permit traffic to pass from one to another without the crossing of traffic streams"/>
+								<entry from="RECG" to="a recreation field where golf is played"/>
+								<entry from="RECR" to="a track where races are held"/>
+								<entry from="REST" to="A place where meals are served to the public"/>
+								<entry from="RET" to="a building where goods and/or services are offered for sale"/>
+								<entry from="RHSE" to="a structure maintained for the rest and shelter of travelers"/>
+								<entry from="RKRY" to="a breeding place of a colony of birds or seals"/>
+								<entry from="RLG" to="an ancient site of significant religious importance"/>
+								<entry from="RLGR" to="a place of temporary seclusion, especially for religious groups"/>
+								<entry from="RNCH" to="a large farm specializing in extensive grazing of livestock"/>
+								<entry from="RSD" to="a short track parallel to and joining the main track"/>
+								<entry from="RSGNL" to="a signal at the entrance of a particular section of track governing the movement of trains"/>
+								<entry from="RSRT" to="a specialized facility for vacation, health, or participation sports activities"/>
+								<entry from="RSTN" to="a facility comprising ticket office, platforms, etc. for loading and unloading train passengers and freight"/>
+								<entry from="RSTNQ"/>
+								<entry from="RSTP" to="a place lacking station facilities where trains stop to pick up and unload passengers and freight"/>
+								<entry from="RSTPQ"/>
+								<entry from="RUIN" to="a destroyed or decayed structure which is no longer functional"/>
+								<entry from="SCH" to="building(s) where instruction in one or more branches of knowledge takes place"/>
+								<entry from="SCHA" to="a school with a curriculum focused on agriculture"/>
+								<entry from="SCHC" to="the grounds and buildings of an institution of higher learning"/>
+								<entry from="SCHL" to="Language Schools &amp; Institutions"/>
+								<entry from="SCHM" to="a school at which military science forms the core of the curriculum"/>
+								<entry from="SCHN" to="a school at which maritime sciences form the core of the curriculum"/>
+								<entry from="SCHT" to="post-secondary school with a specifically technical or vocational curriculum"/>
+								<entry from="SECP" to="state exam preparation centres"/>
+								<entry from="SHPF" to="a fence or wall enclosure for sheep and other small herd animals"/>
+								<entry from="SHRN" to="a structure or place memorializing a person or religious concept"/>
+								<entry from="SHSE" to="a building for storing goods, especially provisions"/>
+								<entry from="SLCE" to="a conduit or passage for carrying off surplus water from a waterbody, usually regulated by means of a sluice gate"/>
+								<entry from="SNTR" to="a facility where victims of physical or mental disorders are treated"/>
+								<entry from="SPA" to="a resort area usually developed around a medicinal spring"/>
+								<entry from="SPLY" to="a passage or outlet through which surplus water flows over, around or through a dam"/>
+								<entry from="SQR" to="a broad, open, public area near the center of a town or city"/>
+								<entry from="STBL" to="a building for the shelter and feeding of farm animals, especially horses"/>
+								<entry from="STDM" to="a structure with an enclosure for athletic games with tiers of seats for spectators"/>
+								<entry from="STNB" to="a scientific facility used as a base from which research is carried out or monitored"/>
+								<entry from="STNC" to="a facility from which the coast is guarded by armed vessels"/>
+								<entry from="STNE" to="a facility for carrying out experiments"/>
+								<entry from="STNF" to="a collection of buildings and facilities for carrying out forest management"/>
+								<entry from="STNI" to="a station at which vehicles, goods, and people are inspected"/>
+								<entry from="STNM" to="a station at which weather elements are recorded"/>
+								<entry from="STNR" to="a facility for producing and transmitting information by radio waves"/>
+								<entry from="STNS" to="a facility for tracking and communicating with orbiting satellites"/>
+								<entry from="STNW" to="a facility for butchering whales and processing train oil"/>
+								<entry from="STPS" to="stones or slabs placed for ease in ascending or descending a steep slope"/>
+								<entry from="SWT" to="facility for the processing of sewage and/or wastewater"/>
+								<entry from="SYG" to="a place for Jewish worship and religious instruction"/>
+								<entry from="THTR" to="A building, room, or outdoor structure for the presentation of plays, films, or other dramatic performances"/>
+								<entry from="TMB" to="a structure for interring bodies"/>
+								<entry from="TMPL" to="an edifice dedicated to religious worship"/>
+								<entry from="TNKD" to="a small artificial pond used for immersing cattle in chemically treated water for disease control"/>
+								<entry from="TOLL" to="highway toll collection station"/>
+								<entry from="TOWR" to="a high conspicuous structure, typically much higher than its diameter"/>
+								<entry from="TRAM" to="rail vehicle along urban streets (also known as streetcar or trolley)"/>
+								<entry from="TRANT" to="facilities for the handling of vehicular freight and passengers"/>
+								<entry from="TRIG" to="a point on the earth whose position has been determined by triangulation"/>
+								<entry from="TRMO" to="a tank farm or loading facility at the end of an oil pipeline"/>
+								<entry from="TWO" to="Temporary Work Offices"/>
+								<entry from="UNIP" to="University Preparation Schools &amp; Institutions"/>
+								<entry from="UNIV" to="An institution for higher learning with teaching and research facilities constituting a graduate school and professional schools that award master&apos;s degrees and doctorates and an undergraduate division that awards bachelor&apos;s degrees."/>
+								<entry from="USGE" to="a facility operated by the United States Government in Panama"/>
+								<entry from="VETF" to="a building or camp at which veterinary services are available"/>
+								<entry from="WALL" to="a thick masonry structure, usually enclosing a field or building, or forming the side of a structure"/>
+								<entry from="WALLA" to="the remains of a linear defensive stone structure"/>
+								<entry from="WEIR" to="a small dam in a stream, designed to raise the water level or to divert stream flow through a desired channel"/>
+								<entry from="WHRF" to="a structure of open rather than solid construction along a shore or a bank which provides berthing for ships and cargo-handling facilities"/>
+								<entry from="WRCK" to="the site of the remains of a wrecked vessel"/>
+								<entry from="WTRW" to="a facility for supplying potable water through a water source and a system of pumps and filtration beds"/>
+								<entry from="ZNF" to="an area, usually a section of a port, where goods may be received and shipped free of customs duty and of most customs regulations"/>
+								<entry from="ZOO" to="a zoological garden or park where wild animals are kept for exhibition"/>
+								<entry from="ASPH" to="a small basin containing naturally occurring asphalt"/>
+								<entry from="ATOL" to="a ring-shaped coral reef which has closely spaced islands on it encircling a lagoon"/>
+								<entry from="BAR" to="a shallow ridge or mound of coarse unconsolidated material in a stream channel, at the mouth of a stream, estuary, or lagoon and in the wave-break zone along coasts"/>
+								<entry from="BCH" to="a shore zone of coarse unconsolidated sediment that extends from the low-water line to the highest reach of storm waves"/>
+								<entry from="BCHS" to="a shore zone of coarse unconsolidated sediment that extends from the low-water line to the highest reach of storm waves"/>
+								<entry from="BDLD" to="an area characterized by a maze of very closely spaced, deep, narrow, steep-sided ravines, and sharp crests and pinnacles"/>
+								<entry from="BLDR" to="a high altitude or high latitude bare, flat area covered with large angular rocks"/>
+								<entry from="BLHL" to="a hole in coastal rock through which sea water is forced by a rising tide or waves and spurted through an outlet into the air"/>
+								<entry from="BLOW" to="a small depression in sandy terrain, caused by wind erosion"/>
+								<entry from="BNCH" to="a long, narrow bedrock platform bounded by steeper slopes above and below, usually overlooking a waterbody"/>
+								<entry from="BUTE" to="a small, isolated, usually flat-topped hill with steep sides"/>
+								<entry from="CAPE" to="a land area, more prominent than a point, projecting into the sea and marking a notable change in coastal direction"/>
+								<entry from="CFT" to="a deep narrow slot, notch, or groove in a coastal cliff"/>
+								<entry from="CLDA" to="a depression measuring kilometers across formed by the collapse of a volcanic mountain"/>
+								<entry from="CLF" to="a high, steep to perpendicular slope overlooking a waterbody or lower area"/>
+								<entry from="CNYN" to="a deep, narrow valley with steep sides cutting into a plateau or mountainous area"/>
+								<entry from="CONE" to="a conical landform composed of mud or volcanic material"/>
+								<entry from="CRDR" to="a strip or area of land having significance as an access way"/>
+								<entry from="CRQ" to="a bowl-like hollow partially surrounded by cliffs or steep slopes at the head of a glaciated valley"/>
+								<entry from="CRQS" to="bowl-like hollows partially surrounded by cliffs or steep slopes at the head of a glaciated valley"/>
+								<entry from="CRTR" to="a generally circular saucer or bowl-shaped depression caused by volcanic or meteorite explosive action"/>
+								<entry from="CUET" to="an asymmetric ridge formed on tilted strata"/>
+								<entry from="DLTA" to="a flat plain formed by alluvial deposits at the mouth of a stream"/>
+								<entry from="DPR" to="a low area surrounded by higher land and usually characterized by interior drainage"/>
+								<entry from="DSRT" to="a large area with little or no vegetation due to extreme environmental conditions"/>
+								<entry from="DUNE" to="a wave form, ridge or star shape feature composed of sand"/>
+								<entry from="DVD" to="a line separating adjacent drainage basins"/>
+								<entry from="ERG" to="an extensive tract of shifting sand and sand dunes"/>
+								<entry from="FAN" to="a fan-shaped wedge of coarse alluvium with apex merging with a mountain stream bed and the fan spreading out at a low angle slope onto an adjacent plain"/>
+								<entry from="FORD" to="a shallow part of a stream which can be crossed on foot or by land vehicle"/>
+								<entry from="FSR" to="a crack associated with volcanism"/>
+								<entry from="GAP" to="a low place in a ridge, not used for transportation"/>
+								<entry from="GRGE" to="a short, narrow, steep-sided section of a stream valley"/>
+								<entry from="HDLD" to="a high projection of land extending into a large body of water beyond the line of the coast"/>
+								<entry from="HLL" to="a rounded elevation of limited extent rising above the surrounding land with local relief of less than 300m"/>
+								<entry from="HLLS" to="rounded elevations of limited extent rising above the surrounding land with local relief of less than 300m"/>
+								<entry from="HMCK" to="a patch of ground, distinct from and slightly above the surrounding plain or wetland. Often occurs in groups"/>
+								<entry from="HMDA" to="a relatively sand-free, high bedrock plateau in a hot desert, with or without a gravel veneer"/>
+								<entry from="INTF" to="a relatively undissected upland between adjacent stream valleys"/>
+								<entry from="ISL" to="a tract of land, smaller than a continent, surrounded by water at high water"/>
+								<entry from="ISLET" to="small island, bigger than rock, smaller than island."/>
+								<entry from="ISLF" to="an island created by landfill or diking and filling in a wetland, bay, or lagoon"/>
+								<entry from="ISLM" to="a mangrove swamp surrounded by a waterbody"/>
+								<entry from="ISLS" to="tracts of land, smaller than a continent, surrounded by water at high water"/>
+								<entry from="ISLT" to="a coastal island connected to the mainland by barrier beaches, levees or dikes"/>
+								<entry from="ISLX"/>
+								<entry from="ISTH" to="a narrow strip of land connecting two larger land masses and bordered by water"/>
+								<entry from="KRST" to="a distinctive landscape developed on soluble rock such as limestone characterized by sinkholes, caves, disappearing streams, and underground drainage"/>
+								<entry from="LAVA" to="an area of solidified lava"/>
+								<entry from="LEV" to="a natural low embankment bordering a distributary or meandering stream"/>
+								<entry from="MESA" to="a flat-topped, isolated elevation with steep slopes on all sides, less extensive than a plateau"/>
+								<entry from="MND" to="a low, isolated, rounded hill"/>
+								<entry from="MRN" to="a mound, ridge, or other accumulation of glacial till"/>
+								<entry from="MT" to="an elevation standing high above the surrounding area with small summit area, steep slopes and local relief of 300m or more"/>
+								<entry from="MTS" to="a mountain range or a group of mountains or high ridges"/>
+								<entry from="NKM" to="a narrow strip of land between the two limbs of a meander loop at its narrowest point"/>
+								<entry from="NTK" to="a rock or mountain peak protruding through glacial ice"/>
+								<entry from="NTKS" to="rocks or mountain peaks protruding through glacial ice"/>
+								<entry from="PAN" to="a near-level shallow, natural depression or basin, usually containing an intermittent lake, pond, or pool"/>
+								<entry from="PANS" to="a near-level shallow, natural depression or basin, usually containing an intermittent lake, pond, or pool"/>
+								<entry from="PASS" to="a break in a mountain range or other high obstruction, used for transportation from one side to the other [See also gap]"/>
+								<entry from="PEN" to="an elongate area of land projecting into a body of water and nearly surrounded by water"/>
+								<entry from="PENX"/>
+								<entry from="PK" to="a pointed elevation atop a mountain, ridge, or other hypsographic feature"/>
+								<entry from="PKS" to="pointed elevations atop a mountain, ridge, or other hypsographic features"/>
+								<entry from="PLAT" to="an elevated plain with steep slopes on one or more sides, and often with incised streams"/>
+								<entry from="PLATX"/>
+								<entry from="PLDR" to="an area reclaimed from the sea by diking and draining"/>
+								<entry from="PLN" to="an extensive area of comparatively level to gently undulating land, lacking surface irregularities, and usually adjacent to a higher area"/>
+								<entry from="PLNX"/>
+								<entry from="PROM" to="a bluff or prominent hill overlooking or projecting into a lowland"/>
+								<entry from="PT" to="a tapering piece of land projecting into a body of water, less prominent than a cape"/>
+								<entry from="PTS" to="tapering pieces of land projecting into a body of water, less prominent than a cape"/>
+								<entry from="RDGB" to="a ridge of sand just inland and parallel to the beach, usually in series"/>
+								<entry from="RDGE" to="a long narrow elevation with steep sides, and a more or less continuous crest"/>
+								<entry from="REG" to="a desert plain characterized by a surface veneer of gravel and stones"/>
+								<entry from="RK" to="a conspicuous, isolated rocky mass"/>
+								<entry from="RKFL" to="an irregular mass of fallen rock at the base of a cliff or steep slope"/>
+								<entry from="RKS" to="conspicuous, isolated rocky masses"/>
+								<entry from="SAND" to="a tract of land covered with sand"/>
+								<entry from="SBED" to="a channel formerly containing the water of a stream"/>
+								<entry from="SCRP" to="a long line of cliffs or steep slopes separating level surfaces above and below"/>
+								<entry from="SDL" to="a broad, open pass crossing a ridge or between hills or mountains"/>
+								<entry from="SHOR" to="a narrow zone bordering a waterbody which covers and uncovers at high and low water, respectively"/>
+								<entry from="SINK" to="a small crater-shape depression in a karst area"/>
+								<entry from="SLID" to="a mound of earth material, at the base of a slope and the associated scoured area"/>
+								<entry from="SLP" to="a surface with a relatively uniform slope angle"/>
+								<entry from="SPIT" to="a narrow, straight or curved continuation of a beach into a waterbody"/>
+								<entry from="SPUR" to="a subordinate ridge projecting outward from a hill, mountain or other elevation"/>
+								<entry from="TAL" to="a steep concave slope formed by an accumulation of loose rock fragments at the base of a cliff or steep slope"/>
+								<entry from="TRGD" to="a long wind-swept trough between parallel longitudinal dunes"/>
+								<entry from="TRR" to="a long, narrow alluvial platform bounded by steeper slopes above and below, usually overlooking a waterbody"/>
+								<entry from="UPLD" to="an extensive interior region of high land with low to moderate surface relief"/>
+								<entry from="VAL" to="an elongated depression usually traversed by a stream"/>
+								<entry from="VALG" to="a valley the floor of which is notably higher than the valley or shore to which it leads"/>
+								<entry from="VALS" to="elongated depressions usually traversed by a stream"/>
+								<entry from="VALX"/>
+								<entry from="VLC" to="a conical elevation composed of volcanic materials with a crater at the top"/>
+								<entry from="APNU" to="a gentle slope, with a generally smooth surface, particularly found around groups of islands and seamounts"/>
+								<entry from="ARCU" to="a low bulge around the southeastern end of the island of Hawaii"/>
+								<entry from="ARRU" to="an area of subdued corrugations off Baja California"/>
+								<entry from="BDLU" to="a region adjacent to a continent, normally occupied by or bordering a shelf, that is highly irregular with depths well in excess of those typical of a shelf"/>
+								<entry from="BKSU" to="elevations, typically located on a shelf, over which the depth of water is relatively shallow but sufficient for safe surface navigation"/>
+								<entry from="BNKU" to="an elevation, typically located on a shelf, over which the depth of water is relatively shallow but sufficient for safe surface navigation"/>
+								<entry from="BSNU" to="a depression more or less equidimensional in plan and of variable extent"/>
+								<entry from="CDAU" to="an entire mountain system including the subordinate ranges, interior plateaus, and basins"/>
+								<entry from="CNSU" to="relatively narrow, deep depressions with steep sides, the bottom of which generally has a continuous slope"/>
+								<entry from="CNYU" to="a relatively narrow, deep depression with steep sides, the bottom of which generally has a continuous slope"/>
+								<entry from="CRSU" to="a gentle slope rising from oceanic depths towards the foot of a continental slope"/>
+								<entry from="DEPU" to="a localized deep area within the confines of a larger feature, such as a trough, basin or trench"/>
+								<entry from="EDGU" to="a line along which there is a marked increase of slope at the outer margin of a continental shelf or island shelf"/>
+								<entry from="ESCU" to="an elongated and comparatively steep slope separating flat or gently sloping areas"/>
+								<entry from="FANU" to="a relatively smooth feature normally sloping away from the lower termination of a canyon or canyon system"/>
+								<entry from="FLTU" to="a small level or nearly level area"/>
+								<entry from="FRZU" to="an extensive linear zone of irregular topography of the sea floor, characterized by steep-sided or asymmetrical ridges, troughs, or escarpments"/>
+								<entry from="FURU" to="a closed, linear, narrow, shallow depression"/>
+								<entry from="GAPU" to="a narrow break in a ridge or rise"/>
+								<entry from="GLYU" to="a small valley-like feature"/>
+								<entry from="HLLU" to="an elevation rising generally less than 500 meters"/>
+								<entry from="HLSU" to="elevations rising generally less than 500 meters"/>
+								<entry from="HOLU" to="a small depression of the sea floor"/>
+								<entry from="KNLU" to="an elevation rising generally more than 500 meters and less than 1,000 meters and of limited extent across the summit"/>
+								<entry from="KNSU" to="elevations rising generally more than 500 meters and less than 1,000 meters and of limited extent across the summits"/>
+								<entry from="LDGU" to="a rocky projection or outcrop, commonly linear and near shore"/>
+								<entry from="LEVU" to="an embankment bordering a canyon, valley, or seachannel"/>
+								<entry from="MESU" to="an isolated, extensive, flat-topped elevation on the shelf, with relatively steep sides"/>
+								<entry from="MNDU" to="a low, isolated, rounded hill"/>
+								<entry from="MOTU" to="an annular depression that may not be continuous, located at the base of many seamounts, islands, and other isolated elevations"/>
+								<entry from="MTU" to="a well-delineated subdivision of a large and complex positive feature"/>
+								<entry from="PKSU" to="prominent elevations, part of a larger feature, either pointed or of very limited extent across the summit"/>
+								<entry from="PKU" to="a prominent elevation, part of a larger feature, either pointed or of very limited extent across the summit"/>
+								<entry from="PLNU" to="a flat, gently sloping or nearly level region"/>
+								<entry from="PLTU" to="a comparatively flat-topped feature of considerable extent, dropping off abruptly on one or more sides"/>
+								<entry from="PNLU" to="a high tower or spire-shaped pillar of rock or coral, alone or cresting a summit"/>
+								<entry from="PRVU" to="a region identifiable by a group of similar physiographic features whose characteristics are markedly in contrast with surrounding areas"/>
+								<entry from="RDGU" to="a long narrow elevation with steep sides"/>
+								<entry from="RDSU" to="long narrow elevations with steep sides"/>
+								<entry from="RFSU" to="surface-navigation hazards composed of consolidated material"/>
+								<entry from="RFU" to="a surface-navigation hazard composed of consolidated material"/>
+								<entry from="RISU" to="a broad elevation that rises gently, and generally smoothly, from the sea floor"/>
+								<entry from="SCNU" to="a continuously sloping, elongated depression commonly found in fans or plains and customarily bordered by levees on one or two sides"/>
+								<entry from="SCSU" to="continuously sloping, elongated depressions commonly found in fans or plains and customarily bordered by levees on one or two sides"/>
+								<entry from="SDLU" to="a low part, resembling in shape a saddle, in a ridge or between contiguous seamounts"/>
+								<entry from="SHFU" to="a zone adjacent to a continent (or around an island) that extends from the low water line to a depth at which there is usually a marked increase of slope towards oceanic depths"/>
+								<entry from="SHLU" to="a surface-navigation hazard composed of unconsolidated material"/>
+								<entry from="SHSU" to="hazards to surface navigation composed of unconsolidated material"/>
+								<entry from="SHVU" to="a valley on the shelf, generally the shoreward extension of a canyon"/>
+								<entry from="SILU" to="the low part of a gap or saddle separating basins"/>
+								<entry from="SLPU" to="the slope seaward from the shelf edge to the beginning of a continental rise or the point where there is a general reduction in slope"/>
+								<entry from="SMSU" to="elevations rising generally more than 1,000 meters and of limited extent across the summit"/>
+								<entry from="SMU" to="an elevation rising generally more than 1,000 meters and of limited extent across the summit"/>
+								<entry from="SPRU" to="a subordinate elevation, ridge, or rise projecting outward from a larger feature"/>
+								<entry from="TERU" to="a relatively flat horizontal or gently inclined surface, sometimes long and narrow, which is bounded by a steeper ascending slope on one side and by a steep descending slope on the opposite side"/>
+								<entry from="TMSU" to="seamounts having a comparatively smooth, flat top"/>
+								<entry from="TMTU" to="a seamount having a comparatively smooth, flat top"/>
+								<entry from="TNGU" to="an elongate (tongue-like) extension of a flat sea floor into an adjacent higher feature"/>
+								<entry from="TRGU" to="a long depression of the sea floor characteristically flat bottomed and steep sided, and normally shallower than a trench"/>
+								<entry from="TRNU" to="a long, narrow, characteristically very deep and asymmetrical depression of the sea floor, with relatively steep sides"/>
+								<entry from="VALU" to="a relatively shallow, wide depression, the bottom of which usually has a continuous gradient"/>
+								<entry from="VLSU" to="a relatively shallow, wide depression, the bottom of which usually has a continuous gradient"/>
+								<entry from="BUSH" to="a small clump of conspicuous bushes in an otherwise bare area"/>
+								<entry from="CULT" to="an area under cultivation"/>
+								<entry from="FRST" to="an area dominated by tree vegetation"/>
+								<entry from="FRSTF" to="a forest fossilized by geologic processes and now exposed at the earth&apos;s surface"/>
+								<entry from="GROVE" to="a small wooded area or collection of trees growing closely together, occurring naturally or deliberately planted"/>
+								<entry from="GRSLD" to="an area dominated by grass vegetation"/>
+								<entry from="GRVC" to="a planting of coconut trees"/>
+								<entry from="GRVO" to="a planting of olive trees"/>
+								<entry from="GRVP" to="a planting of palm trees"/>
+								<entry from="GRVPN" to="a planting of pine trees"/>
+								<entry from="HTH" to="an upland moor or sandy area dominated by low shrubby vegetation including heather"/>
+								<entry from="MDW" to="a small, poorly drained area dominated by grassy vegetation"/>
+								<entry from="OCH" to="a planting of fruit or nut trees"/>
+								<entry from="SCRB" to="an area of low trees, bushes, and shrubs stunted by some environmental limitation"/>
+								<entry from="TREE" to="a conspicuous tree used as a landmark"/>
+								<entry from="TUND" to="a marshy, treeless, high latitude plain, dominated by mosses, lichens, and low shrub vegetation under permafrost conditions"/>
+								<entry from="VIN" to="a planting of grapevines"/>
+								<entry from="VINS" to="plantings of grapevines"/>
+								<entry from="ll"/>
+							</valuemapTable>
+							<input name="feature_code" type="string"/>
+							<result name="feature_description" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="value-map" library="core" uid="20" kind="23">
+					<sources>
+						<datapoint pos="0" key="31"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="32"/>
+					</targets>
+					<view ltx="359" lty="282" rbx="516" rby="320"/>
+					<data>
+						<valuemap defaultValueMode="input">
+							<valuemapTable>
+								<entry from="ADM1" to="first-order administrative division"/>
+								<entry from="ADM1H" to="historical first-order administrative division"/>
+								<entry from="ADM2" to="second-order administrative division"/>
+								<entry from="ADM2H" to="historical second-order administrative division"/>
+								<entry from="ADM3" to="third-order administrative division"/>
+								<entry from="ADM3H" to="historical third-order administrative division"/>
+								<entry from="ADM4" to="fourth-order administrative division"/>
+								<entry from="ADM4H" to="historical fourth-order administrative division"/>
+								<entry from="ADM5" to="fifth-order administrative division"/>
+								<entry from="ADM5H" to="historical fifth-order administrative division"/>
+								<entry from="ADMD" to="administrative division"/>
+								<entry from="ADMDH" to="historical administrative division"/>
+								<entry from="LTER" to="leased area"/>
+								<entry from="PCL" to="political entity"/>
+								<entry from="PCLD" to="dependent political entity"/>
+								<entry from="PCLF" to="freely associated state"/>
+								<entry from="PCLH" to="historical political entity"/>
+								<entry from="PCLI" to="independent political entity"/>
+								<entry from="PCLIX" to="section of independent political entity"/>
+								<entry from="PCLS" to="semi-independent political entity"/>
+								<entry from="PRSH" to="parish"/>
+								<entry from="TERR" to="territory"/>
+								<entry from="ZN" to="zone"/>
+								<entry from="ZNB" to="buffer zone"/>
+								<entry from="AIRS" to="seaplane landing area"/>
+								<entry from="ANCH" to="anchorage"/>
+								<entry from="BAY" to="bay"/>
+								<entry from="BAYS" to="bays"/>
+								<entry from="BGHT" to="bight(s)"/>
+								<entry from="BNK" to="bank(s)"/>
+								<entry from="BNKR" to="stream bank"/>
+								<entry from="BNKX" to="section of bank"/>
+								<entry from="BOG" to="bog(s)"/>
+								<entry from="CAPG" to="icecap"/>
+								<entry from="CHN" to="channel"/>
+								<entry from="CHNL" to="lake channel(s)"/>
+								<entry from="CHNM" to="marine channel"/>
+								<entry from="CHNN" to="navigation channel"/>
+								<entry from="CNFL" to="confluence"/>
+								<entry from="CNL" to="canal"/>
+								<entry from="CNLA" to="aqueduct"/>
+								<entry from="CNLB" to="canal bend"/>
+								<entry from="CNLD" to="drainage canal"/>
+								<entry from="CNLI" to="irrigation canal"/>
+								<entry from="CNLN" to="navigation canal(s)"/>
+								<entry from="CNLQ" to="abandoned canal"/>
+								<entry from="CNLSB" to="underground irrigation canal(s)"/>
+								<entry from="CNLX" to="section of canal"/>
+								<entry from="COVE" to="cove(s)"/>
+								<entry from="CRKT" to="tidal creek(s)"/>
+								<entry from="CRNT" to="current"/>
+								<entry from="CUTF" to="cutoff"/>
+								<entry from="DCK" to="dock(s)"/>
+								<entry from="DCKB" to="docking basin"/>
+								<entry from="DOMG" to="icecap dome"/>
+								<entry from="DPRG" to="icecap depression"/>
+								<entry from="DTCH" to="ditch"/>
+								<entry from="DTCHD" to="drainage ditch"/>
+								<entry from="DTCHI" to="irrigation ditch"/>
+								<entry from="DTCHM" to="ditch mouth(s)"/>
+								<entry from="ESTY" to="estuary"/>
+								<entry from="FISH" to="fishing area"/>
+								<entry from="FJD" to="fjord"/>
+								<entry from="FJDS" to="fjords"/>
+								<entry from="FLLS" to="waterfall(s)"/>
+								<entry from="FLLSX" to="section of waterfall(s)"/>
+								<entry from="FLTM" to="mud flat(s)"/>
+								<entry from="FLTT" to="tidal flat(s)"/>
+								<entry from="GLCR" to="glacier(s)"/>
+								<entry from="GULF" to="gulf"/>
+								<entry from="GYSR" to="geyser"/>
+								<entry from="HBR" to="harbor(s)"/>
+								<entry from="HBRX" to="section of harbor"/>
+								<entry from="INLT" to="inlet"/>
+								<entry from="INLTQ" to="former inlet"/>
+								<entry from="LBED" to="lake bed(s)"/>
+								<entry from="LGN" to="lagoon"/>
+								<entry from="LGNS" to="lagoons"/>
+								<entry from="LGNX" to="section of lagoon"/>
+								<entry from="LK" to="lake"/>
+								<entry from="LKC" to="crater lake"/>
+								<entry from="LKI" to="intermittent lake"/>
+								<entry from="LKN" to="salt lake"/>
+								<entry from="LKNI" to="intermittent salt lake"/>
+								<entry from="LKO" to="oxbow lake"/>
+								<entry from="LKOI" to="intermittent oxbow lake"/>
+								<entry from="LKS" to="lakes"/>
+								<entry from="LKSB" to="underground lake"/>
+								<entry from="LKSC" to="crater lakes"/>
+								<entry from="LKSI" to="intermittent lakes"/>
+								<entry from="LKSN" to="salt lakes"/>
+								<entry from="LKSNI" to="intermittent salt lakes"/>
+								<entry from="LKX" to="section of lake"/>
+								<entry from="MFGN" to="salt evaporation ponds"/>
+								<entry from="MGV" to="mangrove swamp"/>
+								<entry from="MOOR" to="moor(s)"/>
+								<entry from="MRSH" to="marsh(es)"/>
+								<entry from="MRSHN" to="salt marsh"/>
+								<entry from="NRWS" to="narrows"/>
+								<entry from="OCN" to="ocean"/>
+								<entry from="OVF" to="overfalls"/>
+								<entry from="PND" to="pond"/>
+								<entry from="PNDI" to="intermittent pond"/>
+								<entry from="PNDN" to="salt pond"/>
+								<entry from="PNDNI" to="intermittent salt pond(s)"/>
+								<entry from="PNDS" to="ponds"/>
+								<entry from="PNDSF" to="fishponds"/>
+								<entry from="PNDSI" to="intermittent ponds"/>
+								<entry from="PNDSN" to="salt ponds"/>
+								<entry from="POOL" to="pool(s)"/>
+								<entry from="POOLI" to="intermittent pool"/>
+								<entry from="RCH" to="reach"/>
+								<entry from="RDGG" to="icecap ridge"/>
+								<entry from="RDST" to="roadstead"/>
+								<entry from="RF" to="reef(s)"/>
+								<entry from="RFC" to="coral reef(s)"/>
+								<entry from="RFX" to="section of reef"/>
+								<entry from="RPDS" to="rapids"/>
+								<entry from="RSV" to="reservoir(s)"/>
+								<entry from="RSVI" to="intermittent reservoir"/>
+								<entry from="RSVT" to="water tank"/>
+								<entry from="RVN" to="ravine(s)"/>
+								<entry from="SBKH" to="sabkha(s)"/>
+								<entry from="SD" to="sound"/>
+								<entry from="SEA" to="sea"/>
+								<entry from="SHOL" to="shoal(s)"/>
+								<entry from="SILL" to="sill"/>
+								<entry from="SPNG" to="spring(s)"/>
+								<entry from="SPNS" to="sulphur spring(s)"/>
+								<entry from="SPNT" to="hot spring(s)"/>
+								<entry from="STM" to="stream"/>
+								<entry from="STMA" to="anabranch"/>
+								<entry from="STMB" to="stream bend"/>
+								<entry from="STMC" to="canalized stream"/>
+								<entry from="STMD" to="distributary(-ies)"/>
+								<entry from="STMH" to="headwaters"/>
+								<entry from="STMI" to="intermittent stream"/>
+								<entry from="STMIX" to="section of intermittent stream"/>
+								<entry from="STMM" to="stream mouth(s)"/>
+								<entry from="STMQ" to="abandoned watercourse"/>
+								<entry from="STMS" to="streams"/>
+								<entry from="STMSB" to="lost river"/>
+								<entry from="STMX" to="section of stream"/>
+								<entry from="STRT" to="strait"/>
+								<entry from="SWMP" to="swamp"/>
+								<entry from="SYSI" to="irrigation system"/>
+								<entry from="TNLC" to="canal tunnel"/>
+								<entry from="WAD" to="wadi"/>
+								<entry from="WADB" to="wadi bend"/>
+								<entry from="WADJ" to="wadi junction"/>
+								<entry from="WADM" to="wadi mouth"/>
+								<entry from="WADS" to="wadies"/>
+								<entry from="WADX" to="section of wadi"/>
+								<entry from="WHRL" to="whirlpool"/>
+								<entry from="WLL" to="well"/>
+								<entry from="WLLQ" to="abandoned well"/>
+								<entry from="WLLS" to="wells"/>
+								<entry from="WTLD" to="wetland"/>
+								<entry from="WTLDI" to="intermittent wetland"/>
+								<entry from="WTRC" to="watercourse"/>
+								<entry from="WTRH" to="waterhole(s)"/>
+								<entry from="AGRC" to="agricultural colony"/>
+								<entry from="AMUS" to="amusement park"/>
+								<entry from="AREA" to="area"/>
+								<entry from="BSND" to="drainage basin"/>
+								<entry from="BSNP" to="petroleum basin"/>
+								<entry from="BTL" to="battlefield"/>
+								<entry from="CLG" to="clearing"/>
+								<entry from="CMN" to="common"/>
+								<entry from="CNS" to="concession area"/>
+								<entry from="COLF" to="coalfield"/>
+								<entry from="CONT" to="continent"/>
+								<entry from="CST" to="coast"/>
+								<entry from="CTRB" to="business center"/>
+								<entry from="DEVH" to="housing development"/>
+								<entry from="FLD" to="field(s)"/>
+								<entry from="FLDI" to="irrigated field(s)"/>
+								<entry from="GASF" to="gasfield"/>
+								<entry from="GRAZ" to="grazing area"/>
+								<entry from="GVL" to="gravel area"/>
+								<entry from="INDS" to="industrial area"/>
+								<entry from="LAND" to="arctic land"/>
+								<entry from="LCTY" to="locality"/>
+								<entry from="MILB" to="military base"/>
+								<entry from="MNA" to="mining area"/>
+								<entry from="MVA" to="maneuver area"/>
+								<entry from="NVB" to="naval base"/>
+								<entry from="OAS" to="oasis(-es)"/>
+								<entry from="OILF" to="oilfield"/>
+								<entry from="PEAT" to="peat cutting area"/>
+								<entry from="PRK" to="park"/>
+								<entry from="PRT" to="port"/>
+								<entry from="QCKS" to="quicksand"/>
+								<entry from="RES" to="reserve"/>
+								<entry from="RESA" to="agricultural reserve"/>
+								<entry from="RESF" to="forest reserve"/>
+								<entry from="RESH" to="hunting reserve"/>
+								<entry from="RESN" to="nature reserve"/>
+								<entry from="RESP" to="palm tree reserve"/>
+								<entry from="RESV" to="reservation"/>
+								<entry from="RESW" to="wildlife reserve"/>
+								<entry from="RGN" to="region"/>
+								<entry from="RGNE" to="economic region"/>
+								<entry from="RGNH" to="historical region"/>
+								<entry from="RGNL" to="lake region"/>
+								<entry from="RNGA" to="artillery range"/>
+								<entry from="SALT" to="salt area"/>
+								<entry from="SNOW" to="snowfield"/>
+								<entry from="TRB" to="tribal area"/>
+								<entry from="PPL" to="populated place"/>
+								<entry from="PPLA" to="seat of a first-order administrative division"/>
+								<entry from="PPLA2" to="seat of a second-order administrative division"/>
+								<entry from="PPLA3" to="seat of a third-order administrative division"/>
+								<entry from="PPLA4" to="seat of a fourth-order administrative division"/>
+								<entry from="PPLA5" to="seat of a fifth-order administrative division"/>
+								<entry from="PPLC" to="capital of a political entity"/>
+								<entry from="PPLCH" to="historical capital of a political entity"/>
+								<entry from="PPLF" to="farm village"/>
+								<entry from="PPLG" to="seat of government of a political entity"/>
+								<entry from="PPLH" to="historical populated place"/>
+								<entry from="PPLL" to="populated locality"/>
+								<entry from="PPLQ" to="abandoned populated place"/>
+								<entry from="PPLR" to="religious populated place"/>
+								<entry from="PPLS" to="populated places"/>
+								<entry from="PPLW" to="destroyed populated place"/>
+								<entry from="PPLX" to="section of populated place"/>
+								<entry from="STLMT" to="israeli settlement"/>
+								<entry from="CSWY" to="causeway"/>
+								<entry from="OILP" to="oil pipeline"/>
+								<entry from="PRMN" to="promenade"/>
+								<entry from="PTGE" to="portage"/>
+								<entry from="RD" to="road"/>
+								<entry from="RDA" to="ancient road"/>
+								<entry from="RDB" to="road bend"/>
+								<entry from="RDCUT" to="road cut"/>
+								<entry from="RDJCT" to="road junction"/>
+								<entry from="RJCT" to="railroad junction"/>
+								<entry from="RR" to="railroad"/>
+								<entry from="RRQ" to="abandoned railroad"/>
+								<entry from="RTE" to="caravan route"/>
+								<entry from="RYD" to="railroad yard"/>
+								<entry from="ST" to="street"/>
+								<entry from="STKR" to="stock route"/>
+								<entry from="TNL" to="tunnel"/>
+								<entry from="TNLN" to="natural tunnel"/>
+								<entry from="TNLRD" to="road tunnel"/>
+								<entry from="TNLRR" to="railroad tunnel"/>
+								<entry from="TNLS" to="tunnels"/>
+								<entry from="TRL" to="trail"/>
+								<entry from="ADMF" to="administrative facility"/>
+								<entry from="AGRF" to="agricultural facility"/>
+								<entry from="AIRB" to="airbase"/>
+								<entry from="AIRF" to="airfield"/>
+								<entry from="AIRH" to="heliport"/>
+								<entry from="AIRP" to="airport"/>
+								<entry from="AIRQ" to="abandoned airfield"/>
+								<entry from="AIRT" to="terminal"/>
+								<entry from="AMTH" to="amphitheater"/>
+								<entry from="ANS" to="archaeological/prehistoric site"/>
+								<entry from="AQC" to="aquaculture facility"/>
+								<entry from="ARCH" to="arch"/>
+								<entry from="ARCHV" to="archive"/>
+								<entry from="ART" to="piece of art"/>
+								<entry from="ASTR" to="astronomical station"/>
+								<entry from="ASYL" to="asylum"/>
+								<entry from="ATHF" to="athletic field"/>
+								<entry from="ATM" to="automatic teller machine"/>
+								<entry from="BANK" to="bank"/>
+								<entry from="BCN" to="beacon"/>
+								<entry from="BDG" to="bridge"/>
+								<entry from="BDGQ" to="ruined bridge"/>
+								<entry from="BLDA" to="apartment building"/>
+								<entry from="BLDG" to="building(s)"/>
+								<entry from="BLDO" to="office building"/>
+								<entry from="BP" to="boundary marker"/>
+								<entry from="BRKS" to="barracks"/>
+								<entry from="BRKW" to="breakwater"/>
+								<entry from="BSTN" to="baling station"/>
+								<entry from="BTYD" to="boatyard"/>
+								<entry from="BUR" to="burial cave(s)"/>
+								<entry from="BUSTN" to="bus station"/>
+								<entry from="BUSTP" to="bus stop"/>
+								<entry from="CARN" to="cairn"/>
+								<entry from="CAVE" to="cave(s)"/>
+								<entry from="CH" to="church"/>
+								<entry from="CMP" to="camp(s)"/>
+								<entry from="CMPL" to="logging camp"/>
+								<entry from="CMPLA" to="labor camp"/>
+								<entry from="CMPMN" to="mining camp"/>
+								<entry from="CMPO" to="oil camp"/>
+								<entry from="CMPQ" to="abandoned camp"/>
+								<entry from="CMPRF" to="refugee camp"/>
+								<entry from="CMTY" to="cemetery"/>
+								<entry from="COMC" to="communication center"/>
+								<entry from="CRRL" to="corral(s)"/>
+								<entry from="CSNO" to="casino"/>
+								<entry from="CSTL" to="castle"/>
+								<entry from="CSTM" to="customs house"/>
+								<entry from="CTHSE" to="courthouse"/>
+								<entry from="CTRA" to="atomic center"/>
+								<entry from="CTRCM" to="community center"/>
+								<entry from="CTRF" to="facility center"/>
+								<entry from="CTRM" to="medical center"/>
+								<entry from="CTRR" to="religious center"/>
+								<entry from="CTRS" to="space center"/>
+								<entry from="CVNT" to="convent"/>
+								<entry from="DAM" to="dam"/>
+								<entry from="DAMQ" to="ruined dam"/>
+								<entry from="DAMSB" to="sub-surface dam"/>
+								<entry from="DARY" to="dairy"/>
+								<entry from="DCKD" to="dry dock"/>
+								<entry from="DCKY" to="dockyard"/>
+								<entry from="DIKE" to="dike"/>
+								<entry from="DIP" to="diplomatic facility"/>
+								<entry from="DPOF" to="fuel depot"/>
+								<entry from="EST" to="estate(s)"/>
+								<entry from="ESTO" to="oil palm plantation"/>
+								<entry from="ESTR" to="rubber plantation"/>
+								<entry from="ESTSG" to="sugar plantation"/>
+								<entry from="ESTT" to="tea plantation"/>
+								<entry from="ESTX" to="section of estate"/>
+								<entry from="FCL" to="facility"/>
+								<entry from="FNDY" to="foundry"/>
+								<entry from="FRM" to="farm"/>
+								<entry from="FRMQ" to="abandoned farm"/>
+								<entry from="FRMS" to="farms"/>
+								<entry from="FRMT" to="farmstead"/>
+								<entry from="FT" to="fort"/>
+								<entry from="FY" to="ferry"/>
+								<entry from="FYT" to="ferry terminal"/>
+								<entry from="GATE" to="gate"/>
+								<entry from="GDN" to="garden(s)"/>
+								<entry from="GHAT" to="ghat"/>
+								<entry from="GHSE" to="guest house"/>
+								<entry from="GOSP" to="gas-oil separator plant"/>
+								<entry from="GOVL" to="local government office"/>
+								<entry from="GRVE" to="grave"/>
+								<entry from="HERM" to="hermitage"/>
+								<entry from="HLT" to="halting place"/>
+								<entry from="HMSD" to="homestead"/>
+								<entry from="HSE" to="house(s)"/>
+								<entry from="HSEC" to="country house"/>
+								<entry from="HSP" to="hospital"/>
+								<entry from="HSPC" to="clinic"/>
+								<entry from="HSPD" to="dispensary"/>
+								<entry from="HSPL" to="leprosarium"/>
+								<entry from="HSTS" to="historical site"/>
+								<entry from="HTL" to="hotel"/>
+								<entry from="HUT" to="hut"/>
+								<entry from="HUTS" to="huts"/>
+								<entry from="INSM" to="military installation"/>
+								<entry from="ITTR" to="research institute"/>
+								<entry from="JTY" to="jetty"/>
+								<entry from="LDNG" to="landing"/>
+								<entry from="LEPC" to="leper colony"/>
+								<entry from="LIBR" to="library"/>
+								<entry from="LNDF" to="landfill"/>
+								<entry from="LOCK" to="lock(s)"/>
+								<entry from="LTHSE" to="lighthouse"/>
+								<entry from="MALL" to="mall"/>
+								<entry from="MAR" to="marina"/>
+								<entry from="MFG" to="factory"/>
+								<entry from="MFGB" to="brewery"/>
+								<entry from="MFGC" to="cannery"/>
+								<entry from="MFGCU" to="copper works"/>
+								<entry from="MFGLM" to="limekiln"/>
+								<entry from="MFGM" to="munitions plant"/>
+								<entry from="MFGPH" to="phosphate works"/>
+								<entry from="MFGQ" to="abandoned factory"/>
+								<entry from="MFGSG" to="sugar refinery"/>
+								<entry from="MKT" to="market"/>
+								<entry from="ML" to="mill(s)"/>
+								<entry from="MLM" to="ore treatment plant"/>
+								<entry from="MLO" to="olive oil mill"/>
+								<entry from="MLSG" to="sugar mill"/>
+								<entry from="MLSGQ" to="former sugar mill"/>
+								<entry from="MLSW" to="sawmill"/>
+								<entry from="MLWND" to="windmill"/>
+								<entry from="MLWTR" to="water mill"/>
+								<entry from="MN" to="mine(s)"/>
+								<entry from="MNAU" to="gold mine(s)"/>
+								<entry from="MNC" to="coal mine(s)"/>
+								<entry from="MNCR" to="chrome mine(s)"/>
+								<entry from="MNCU" to="copper mine(s)"/>
+								<entry from="MNFE" to="iron mine(s)"/>
+								<entry from="MNMT" to="monument"/>
+								<entry from="MNN" to="salt mine(s)"/>
+								<entry from="MNQ" to="abandoned mine"/>
+								<entry from="MNQR" to="quarry(-ies)"/>
+								<entry from="MOLE" to="mole"/>
+								<entry from="MSQE" to="mosque"/>
+								<entry from="MSSN" to="mission"/>
+								<entry from="MSSNQ" to="abandoned mission"/>
+								<entry from="MSTY" to="monastery"/>
+								<entry from="MTRO" to="metro station"/>
+								<entry from="MUS" to="museum"/>
+								<entry from="NOV" to="novitiate"/>
+								<entry from="NSY" to="nursery(-ies)"/>
+								<entry from="OBPT" to="observation point"/>
+								<entry from="OBS" to="observatory"/>
+								<entry from="OBSR" to="radio observatory"/>
+								<entry from="OILJ" to="oil pipeline junction"/>
+								<entry from="OILQ" to="abandoned oil well"/>
+								<entry from="OILR" to="oil refinery"/>
+								<entry from="OILT" to="tank farm"/>
+								<entry from="OILW" to="oil well"/>
+								<entry from="OPRA" to="opera house"/>
+								<entry from="PAL" to="palace"/>
+								<entry from="PGDA" to="pagoda"/>
+								<entry from="PIER" to="pier"/>
+								<entry from="PKLT" to="parking lot"/>
+								<entry from="PMPO" to="oil pumping station"/>
+								<entry from="PMPW" to="water pumping station"/>
+								<entry from="PO" to="post office"/>
+								<entry from="PP" to="police post"/>
+								<entry from="PPQ" to="abandoned police post"/>
+								<entry from="PRKGT" to="park gate"/>
+								<entry from="PRKHQ" to="park headquarters"/>
+								<entry from="PRN" to="prison"/>
+								<entry from="PRNJ" to="reformatory"/>
+								<entry from="PRNQ" to="abandoned prison"/>
+								<entry from="PS" to="power station"/>
+								<entry from="PSH" to="hydroelectric power station"/>
+								<entry from="PSN" to="nuclear power station"/>
+								<entry from="PSTB" to="border post"/>
+								<entry from="PSTC" to="customs post"/>
+								<entry from="PSTP" to="patrol post"/>
+								<entry from="PYR" to="pyramid"/>
+								<entry from="PYRS" to="pyramids"/>
+								<entry from="QUAY" to="quay"/>
+								<entry from="RDCR" to="traffic circle"/>
+								<entry from="RDIN" to="intersection"/>
+								<entry from="RECG" to="golf course"/>
+								<entry from="RECR" to="racetrack"/>
+								<entry from="REST" to="restaurant"/>
+								<entry from="RET" to="store"/>
+								<entry from="RHSE" to="resthouse"/>
+								<entry from="RKRY" to="rookery"/>
+								<entry from="RLG" to="religious site"/>
+								<entry from="RLGR" to="retreat"/>
+								<entry from="RNCH" to="ranch(es)"/>
+								<entry from="RSD" to="railroad siding"/>
+								<entry from="RSGNL" to="railroad signal"/>
+								<entry from="RSRT" to="resort"/>
+								<entry from="RSTN" to="railroad station"/>
+								<entry from="RSTNQ" to="abandoned railroad station"/>
+								<entry from="RSTP" to="railroad stop"/>
+								<entry from="RSTPQ" to="abandoned railroad stop"/>
+								<entry from="RUIN" to="ruin(s)"/>
+								<entry from="SCH" to="school"/>
+								<entry from="SCHA" to="agricultural school"/>
+								<entry from="SCHC" to="college"/>
+								<entry from="SCHL" to="language school"/>
+								<entry from="SCHM" to="military school"/>
+								<entry from="SCHN" to="maritime school"/>
+								<entry from="SCHT" to="technical school"/>
+								<entry from="SECP" to="State Exam Prep Centre"/>
+								<entry from="SHPF" to="sheepfold"/>
+								<entry from="SHRN" to="shrine"/>
+								<entry from="SHSE" to="storehouse"/>
+								<entry from="SLCE" to="sluice"/>
+								<entry from="SNTR" to="sanatorium"/>
+								<entry from="SPA" to="spa"/>
+								<entry from="SPLY" to="spillway"/>
+								<entry from="SQR" to="square"/>
+								<entry from="STBL" to="stable"/>
+								<entry from="STDM" to="stadium"/>
+								<entry from="STNB" to="scientific research base"/>
+								<entry from="STNC" to="coast guard station"/>
+								<entry from="STNE" to="experiment station"/>
+								<entry from="STNF" to="forest station"/>
+								<entry from="STNI" to="inspection station"/>
+								<entry from="STNM" to="meteorological station"/>
+								<entry from="STNR" to="radio station"/>
+								<entry from="STNS" to="satellite station"/>
+								<entry from="STNW" to="whaling station"/>
+								<entry from="STPS" to="steps"/>
+								<entry from="SWT" to="sewage treatment plant"/>
+								<entry from="SYG" to="synagogue"/>
+								<entry from="THTR" to="theater"/>
+								<entry from="TMB" to="tomb(s)"/>
+								<entry from="TMPL" to="temple(s)"/>
+								<entry from="TNKD" to="cattle dipping tank"/>
+								<entry from="TOLL" to="toll gate/barrier"/>
+								<entry from="TOWR" to="tower"/>
+								<entry from="TRAM" to="tram"/>
+								<entry from="TRANT" to="transit terminal"/>
+								<entry from="TRIG" to="triangulation station"/>
+								<entry from="TRMO" to="oil pipeline terminal"/>
+								<entry from="TWO" to="temp work office"/>
+								<entry from="UNIP" to="university prep school"/>
+								<entry from="UNIV" to="university"/>
+								<entry from="USGE" to="united states government establishment"/>
+								<entry from="VETF" to="veterinary facility"/>
+								<entry from="WALL" to="wall"/>
+								<entry from="WALLA" to="ancient wall"/>
+								<entry from="WEIR" to="weir(s)"/>
+								<entry from="WHRF" to="wharf(-ves)"/>
+								<entry from="WRCK" to="wreck"/>
+								<entry from="WTRW" to="waterworks"/>
+								<entry from="ZNF" to="free trade zone"/>
+								<entry from="ZOO" to="zoo"/>
+								<entry from="ASPH" to="asphalt lake"/>
+								<entry from="ATOL" to="atoll(s)"/>
+								<entry from="BAR" to="bar"/>
+								<entry from="BCH" to="beach"/>
+								<entry from="BCHS" to="beaches"/>
+								<entry from="BDLD" to="badlands"/>
+								<entry from="BLDR" to="boulder field"/>
+								<entry from="BLHL" to="blowhole(s)"/>
+								<entry from="BLOW" to="blowout(s)"/>
+								<entry from="BNCH" to="bench"/>
+								<entry from="BUTE" to="butte(s)"/>
+								<entry from="CAPE" to="cape"/>
+								<entry from="CFT" to="cleft(s)"/>
+								<entry from="CLDA" to="caldera"/>
+								<entry from="CLF" to="cliff(s)"/>
+								<entry from="CNYN" to="canyon"/>
+								<entry from="CONE" to="cone(s)"/>
+								<entry from="CRDR" to="corridor"/>
+								<entry from="CRQ" to="cirque"/>
+								<entry from="CRQS" to="cirques"/>
+								<entry from="CRTR" to="crater(s)"/>
+								<entry from="CUET" to="cuesta(s)"/>
+								<entry from="DLTA" to="delta"/>
+								<entry from="DPR" to="depression(s)"/>
+								<entry from="DSRT" to="desert"/>
+								<entry from="DUNE" to="dune(s)"/>
+								<entry from="DVD" to="divide"/>
+								<entry from="ERG" to="sandy desert"/>
+								<entry from="FAN" to="fan(s)"/>
+								<entry from="FORD" to="ford"/>
+								<entry from="FSR" to="fissure"/>
+								<entry from="GAP" to="gap"/>
+								<entry from="GRGE" to="gorge(s)"/>
+								<entry from="HDLD" to="headland"/>
+								<entry from="HLL" to="hill"/>
+								<entry from="HLLS" to="hills"/>
+								<entry from="HMCK" to="hammock(s)"/>
+								<entry from="HMDA" to="rock desert"/>
+								<entry from="INTF" to="interfluve"/>
+								<entry from="ISL" to="island"/>
+								<entry from="ISLET" to="islet"/>
+								<entry from="ISLF" to="artificial island"/>
+								<entry from="ISLM" to="mangrove island"/>
+								<entry from="ISLS" to="islands"/>
+								<entry from="ISLT" to="land-tied island"/>
+								<entry from="ISLX" to="section of island"/>
+								<entry from="ISTH" to="isthmus"/>
+								<entry from="KRST" to="karst area"/>
+								<entry from="LAVA" to="lava area"/>
+								<entry from="LEV" to="levee"/>
+								<entry from="MESA" to="mesa(s)"/>
+								<entry from="MND" to="mound(s)"/>
+								<entry from="MRN" to="moraine"/>
+								<entry from="MT" to="mountain"/>
+								<entry from="MTS" to="mountains"/>
+								<entry from="NKM" to="meander neck"/>
+								<entry from="NTK" to="nunatak"/>
+								<entry from="NTKS" to="nunataks"/>
+								<entry from="PAN" to="pan"/>
+								<entry from="PANS" to="pans"/>
+								<entry from="PASS" to="pass"/>
+								<entry from="PEN" to="peninsula"/>
+								<entry from="PENX" to="section of peninsula"/>
+								<entry from="PK" to="peak"/>
+								<entry from="PKS" to="peaks"/>
+								<entry from="PLAT" to="plateau"/>
+								<entry from="PLATX" to="section of plateau"/>
+								<entry from="PLDR" to="polder"/>
+								<entry from="PLN" to="plain(s)"/>
+								<entry from="PLNX" to="section of plain"/>
+								<entry from="PROM" to="promontory(-ies)"/>
+								<entry from="PT" to="point"/>
+								<entry from="PTS" to="points"/>
+								<entry from="RDGB" to="beach ridge"/>
+								<entry from="RDGE" to="ridge(s)"/>
+								<entry from="REG" to="stony desert"/>
+								<entry from="RK" to="rock"/>
+								<entry from="RKFL" to="rockfall"/>
+								<entry from="RKS" to="rocks"/>
+								<entry from="SAND" to="sand area"/>
+								<entry from="SBED" to="dry stream bed"/>
+								<entry from="SCRP" to="escarpment"/>
+								<entry from="SDL" to="saddle"/>
+								<entry from="SHOR" to="shore"/>
+								<entry from="SINK" to="sinkhole"/>
+								<entry from="SLID" to="slide"/>
+								<entry from="SLP" to="slope(s)"/>
+								<entry from="SPIT" to="spit"/>
+								<entry from="SPUR" to="spur(s)"/>
+								<entry from="TAL" to="talus slope"/>
+								<entry from="TRGD" to="interdune trough(s)"/>
+								<entry from="TRR" to="terrace"/>
+								<entry from="UPLD" to="upland"/>
+								<entry from="VAL" to="valley"/>
+								<entry from="VALG" to="hanging valley"/>
+								<entry from="VALS" to="valleys"/>
+								<entry from="VALX" to="section of valley"/>
+								<entry from="VLC" to="volcano"/>
+								<entry from="APNU" to="apron"/>
+								<entry from="ARCU" to="arch"/>
+								<entry from="ARRU" to="arrugado"/>
+								<entry from="BDLU" to="borderland"/>
+								<entry from="BKSU" to="banks"/>
+								<entry from="BNKU" to="bank"/>
+								<entry from="BSNU" to="basin"/>
+								<entry from="CDAU" to="cordillera"/>
+								<entry from="CNSU" to="canyons"/>
+								<entry from="CNYU" to="canyon"/>
+								<entry from="CRSU" to="continental rise"/>
+								<entry from="DEPU" to="deep"/>
+								<entry from="EDGU" to="shelf edge"/>
+								<entry from="ESCU" to="escarpment (or scarp)"/>
+								<entry from="FANU" to="fan"/>
+								<entry from="FLTU" to="flat"/>
+								<entry from="FRZU" to="fracture zone"/>
+								<entry from="FURU" to="furrow"/>
+								<entry from="GAPU" to="gap"/>
+								<entry from="GLYU" to="gully"/>
+								<entry from="HLLU" to="hill"/>
+								<entry from="HLSU" to="hills"/>
+								<entry from="HOLU" to="hole"/>
+								<entry from="KNLU" to="knoll"/>
+								<entry from="KNSU" to="knolls"/>
+								<entry from="LDGU" to="ledge"/>
+								<entry from="LEVU" to="levee"/>
+								<entry from="MESU" to="mesa"/>
+								<entry from="MNDU" to="mound"/>
+								<entry from="MOTU" to="moat"/>
+								<entry from="MTU" to="mountain"/>
+								<entry from="PKSU" to="peaks"/>
+								<entry from="PKU" to="peak"/>
+								<entry from="PLNU" to="plain"/>
+								<entry from="PLTU" to="plateau"/>
+								<entry from="PNLU" to="pinnacle"/>
+								<entry from="PRVU" to="province"/>
+								<entry from="RDGU" to="ridge"/>
+								<entry from="RDSU" to="ridges"/>
+								<entry from="RFSU" to="reefs"/>
+								<entry from="RFU" to="reef"/>
+								<entry from="RISU" to="rise"/>
+								<entry from="SCNU" to="seachannel"/>
+								<entry from="SCSU" to="seachannels"/>
+								<entry from="SDLU" to="saddle"/>
+								<entry from="SHFU" to="shelf"/>
+								<entry from="SHLU" to="shoal"/>
+								<entry from="SHSU" to="shoals"/>
+								<entry from="SHVU" to="shelf valley"/>
+								<entry from="SILU" to="sill"/>
+								<entry from="SLPU" to="slope"/>
+								<entry from="SMSU" to="seamounts"/>
+								<entry from="SMU" to="seamount"/>
+								<entry from="SPRU" to="spur"/>
+								<entry from="TERU" to="terrace"/>
+								<entry from="TMSU" to="tablemounts (or guyots)"/>
+								<entry from="TMTU" to="tablemount (or guyot)"/>
+								<entry from="TNGU" to="tongue"/>
+								<entry from="TRGU" to="trough"/>
+								<entry from="TRNU" to="trench"/>
+								<entry from="VALU" to="valley"/>
+								<entry from="VLSU" to="valleys"/>
+								<entry from="BUSH" to="bush(es)"/>
+								<entry from="CULT" to="cultivated area"/>
+								<entry from="FRST" to="forest(s)"/>
+								<entry from="FRSTF" to="fossilized forest"/>
+								<entry from="GROVE" to="grove"/>
+								<entry from="GRSLD" to="grassland"/>
+								<entry from="GRVC" to="coconut grove"/>
+								<entry from="GRVO" to="olive grove"/>
+								<entry from="GRVP" to="palm grove"/>
+								<entry from="GRVPN" to="pine grove"/>
+								<entry from="HTH" to="heath"/>
+								<entry from="MDW" to="meadow"/>
+								<entry from="OCH" to="orchard(s)"/>
+								<entry from="SCRB" to="scrubland"/>
+								<entry from="TREE" to="tree(s)"/>
+								<entry from="TUND" to="tundra"/>
+								<entry from="VIN" to="vineyard"/>
+								<entry from="VINS" to="vineyards"/>
+								<entry from="ll" to="not available"/>
+							</valuemapTable>
+							<input name="feature_code" type="string"/>
+							<result name="feature_name" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="GeoNames" library="text" uid="5" kind="16">
+					<properties/>
+					<view ltx="6" lty="76" rbx="226" rby="449"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="16" expanded="1">
+										<entry name="name" outkey="1"/>
+										<entry name="latitude" outkey="2"/>
+										<entry name="longitude" outkey="3"/>
+										<entry name="feature_code" outkey="17"/>
+										<entry name="country_code" outkey="18"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="..\Data\geonamesData.csv">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="GeoNames" block="Rows">
+									<field0 name="Field1" type="string"/>
+									<field1 name="geonameid" type="string"/>
+									<field2 name="name" type="string"/>
+									<field3 name="asciiname" type="string"/>
+									<field4 name="alternatenames" type="string"/>
+									<field5 name="latitude" type="string"/>
+									<field6 name="longitude" type="string"/>
+									<field7 name="feature_class" type="string"/>
+									<field8 name="feature_code" type="string"/>
+									<field9 name="country_code" type="string"/>
+									<field10 name="cc2" type="string"/>
+									<field11 name="admin1_code" type="string"/>
+									<field12 name="admin2_code" type="string"/>
+									<field13 name="admin3_code" type="string"/>
+									<field14 name="admin4_code" type="string"/>
+									<field15 name="population" type="string"/>
+									<field16 name="elevation" type="string"/>
+									<field17 name="dem" type="string"/>
+									<field18 name="timezone" type="string"/>
+									<field19 name="modification_date" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="sights_schema" library="xml" uid="22" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="884" lty="-24" rbx="1279" rby="400"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="sights" expanded="1">
+										<entry name="sight" inpkey="35" expanded="1">
+											<entry name="id" inpkey="36"/>
+											<entry name="name" inpkey="37"/>
+											<entry name="types" expanded="1">
+												<entry name="type" inpkey="38"/>
+											</entry>
+											<entry name="description" inpkey="39"/>
+											<entry name="country" inpkey="40"/>
+											<entry name="city" inpkey="45"/>
+											<entry name="longitude" inpkey="41"/>
+											<entry name="latitude" inpkey="42"/>
+											<entry name="popularity" inpkey="46"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="sights_schema.xsd" instanceroot="{}sights" inputinstance="sights_schema.xml" outputinstance="sights_schema.xml"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="44"/>
+					</targets>
+					<view ltx="724" lty="386" rbx="768" rby="403"/>
+					<data>
+						<constant value="-1" datatype="decimal"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="7" to="9"/>
+			<edge from="30" to="10"/>
+			<edge from="18" to="12"/>
+			<edge from="8" to="29"/>
+			<edge from="17" to="31"/>
+			<edge from="17" to="33"/>
+			<edge from="16" to="35"/>
+			<edge from="11" to="36"/>
+			<edge from="1" to="37"/>
+			<edge from="32" to="38"/>
+			<edge from="34" to="39"/>
+			<edge from="13" to="40"/>
+			<edge from="3" to="41"/>
+			<edge from="2" to="42"/>
+			<edge from="43" to="45"/>
+			<edge from="44" to="46"/>
+		</connections>
+	</component>
+</mapping>

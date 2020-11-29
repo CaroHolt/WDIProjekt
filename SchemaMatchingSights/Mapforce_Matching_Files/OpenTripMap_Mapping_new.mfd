@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2021 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="34" kind="2">
+					<targets>
+						<datapoint pos="0" key="36"/>
+					</targets>
+					<view ltx="502" lty="262" rbx="547" rby="279"/>
+					<data>
+						<constant value="[" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="38" kind="2">
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="499" lty="347" rbx="544" rby="364"/>
+					<data>
+						<constant value="]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="35" kind="2">
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="502" lty="290" rbx="544" rby="307"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="40" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="39"/>
+					</targets>
+					<view ltx="405" lty="-5" rbx="547" rby="81"/>
+				</component>
+				<component name="constant" library="core" uid="43" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="564" lty="5" rbx="693" rby="22"/>
+					<data>
+						<constant value="opentripmap_id_" datatype="string"/>
+					</data>
+				</component>
+				<component name="substring-after" library="core" uid="20" kind="5">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="8"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="359" lty="378" rbx="463" rby="432"/>
+				</component>
+				<component name="substring-before" library="core" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="5"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="359" lty="305" rbx="473" rby="359"/>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="247" lty="358" rbx="292" rby="375"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="48" kind="2">
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="401" lty="156" rbx="463" rby="173"/>
+					<data>
+						<constant value="[ ,]+" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="891" lty="195" rbx="984" rby="212"/>
+					<data>
+						<constant value="Unknown" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="32"/>
+					</targets>
+					<view ltx="891" lty="156" rbx="961" rby="173"/>
+					<data>
+						<constant value="None" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="42" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="42"/>
+						<datapoint pos="1" key="43"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="44"/>
+					</targets>
+					<view ltx="739" lty="25" rbx="821" rby="81"/>
+				</component>
+				<component name="replace" library="lang" uid="33" kind="5">
+					<sources>
+						<datapoint pos="0" key="45"/>
+						<datapoint pos="1" key="46"/>
+						<datapoint pos="2" key="47"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="48"/>
+					</targets>
+					<view ltx="720" lty="262" rbx="821" rby="332"/>
+				</component>
+				<component name="replace" library="lang" uid="37" kind="5">
+					<sources>
+						<datapoint pos="0" key="49"/>
+						<datapoint pos="1" key="50"/>
+						<datapoint pos="2" key="51"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="52"/>
+					</targets>
+					<view ltx="720" lty="362" rbx="821" rby="432"/>
+				</component>
+				<component name="tokenize-regexp" library="core" uid="47" kind="5">
+					<sources>
+						<datapoint pos="0" key="63"/>
+						<datapoint pos="1" key="64"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="65"/>
+					</targets>
+					<view ltx="533" lty="129" rbx="643" rby="199"/>
+				</component>
+				<component name="OpenTripMap" library="text" uid="3" kind="16">
+					<properties/>
+					<view ltx="11" lty="81" rbx="248" rby="284"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="24" expanded="1">
+										<entry name="coordinates" outkey="26"/>
+										<entry name="name" outkey="28"/>
+										<entry name="rate" outkey="29"/>
+										<entry name="kinds" outkey="30"/>
+										<entry name="closest_city" outkey="31"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="opentripmap_new.csv">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="OpenTripMap" block="Rows">
+									<field0 name="Field1" type="string"/>
+									<field1 name="ID" type="string"/>
+									<field2 name="coordinates" type="string"/>
+									<field3 name="xid" type="string"/>
+									<field4 name="name" type="string"/>
+									<field5 name="dist" type="string"/>
+									<field6 name="rate" type="string"/>
+									<field7 name="wikidata" type="string"/>
+									<field8 name="kinds" type="string"/>
+									<field9 name="closest_city" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="sights_schema" library="xml" uid="49" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1118" lty="81" rbx="1326" rby="446"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="sights" expanded="1">
+										<entry name="sight" inpkey="66" expanded="1">
+											<entry name="id" inpkey="54"/>
+											<entry name="name" inpkey="55"/>
+											<entry name="types" expanded="1">
+												<entry name="type" inpkey="56"/>
+											</entry>
+											<entry name="description" inpkey="57"/>
+											<entry name="country" inpkey="58"/>
+											<entry name="city" inpkey="59"/>
+											<entry name="longitude" inpkey="60"/>
+											<entry name="latitude" inpkey="61"/>
+											<entry name="popularity" inpkey="62"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="sights_schema.xsd" instanceroot="{}sights" inputinstance="sights_schema.xml" outputinstance="sights_schema.xml"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="4"/>
+							<edge vertexkey="7"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="5"/>
+							<edge vertexkey="8"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="40">
+						<edges>
+							<edge vertexkey="42"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="39">
+						<edges>
+							<edge vertexkey="43"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="45"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="36">
+						<edges>
+							<edge vertexkey="46"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="38">
+						<edges>
+							<edge vertexkey="47"/>
+							<edge vertexkey="51"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="9">
+						<edges>
+							<edge vertexkey="49"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="37">
+						<edges>
+							<edge vertexkey="50"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="44">
+						<edges>
+							<edge vertexkey="54"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="55"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="65">
+						<edges>
+							<edge vertexkey="56"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="32">
+						<edges>
+							<edge vertexkey="57"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="33">
+						<edges>
+							<edge vertexkey="58"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="59"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="48">
+						<edges>
+							<edge vertexkey="60"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="52">
+						<edges>
+							<edge vertexkey="61"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="29">
+						<edges>
+							<edge vertexkey="62"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="63"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="64"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="66"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
