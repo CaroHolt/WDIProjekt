@@ -28,4 +28,4 @@ file for the WDI-Project "Integrated Sightseeing" by Group 7.
 
 
 --------
-4. FinalReportSights: contains our final report in .pdf-format
+4. FinalReport: contains the final report in .pdf-format
