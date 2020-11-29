@@ -6,3 +6,4 @@ IdentityResolutionSights/.project
 IdentityResolutionSights/data/output/debugResultsBlocking.csv
 IdentityResolutionSights/data/output/debugResultsMatchingRule.csv
 IdentityResolutionSights/data/output/debugResultsMatchingRule.csv_short
+IdentityResolutionSights/data/input/geonames_sampled.xml
