@@ -43,6 +43,8 @@ public class IR_using_machine_learning {
          */
         MatchingPair selected = MatchingPair.PAIR_OPEN_GEO;
 
+        // Add time measuring
+        long startTime = System.nanoTime();
 
         // loading data
         System.out.println("*\n*\tLoading datasets\n*");
@@ -154,6 +156,10 @@ public class IR_using_machine_learning {
                 "Recall: %.4f",	perfTest.getRecall()));
         System.out.println(String.format(
                 "F1: %.4f",perfTest.getF1()));
+        
+        long stopTime = System.nanoTime();
+        // Print execution time in ms
+        System.out.println("required time: " + (stopTime - startTime) / 1000000 + " ms");
     }
 
     public enum MatchingPair{
