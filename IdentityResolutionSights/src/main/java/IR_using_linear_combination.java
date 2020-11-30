@@ -44,7 +44,7 @@ public class IR_using_linear_combination {
          *      - PAIR_OPEN_WIKI
          *      - PAIR_GEO_WIKI
          */
-        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_OPEN_GEO;
+        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_OPEN_WIKI;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -128,7 +128,17 @@ public class IR_using_linear_combination {
 //		 correspondences = maxWeight.getResult();
 
         // write the correspondences to the output file
-        new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wikidata_2_otm_correspondences.csv"), correspondences);
+        switch (selected){
+            case PAIR_GEO_WIKI:
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
+                break;
+            case PAIR_OPEN_WIKI:
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/open_2_wiki_correspondences.csv"), correspondences);
+                break;
+            case PAIR_OPEN_GEO:
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/open_2_geo_correspondences.csv"), correspondences);
+                break;
+        }
 
 
 

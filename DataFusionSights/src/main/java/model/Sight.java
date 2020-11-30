@@ -27,9 +27,9 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
     private String description;
     private String country;
     private String city;
-    private float longitude;
-    private float latitude;
-    private byte popularity;
+    private Float longitude;
+    private Float latitude;
+    private Byte popularity;
 
     public String getName() {
         return name;
@@ -71,27 +71,27 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
         this.city = city;
     }
 
-    public float getLongitude() {
+    public Float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(Float longitude) {
         this.longitude = longitude;
     }
 
-    public float getLatitude() {
+    public Float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(Float latitude) {
         this.latitude = latitude;
     }
 
-    public float getPopularity() {
+    public Byte getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(byte popularity) {
+    public void setPopularity(Byte popularity) {
         this.popularity = popularity;
     }
 
@@ -130,6 +130,7 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
 
     public static final Attribute NAME = new Attribute("Name");
     public static final Attribute TYPES = new Attribute("Types");
+    public static final Attribute DESCRIPTION = new Attribute("Description");
     public static final Attribute COUNTRY = new Attribute("Country");
     public static final Attribute CITY = new Attribute("City");
     public static final Attribute LONGITUDE = new Attribute("Longitude");
@@ -143,6 +144,8 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
     public boolean hasValue(Attribute attribute) {
         if(attribute==NAME)
             return getName() != null && !getName().isEmpty();
+        else if(attribute==DESCRIPTION)
+            return getDescription() != null && !getDescription().isEmpty();
         else if(attribute==TYPES)
             return getTypes() != null && getTypes().size() > 0;
         else if(attribute==COUNTRY)
@@ -150,11 +153,11 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
         else if(attribute==CITY)
             return getCity() != null && !getCity().isEmpty();
         else if(attribute==LONGITUDE)
-            return getLongitude() != 0.0;
+            return getLongitude() != null;
         else if(attribute==LATITUDE)
-            return getLatitude() != 0.0;
+            return getLatitude() != null;
         else if(attribute==POPULARITY)
-            return getPopularity() != 0;
+            return getPopularity() != null;
         else
             return false;
     }
