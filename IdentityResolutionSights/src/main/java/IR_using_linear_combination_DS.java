@@ -67,7 +67,7 @@ public class IR_using_linear_combination_DS {
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train_false.csv"));
+        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train.csv"));
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
@@ -75,7 +75,7 @@ public class IR_using_linear_combination_DS {
 
         // add comparators
                 // FOR NAME
-        matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorEqual(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
         //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
         //matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
@@ -83,17 +83,17 @@ public class IR_using_linear_combination_DS {
         //matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
         
         	// FOR COORDINATES    
-        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
-        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.2);
+        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.2);
         //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.2);
-        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.2);
-        matchingRule.addComparator(new SightLocationComparator(), 0.2);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.2);
+        //matchingRule.addComparator(new SightLocationComparator(), 0.5);
         	
         	// FOR COUNTRY
         // matchingRule.addComparator(new SightCountryComparator(), 0.1); -> Doesn't work here, as OTM does not contain this information
         	// FOR CITY
         //matchingRule.addComparator(new SightCityComparator(), 0.1);
-        matchingRule.addComparator(new SightCityComparatorTokenJaccard(), 0.1);
+        //matchingRule.addComparator(new SightCityComparatorTokenJaccard(), 0.1);
         
         
         // create a blocker (blocking strategy)
