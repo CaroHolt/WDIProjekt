@@ -41,7 +41,7 @@ public class IR_using_machine_learning {
          *      - PAIR_OPEN_WIKI
          *      - PAIR_GEO_WIKI
          */
-        MatchingPair selected = MatchingPair.PAIR_OPEN_GEO;
+        MatchingPair selected = MatchingPair.PAIR_GEO_WIKI;
 
         // Add time measuring
         long startTime = System.nanoTime();
