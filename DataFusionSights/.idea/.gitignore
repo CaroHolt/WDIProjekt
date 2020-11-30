@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../../:\Users\d067795\OneDrive - SAP SE\Documents\Master\Semester 3\Web Data Integration\Exercises\DataFusion\WebDataIntegrationSights\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
