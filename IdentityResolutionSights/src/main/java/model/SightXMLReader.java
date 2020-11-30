@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -68,21 +69,13 @@ public class SightXMLReader extends XMLMatchableReader<Sight, Attribute> {
             e.printStackTrace();
         }
 
-        /*List<String> types = new ArrayList<String>();
-        NodeList subNodes = (NodeList) node.getChildNodes();
-        for(int i = 0; i < subNodes.getLength(); i++) {
-            if(subNodes.item(i).getNodeName() == "types") {
-                NodeList subsubNodes = (NodeList) subNodes.item(i).getChildNodes();
-                String typeval = getValueFromChildElement(subsubNodes.item(i), "type");
-                System.out.println(typeval);
-                for(int k = 0; k < subsubNodes.getLength(); k++) {
-                    if(subsubNodes.item(k).getNodeName() == "type") {
-                        types.add(subsubNodes.item(k).getNodeValue());
-                    }
-                }
-            }
+        String[] types = getValueFromChildElement(node, "types").split("\\r?\\n");
+        for(int i = 0; i < types.length; i++) {
+            String type = types[i].replace("\t", "");
+            types[i] = type;
         }
-        sight.setTypes(types);*/
+        List<String> types_list = Arrays.asList(types);
+        sight.setTypes(types_list);
 
         return sight;
     }
