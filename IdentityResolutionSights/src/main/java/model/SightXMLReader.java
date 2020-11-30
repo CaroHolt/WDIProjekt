@@ -69,14 +69,18 @@ public class SightXMLReader extends XMLMatchableReader<Sight, Attribute> {
             e.printStackTrace();
         }
 
-        String[] types = getValueFromChildElement(node, "types").split("\\r?\\n");
-        for(int i = 0; i < types.length; i++) {
-            String type = types[i].replace("\t", "");
-            types[i] = type;
+        try{
+	        String[] types = getValueFromChildElement(node, "types").split("\\r?\\n");
+	        for(int i = 0; i < types.length; i++) {
+	            String type = types[i].replace("\t", "");
+	            types[i] = type;
+	        }
+	        List<String> types_list = Arrays.asList(types);
+	        sight.setTypes(types_list);
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        List<String> types_list = Arrays.asList(types);
-        sight.setTypes(types_list);
-
+        
         return sight;
     }
 }
