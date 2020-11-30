@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sights>
+  <sight>
+	<id>1</id>
+	<name>Stadtmuseum Delmenhorst</name>
+	<types>
+		<type>Museum</type>
+		<type>Stadtmuseum</type>
+	</types>
+	<description>Museum in Niedersachsen</description>
+	<country>Deutschland</country>
+	<city>Delmenhorst</city>
+	<longitude>8.637217</longitude>
+	<latitude>53.054202</latitude>
+	<popularity>3</popularity>
+	</sight>
+</sights>
