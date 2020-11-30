@@ -13,8 +13,8 @@ public class Sight implements Matchable {
     private String description;
     private String country;
     private String city;
-    private Float longitude;
-    private Float latitude;
+    private float longitude;
+    private float latitude;
     private Byte popularity;
 
     public Sight(String identifier, String provenance){
@@ -72,19 +72,19 @@ public class Sight implements Matchable {
         this.city = city;
     }
 
-    public Float getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
-    public Float getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
