@@ -128,8 +128,6 @@ public class IR_using_linear_combination_DS {
         // write the correspondences to the output file
         new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wikidata_2_otm_correspondences.csv"), correspondences);
 
-
-
         System.out.println("*\n*\tEvaluating result\n*");
         // evaluate your result
         MatchingEvaluator<Sight, Attribute> evaluator = new MatchingEvaluator<Sight, Attribute>();
