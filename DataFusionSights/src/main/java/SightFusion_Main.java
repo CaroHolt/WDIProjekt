@@ -7,6 +7,7 @@ import java.time.temporal.ChronoField;
 import java.util.Locale;
 
 import evaluation.*;
+import fusers.*;
 import model.Sight;
 import model.SightXMLFormatter;
 import model.SightXMLReader;
@@ -43,15 +44,15 @@ public class SightFusion_Main {
         // Load the Data into FusibleDataSet
         System.out.println("*\n*\tLoading datasets\n*");
         FusibleDataSet<Sight, Attribute> ds1 = new FusibleHashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/geonames.xml"), "/sights/sight", ds1);
+        new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", ds1);
         ds1.printDataSetDensityReport();
 
         FusibleDataSet<Sight, Attribute> ds2 = new FusibleHashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/opentripmap.xml"), "/sights/sight", ds2);
+        new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", ds2);
         ds2.printDataSetDensityReport();
 
         FusibleDataSet<Sight, Attribute> ds3 = new FusibleHashedDataSet<>();
-        new SightXMLReader().loadFromXML(new File("data/input/wikidata.xml"), "/sights/sight", ds3);
+        new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", ds3);
         ds3.printDataSetDensityReport();
 
         // Maintain Provenance
@@ -76,7 +77,9 @@ public class SightFusion_Main {
         System.out.println("*\n*\tLoading correspondences\n*");
         CorrespondenceSet<Sight, Attribute> correspondences = new CorrespondenceSet<>();
         correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Opentripmap_Geonames.csv"),ds1, ds2);
+        correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Opentripmap_Geonames.csv"),ds2, ds3);
         correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Wikidata_Geonames.csv"),ds1, ds3);
+
 
         // write group size distribution
         correspondences.printGroupSizeDistribution();
@@ -96,12 +99,12 @@ public class SightFusion_Main {
         strategy.activateDebugReport("data/output/debugResultsDatafusion.csv", -1, gs);
 
         // add attribute fusers
-        // !!! INSERT OUR FUSERS !!!
-        strategy.addAttributeFuser(Sight.NAME, new TitleFuserShortestString(),new NameEvaluationRule());
-        strategy.addAttributeFuser(Sight.CITY,new ActorsFuserUnion(),new CityEvaluationRule());
-        strategy.addAttributeFuser(Sight.COUNTRY,new ActorsFuserUnion(),new CountryEvaluationRule());
-        strategy.addAttributeFuser(Sight.LONGITUDE,new ActorsFuserUnion(),new LongitudeEvaluationRule());
-        strategy.addAttributeFuser(Sight.LATITUDE,new ActorsFuserUnion(),new LatitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.NAME, new NameFuserShortestString(),new NameEvaluationRule());
+        strategy.addAttributeFuser(Sight.CITY,new CityFuserVoting(),new CityEvaluationRule());
+        strategy.addAttributeFuser(Sight.COUNTRY,new CountryFuserVoting(),new CountryEvaluationRule());
+        strategy.addAttributeFuser(Sight.LONGITUDE,new LongitudeFuserVoting(),new LongitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LATITUDE,new LatitudeFuserVoting(),new LatitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.POPULARITY,new PopularityFuserFavorSource(),new LatitudeEvaluationRule());
 
         // create the fusion engine
         DataFusionEngine<Sight, Attribute> engine = new DataFusionEngine<>(strategy);
