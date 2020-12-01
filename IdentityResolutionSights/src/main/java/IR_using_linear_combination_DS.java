@@ -1,4 +1,6 @@
+import Blocking.SightBlockingKeyByCityGenerator;
 import Blocking.SightBlockingKeyByCountryGenerator;
+import Blocking.SightBlockingKeyByLocationGenerator;
 import Blocking.SightBlockingKeyByNameGenerator;
 import Comparators.SightCityComparator;
 import Comparators.SightCityComparatorTokenJaccard;
@@ -83,25 +85,25 @@ public class IR_using_linear_combination_DS {
         //matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
         
         	// FOR COORDINATES    
-        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
-        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.2);
-        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.2);
-        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.2);
-        //matchingRule.addComparator(new SightLocationComparator(), 0.5);
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.3);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.5);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.3);
+        matchingRule.addComparator(new SightLocationComparator(), 0.5);
         	
         	// FOR COUNTRY
         // matchingRule.addComparator(new SightCountryComparator(), 0.1); -> Doesn't work here, as OTM does not contain this information
         	// FOR CITY
         //matchingRule.addComparator(new SightCityComparator(), 0.1);
-        //matchingRule.addComparator(new SightCityComparatorTokenJaccard(), 0.1);
+        // matchingRule.addComparator(new SightCityComparatorTokenJaccard(), 0.2);
         
         
         // create a blocker (blocking strategy)
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
-        
+//      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
 //      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
 //		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
-//		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);      
+//		StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());
+        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
         blocker.collectBlockSizeData("data/output/debugResultsBlocking_wikidata_2_otm.csv", 100);
