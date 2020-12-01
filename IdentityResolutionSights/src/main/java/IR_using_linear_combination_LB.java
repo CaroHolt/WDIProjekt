@@ -1,5 +1,4 @@
 import Blocking.SightBlockingKeyByNameGenerator;
-import Comparators.SightLatitudeComparatorRound4;
 import Comparators.SightLongitudeComparatorAbsDiff;
 import Comparators.SightNameComparatorEqual;
 import Comparators.SightNameComparatorJaccard;
