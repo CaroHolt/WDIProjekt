@@ -40,11 +40,11 @@ public class IR_using_linear_combination {
     {
         /* Define Data pair that should be matched
          * The options are:
-         *      - PAIR_OPEN_GEO
-         *      - PAIR_OPEN_WIKI
-         *      - PAIR_GEO_WIKI
+         *      - PAIR_WIKI_GEO
+         *      - PAIR_WIKI_OTM
+         *      - PAIR_OTM_GEO
          */
-        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_OPEN_WIKI;
+        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_WIKI_OTM;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -54,15 +54,15 @@ public class IR_using_linear_combination {
         HashedDataSet<Sight, Attribute> dataset1 = new HashedDataSet<>();
         HashedDataSet<Sight, Attribute> dataset2 = new HashedDataSet<>();
         switch (selected){
-            case PAIR_GEO_WIKI:
-                new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset1);
-                new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset2);
+            case PAIR_WIKI_GEO:
+                new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset2);
                 break;
-            case PAIR_OPEN_WIKI:
-                new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset1);
-                new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset2);
+            case PAIR_WIKI_OTM:
+                new SightXMLReader().loadFromXML(new File("data/input/wikidata_deduplicated.xml"), "/sights/sight", dataset1);
+                new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset2);
                 break;
-            case PAIR_OPEN_GEO:
+            case PAIR_OTM_GEO:
                 new SightXMLReader().loadFromXML(new File("data/input/opentripmap_deduplicated.xml"), "/sights/sight", dataset1);
                 new SightXMLReader().loadFromXML(new File("data/input/geonames_sampled.xml"), "/sights/sight", dataset2);
                 break;
@@ -72,13 +72,13 @@ public class IR_using_linear_combination {
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
         switch (selected){
-            case PAIR_GEO_WIKI:
+            case PAIR_WIKI_GEO:
                 gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wiki_geo_test.csv"));
                 break;
-            case PAIR_OPEN_WIKI:
+            case PAIR_WIKI_OTM:
                 gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_test.csv"));
                 break;
-            case PAIR_OPEN_GEO:
+            case PAIR_OTM_GEO:
                 gsTest.loadFromCSVFile(new File("data/goldstandard/gs_opentripmap_geonames_test.csv"));
                 break;
         }
@@ -129,14 +129,14 @@ public class IR_using_linear_combination {
 
         // write the correspondences to the output file
         switch (selected){
-            case PAIR_GEO_WIKI:
+            case PAIR_WIKI_GEO:
                 new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
                 break;
-            case PAIR_OPEN_WIKI:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/open_2_wiki_correspondences.csv"), correspondences);
+            case PAIR_WIKI_OTM:
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_otm_correspondences.csv"), correspondences);
                 break;
-            case PAIR_OPEN_GEO:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/open_2_geo_correspondences.csv"), correspondences);
+            case PAIR_OTM_GEO:
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/otm_2_geo_correspondences.csv"), correspondences);
                 break;
         }
 
@@ -163,10 +163,10 @@ public class IR_using_linear_combination {
     }
 
     public enum MatchingPair{
-        PAIR_OPEN_GEO("OpenTripMap <-> Geonames"),
-        PAIR_OPEN_WIKI("OpenTripMap <-> Wikidata"),
-        PAIR_GEO_WIKI("Geonames <-> Wikidata");
-
+    	PAIR_WIKI_GEO("Wikidata <-> Geonames"),
+    	PAIR_WIKI_OTM("Wikidata <-> OpenTripMap"),
+    	PAIR_OTM_GEO("OpenTripMap <-> Geonames");
+        
         final String PAIRINFO;
         MatchingPair(String info) {
             PAIRINFO = info;
