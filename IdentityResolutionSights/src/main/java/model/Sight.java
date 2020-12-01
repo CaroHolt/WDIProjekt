@@ -99,7 +99,7 @@ public class Sight implements Matchable {
 
     @Override
     public String toString() {
-        return String.format("[Movie %s: %s / %s / %s]", getIdentifier(), getName(), getLatitude(), getLongitude());
+        return String.format("[Sight %s: %s / %s / %s]", getIdentifier(), getName(), getLatitude(), getLongitude());
     }
 
     @Override
