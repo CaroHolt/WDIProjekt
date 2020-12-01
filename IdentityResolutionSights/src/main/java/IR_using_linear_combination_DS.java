@@ -69,7 +69,7 @@ public class IR_using_linear_combination_DS {
         // load the gold standard (test set)
         System.out.println("*\n*\tLoading gold standard\n*");
         MatchingGoldStandard gsTest = new MatchingGoldStandard();
-        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_train.csv"));
+        gsTest.loadFromCSVFile(new File("data/goldstandard/gs_wikidata_opentripmap_test.csv"));
 
         // create a matching rule
         LinearCombinationMatchingRule<Sight, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
@@ -99,11 +99,11 @@ public class IR_using_linear_combination_DS {
         
         
         // create a blocker (blocking strategy)
-//      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
+//       StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
 //      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
 //		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
-//		StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
+		StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());
+//      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
         blocker.collectBlockSizeData("data/output/debugResultsBlocking_wikidata_2_otm.csv", 100);
