@@ -20,8 +20,8 @@
     <description>An architectural landmark of the city of Turin</description>
     <country>Italy</country>
     <city>Turin</city>
-    <longitude>7,69319</longitude>
-    <latitude>45,06899</latitude>
+    <longitude>7.69319</longitude>
+    <latitude>45.06899</latitude>
     <popularity>3</popularity>
   </sight>
   <sight>
@@ -38,8 +38,8 @@
     <description>Finland&apos;s best-known art museum</description>
     <country>Finland</country>
     <city>Helsinki</city>
-    <longitude>24,93982957</longitude>
-    <latitude>60,16866599</latitude>
+    <longitude>24.93982957</longitude>
+    <latitude>60.16866599</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -55,8 +55,8 @@
     <description>Schloss Johannisburg is a schloss in the town of Aschaffenburg</description>
     <country>Germany</country>
     <city>Aschaffenburg</city>
-    <longitude>9,14218</longitude>
-    <latitude>49,97605</latitude>
+    <longitude>9.14218</longitude>
+    <latitude>49.97605</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -76,8 +76,8 @@
     <description>Restored stone fortification hosting a permanent collection of 25 pieces by artist Martín Chirino.</description>
     <country>Spain</country>
     <city>Las Palmas de Gran Canaria</city>
-    <longitude>-15,4248</longitude>
-    <latitude>28,14864</latitude>
+    <longitude>-15.4248</longitude>
+    <latitude>28.14864</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -93,8 +93,8 @@
     <description>The Museo Correr is the most famous museum in Venice</description>
     <country>Italy</country>
     <city>Venice</city>
-    <longitude>12,33725</longitude>
-    <latitude>45,43361</latitude>
+    <longitude>12.33725</longitude>
+    <latitude>45.43361</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -111,8 +111,8 @@
     <description>The Gemäldegalerie boasts one of the world&apos;s most important collections of European painting ranging from the 13th to 18th century</description>
     <country>Germany</country>
     <city>Berlin</city>
-    <longitude>13,36475</longitude>
-    <latitude>52,50851</latitude>
+    <longitude>13.36475</longitude>
+    <latitude>52.50851</latitude>
     <popularity>3</popularity>
   </sight>
   <sight>
@@ -125,8 +125,8 @@
     <description>Villa Necchi Campiglio is a building from the 1930s previously owned by the family Necchi Campiglio.</description>
     <country>Italy</country>
     <city>Milan</city>
-    <longitude>9,201944</longitude>
-    <latitude>45,46875</latitude>
+    <longitude>9.201944</longitude>
+    <latitude>45.46875</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -140,8 +140,8 @@
     <description>museum for art, archaeology and urban and cultural history in Ulm</description>
     <country>Germany</country>
     <city>Ulm</city>
-    <longitude>9,994806</longitude>
-    <latitude>48,397028</latitude>
+    <longitude>9.994806</longitude>
+    <latitude>48.397028</latitude>
     <popularity>3</popularity>
   </sight>
   <sight>
@@ -154,8 +154,8 @@
     <description>museum in the province and is dedicated to telling the history of the province through archaeology</description>
     <country>Spain</country>
     <city>León</city>
-    <longitude>-5,571389</longitude>
-    <latitude>42,598333</latitude>
+    <longitude>-5.571389</longitude>
+    <latitude>42.598333</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -170,8 +170,8 @@
     <description>museum located in Tralee aiming to collect, record, preserve and display the material heritage of Country Kerry</description>
     <country>Ireland</country>
     <city>Tralee</city>
-    <longitude>-9,7059</longitude>
-    <latitude>52,2669</latitude>
+    <longitude>-9.7059</longitude>
+    <latitude>52.2669</latitude>
     <popularity>3</popularity>
   </sight>
   <sight>
@@ -187,8 +187,8 @@
     <description>Galleria dell&apos;Accademia was the first academy for painting in Europe</description>
     <country>Italy</country>
     <city>Florence</city>
-    <longitude>11,258475</longitude>
-    <latitude>43,776907</latitude>
+    <longitude>11.258475</longitude>
+    <latitude>43.776907</latitude>
     <popularity>3</popularity>
   </sight>
   <sight>
@@ -203,8 +203,8 @@
     <description>one of Lübeck&apos;s museums of art and cultural history containing Germany&apos;s largest collection of medieval sculpture and altar-pieces, including the famous altars by Hans Memling</description>
     <country>Germany</country>
     <city>Lübeck</city>
-    <longitude>10,689145</longitude>
-    <latitude>53,862676</latitude>
+    <longitude>10.689145</longitude>
+    <latitude>53.862676</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -218,8 +218,8 @@
     <description>the oldest bridge over the Seine in Paris preserved in its original state</description>
     <country>France</country>
     <city>Paris</city>
-    <longitude>2,341389</longitude>
-    <latitude>48,8575</latitude>
+    <longitude>2.341389</longitude>
+    <latitude>48.8575</latitude>
     <popularity>7</popularity>
   </sight>
   <sight>
@@ -234,8 +234,8 @@
     <description>first port of Bremerhaven</description>
     <country>Germany</country>
     <city>Bremerhaven</city>
-    <longitude>8,57709</longitude>
-    <latitude>53,54192</latitude>
+    <longitude>8.57709</longitude>
+    <latitude>53.54192</latitude>
     <popularity>3</popularity>
   </sight>
   <sight>
@@ -250,8 +250,8 @@
     <description>manor house is a working life museum in the municipality of Örebro in Närke</description>
     <country>Sweden</country>
     <city>Örebro Municipality</city>
-    <longitude>15,148889</longitude>
-    <latitude>59,269444</latitude>
+    <longitude>15.148889</longitude>
+    <latitude>59.269444</latitude>
     <popularity>3</popularity>
   </sight>
-</Sights>
+</sights>
