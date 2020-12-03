@@ -21,10 +21,13 @@ public class SightBlockingKeyByLocationGeneratorLight extends RecordBlockingKeyG
 	@Override
 	public void generateBlockingKeys(Sight record, Processable<Correspondence<Attribute, Matchable>> correspondences,DataIterator<Pair<String, Sight>> resultCollector) {
 		
-		if(record.getLatitude() == null || record.getLongitude() == null) {
+		if(record.getLatitude() == 0.0f || record.getLongitude() == 0.0f ) {
 			resultCollector.next(new Pair<>("", record));
 		}else {
-			String location = record.getLatitude().toString().substring(0,3)+","+record.getLongitude().toString().substring(0,3);
+			Float latitude = record.getLatitude();
+			Float longitude = record.getLongitude();
+			
+			String location = String.valueOf(latitude).substring(0,3)+","+String.valueOf(longitude).substring(0,3);
 			//String location = record.getLatitude().toString().substring(0,record.getLatitude().toString().indexOf('.'))+","+record.getLongitude().toString().substring(0,record.getLongitude().toString().indexOf('.'));  
 			resultCollector.next(new Pair<>(location.toString(), record));
 		}        
