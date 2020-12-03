@@ -1,7 +1,11 @@
+import Blocking.SightBlockingKeyByCityGenerator;
+import Blocking.SightBlockingKeyByCountryGenerator;
+import Blocking.SightBlockingKeyByLocationGenerator;
 import Blocking.SightBlockingKeyByNameGenerator;
 import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
+import de.uni_mannheim.informatik.dws.winter.matching.algorithms.MaximumBipartiteMatchingAlgorithm;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.LinearCombinationMatchingRule;
@@ -44,7 +48,7 @@ public class IR_using_linear_combination {
          *      - PAIR_WIKI_OTM
          *      - PAIR_OTM_GEO
          */
-        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_WIKI_OTM;
+        IR_using_machine_learning.MatchingPair selected = IR_using_machine_learning.MatchingPair.PAIR_WIKI_GEO;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -89,24 +93,34 @@ public class IR_using_linear_combination {
 
         // add comparators
         // Matchers for Name
-        matchingRule.addComparator(new SightNameComparatorEqual(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
-        matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.5);
-        matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
-        matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 1);
+        //matchingRule.addComparator(new SightNameComparatorEqual(), 0.5);
+        //matchingRule.addComparator(new SightNameComparatorJaccard(), 0.5);
+        //matchingRule.addComparator(new SightNameComparatorLevenshtein(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorLowercaseJaccard(), 0.3);
+        //matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard(), 0.2);
+        matchingRule.addComparator(new SightNameComparatorNGramJaccard(), 0.3);
 
-        // Matchers for Location
+        // Matchers for COORDINATES
+        //matchingRule.addComparator(new SightLongitudeComparatorAbsDiff(), 0.5);
         matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals(), 0.2);
-        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.2);
-        matchingRule.addComparator(new SightLocationComparator(), 0.2);
+        //matchingRule.addComparator(new SightLatitudeComparatorAbsDiff(), 0.5);
+        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals(), 0.2);
+        //matchingRule.addComparator(new SightLocationComparator(), 0.5);
+
+        // Matchers for FOR COUNTRY
+        // matchingRule.addComparator(new SightCountryComparator(), 0.1);
+        // Matchers for FOR CITY
+        //matchingRule.addComparator(new SightCityComparator(), 0.1);
+        // matchingRule.addComparator(new SightCityComparatorTokenJaccard(), 0.2);
 
         // create a blocker (blocking strategy)
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
-
-//		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
-//		SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);
+        //NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
+        //StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
+        //StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
+		//StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());
+        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
         blocker.setMeasureBlockSizes(true);
+
         //Write debug results to file:
         blocker.collectBlockSizeData("data/output/debugResultsBlocking.csv", 100);
 
@@ -120,12 +134,12 @@ public class IR_using_linear_combination {
                 blocker);
 
         // Create a top-1 global matching
-//		  correspondences = engine.getTopKInstanceCorrespondences(correspondences, 1, 0.0);
+        //correspondences = engine.getTopKInstanceCorrespondences(correspondences, 1, 0.0);
 
-//		 Alternative: Create a maximum-weight, bipartite matching
-//		 MaximumBipartiteMatchingAlgorithm<Movie,Attribute> maxWeight = new MaximumBipartiteMatchingAlgorithm<>(correspondences);
-//		 maxWeight.run();
-//		 correspondences = maxWeight.getResult();
+        //Alternative: Create a maximum-weight, bipartite matching
+        MaximumBipartiteMatchingAlgorithm<Sight,Attribute> maxWeight = new MaximumBipartiteMatchingAlgorithm<>(correspondences);
+        maxWeight.run();
+        correspondences = maxWeight.getResult();
 
         // write the correspondences to the output file
         switch (selected){
