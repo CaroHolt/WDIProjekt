@@ -1,11 +1,15 @@
 import java.io.File;
 
 
+import Blocking.SightBlockingKeyByCityGenerator;
+import Blocking.SightBlockingKeyByCountryGenerator;
+import Blocking.SightBlockingKeyByLocationGenerator;
 import Blocking.SightBlockingKeyByNameGenerator;
 import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.RuleLearner;
+import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.WekaMatchingRule;
 import de.uni_mannheim.informatik.dws.winter.model.*;
@@ -86,15 +90,28 @@ public class IR_using_machine_learning {
         WekaMatchingRule<Sight, Attribute> matchingRule = new WekaMatchingRule<>(0.7, modelType, options);
         matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTrainset);
 
-        // add comparators for opentrip and wikidata
+        // add comparators
+        // Matchers for Name
         matchingRule.addComparator(new SightNameComparatorEqual());
         matchingRule.addComparator(new SightNameComparatorJaccard());
         matchingRule.addComparator(new SightNameComparatorLevenshtein());
-        matchingRule.addComparator(new SightNameComparatorNGramJaccard());
         matchingRule.addComparator(new SightNameComparatorLowercaseJaccard());
         matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard());
-        matchingRule.addComparator(new SightLocationComparator());
+        matchingRule.addComparator(new SightNameComparatorNGramJaccard());
+
+        // Matchers for COORDINATES
         matchingRule.addComparator(new SightLongitudeComparatorAbsDiff());
+        matchingRule.addComparator(new SightLongitudeComparatorAbsDiff4Decimals());
+        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff());
+        matchingRule.addComparator(new SightLatitudeComparatorAbsDiff4Decimals());
+        matchingRule.addComparator(new SightLocationComparator());
+
+        // Matchers for FOR COUNTRY
+        matchingRule.addComparator(new SightCountryComparator());
+        // Matchers for FOR CITY
+        matchingRule.addComparator(new SightCityComparator());
+        matchingRule.addComparator(new SightCityComparatorTokenJaccard());
+
 
         // train the matching rule's model
         System.out.println("*\n*\tLearning matching rule\n*");
@@ -103,7 +120,14 @@ public class IR_using_machine_learning {
         System.out.println(String.format("Matching rule is:\n%s", matchingRule.getModelDescription()));
 
         // create a blocker (blocking strategy)
+        /*NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
+        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
+        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());*/
+        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
+        blocker.setMeasureBlockSizes(true);
+
+        //Write debug results to file:
         blocker.collectBlockSizeData("data/output/debugResultsBlocking.csv", 100);
 
         // Initialize Matching Engine
@@ -118,13 +142,13 @@ public class IR_using_machine_learning {
         // write the correspondences to the output file
         switch (selected){
             case PAIR_WIKI_GEO:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences.csv"), correspondences);
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_geo_correspondences_ml.csv"), correspondences);
                 break;
             case PAIR_WIKI_OTM:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_otm_correspondences.csv"), correspondences);
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/wiki_2_otm_correspondences_ml.csv"), correspondences);
                 break;
             case PAIR_OTM_GEO:
-                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/otm_2_geo_correspondences.csv"), correspondences);
+                new CSVCorrespondenceFormatter().writeCSV(new File("data/output/otm_2_geo_correspondences_ml.csv"), correspondences);
                 break;
         }
 

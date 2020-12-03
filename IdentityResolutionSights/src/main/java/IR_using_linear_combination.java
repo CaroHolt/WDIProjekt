@@ -28,7 +28,7 @@ public class IR_using_linear_combination {
     /*
      * Logging Options:
      * 		default: 	level INFO	- console
-     * 		trace:		level TRACE     - console
+     * 		trace:		level TRACE - console
      * 		infoFile:	level INFO	- console/file
      * 		traceFile:	level TRACE	- console/file
      *
@@ -137,9 +137,9 @@ public class IR_using_linear_combination {
         //correspondences = engine.getTopKInstanceCorrespondences(correspondences, 1, 0.0);
 
         //Alternative: Create a maximum-weight, bipartite matching
-        MaximumBipartiteMatchingAlgorithm<Sight,Attribute> maxWeight = new MaximumBipartiteMatchingAlgorithm<>(correspondences);
+       /* MaximumBipartiteMatchingAlgorithm<Sight,Attribute> maxWeight = new MaximumBipartiteMatchingAlgorithm<>(correspondences);
         maxWeight.run();
-        correspondences = maxWeight.getResult();
+        correspondences = maxWeight.getResult();*/
 
         // write the correspondences to the output file
         switch (selected){

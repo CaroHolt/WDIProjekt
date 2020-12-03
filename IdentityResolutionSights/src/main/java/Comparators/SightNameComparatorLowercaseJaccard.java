@@ -21,11 +21,9 @@ public class SightNameComparatorLowercaseJaccard implements Comparator<Sight, At
             Sight record2,
             Correspondence<Attribute, Matchable> schemaCorrespondences) {
 
-        String s1 = record1.getName().toLowerCase();
-        String s2 = record2.getName().toLowerCase();
+        String s1 = record1.getName();
+        String s2 = record2.getName();
 
-        // calculate similarity
-        double similarity = sim.calculate(s1, s2);
 
         if(this.comparisonLog != null){
             this.comparisonLog.setComparatorName(getClass().getName());
@@ -33,9 +31,40 @@ public class SightNameComparatorLowercaseJaccard implements Comparator<Sight, At
             this.comparisonLog.setRecord1Value(s1);
             this.comparisonLog.setRecord2Value(s2);
 
-            this.comparisonLog.setSimilarity(Double.toString(similarity));
         }
-        return similarity;
+
+        if (s1 != null) {
+            s1 = s1.toLowerCase();
+        } else {
+            s1 = "";
+        }
+
+        if (s2 != null) {
+            s2 = s2.toLowerCase();
+        } else {
+            s2 = "";
+        }
+
+        // calculate similarity
+        double similarity = sim.calculate(s1, s2);
+
+        // postprocessing
+        int postSimilarity = 0;
+        if (similarity <= 0.3) {
+            postSimilarity = 0;
+        }
+
+        postSimilarity *= similarity;
+
+        if(this.comparisonLog != null){
+            this.comparisonLog.setRecord1PreprocessedValue(s1);
+            this.comparisonLog.setRecord2PreprocessedValue(s2);
+
+            this.comparisonLog.setSimilarity(Double.toString(similarity));
+            this.comparisonLog.setPostprocessedSimilarity(Double.toString(postSimilarity));
+        }
+
+        return postSimilarity;
     }
 
     @Override
