@@ -26,10 +26,13 @@ public class SightXMLReader extends XMLMatchableReader<Sight, Attribute> impleme
 
         // the schema is defined in the Sight class and not interpreted from the file, so we have to set the attributes manually
         dataset.addAttribute(Sight.NAME);
+        dataset.addAttribute(Sight.DESCRIPTION);
+        dataset.addAttribute(Sight.TYPES);
         dataset.addAttribute(Sight.LATITUDE);
         dataset.addAttribute(Sight.CITY);
         dataset.addAttribute(Sight.COUNTRY);
         dataset.addAttribute(Sight.LONGITUDE);
+        dataset.addAttribute(Sight.POPULARITY);
 
     }
 

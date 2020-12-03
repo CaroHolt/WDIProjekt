@@ -143,28 +143,28 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
     @Override
     public boolean hasValue(Attribute attribute) {
         if(attribute==NAME)
-            return getName() != null && !getName().isEmpty();
+            return getName() != null && !getName().isEmpty() && !getName().equals("None");
         else if(attribute==DESCRIPTION)
-            return getDescription() != null && !getDescription().isEmpty();
+            return getDescription() != null && !getDescription().isEmpty() && !getDescription().equals("None");
         else if(attribute==TYPES)
             return getTypes() != null && getTypes().size() > 0;
         else if(attribute==COUNTRY)
-            return getCountry() != null && !getCountry().isEmpty();
+            return getCountry() != null && !getCountry().isEmpty() && !getCountry().equals("None") && !getCountry().equals("Unknown");
         else if(attribute==CITY)
-            return getCity() != null && !getCity().isEmpty();
+            return getCity() != null && !getCity().isEmpty() && !getCity().equals("None") && !getCity().equals("Unknown");
         else if(attribute==LONGITUDE)
-            return getLongitude() != null;
+            return getLongitude() != null && !getLongitude().equals("None");
         else if(attribute==LATITUDE)
-            return getLatitude() != null;
+            return getLatitude() != null && !getLatitude().equals("None");
         else if(attribute==POPULARITY)
-            return getPopularity() != null;
+            return getPopularity() != null && getPopularity() > 0;
         else
             return false;
     }
 
     @Override
     public String toString() {
-        return String.format("[String %s: %s / %s / %s]", getIdentifier(), getName(),
-                getTypes(), getCity().toString());
+        return String.format("[Sight %s: %s / %s / %s]", getIdentifier(), getName(),
+                getLongitude().toString(), getLatitude().toString());
     }
 }
