@@ -23,15 +23,19 @@ public class SightBlockingKeyByNameGenerator extends RecordBlockingKeyGenerator<
 
         String name  = record.getName();
         
-        //System.out.println(name);
-        // Remove blanks & lower-case string
-        //String name_prep = name.toLowerCase();
+        if (name == null) {
+        	name = "";
+        }         
         
-        //String blockingKeyValue = "";
+        String [] tokens = name.split(" ");
+        
+        String blockingKeyValue = "";
 
-        //String blockingKeyValue = "";
+		for(int i = 0; i <= 2 && i < tokens.length; i++) {
+			blockingKeyValue += tokens[i].substring(0, Math.min(2,tokens[i].length())).toUpperCase();
+		}
 
-        dataIterator.next(new Pair<>(name, record));
+	    dataIterator.next(new Pair<>(blockingKeyValue, record));
 
     }
 }
