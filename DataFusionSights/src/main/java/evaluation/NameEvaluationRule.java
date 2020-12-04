@@ -14,7 +14,7 @@ public class NameEvaluationRule extends EvaluationRule<Sight, Attribute> {
 
     @Override
     public boolean isEqual(Sight record1, Sight record2, Attribute schemaElement) {
-        // the title is correct if all tokens are there, but the order does not
+        // the name is correct if all tokens are there, but the order does not
         // matter
         return sim.calculate(record1.getName(), record2.getName()) == 1.0;
     }

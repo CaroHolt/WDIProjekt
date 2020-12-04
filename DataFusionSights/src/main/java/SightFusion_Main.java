@@ -57,9 +57,9 @@ public class SightFusion_Main {
 
         // Maintain Provenance
         // Scores (e.g. from rating)
-        ds1.setScore(1.0);
+        ds1.setScore(3.0);
         ds2.setScore(2.0);
-        ds3.setScore(3.0);
+        ds3.setScore(1.0);
 
         // Date (e.g. last update)
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
@@ -70,15 +70,15 @@ public class SightFusion_Main {
                 .toFormatter(Locale.ENGLISH);
 
         ds1.setDate(LocalDateTime.parse("2012-01-01", formatter));
-        ds2.setDate(LocalDateTime.parse("2010-01-01", formatter));
+        ds2.setDate(LocalDateTime.parse("2020-01-01", formatter));
         ds3.setDate(LocalDateTime.parse("2008-01-01", formatter));
 
         // load correspondences
         System.out.println("*\n*\tLoading correspondences\n*");
         CorrespondenceSet<Sight, Attribute> correspondences = new CorrespondenceSet<>();
-        correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Opentripmap_Geonames.csv"),ds1, ds2);
-        correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Opentripmap_Geonames.csv"),ds2, ds3);
-        correspondences.loadCorrespondences(new File("data/correspondences/GoldStandard_Wikidata_Geonames.csv"),ds1, ds3);
+        correspondences.loadCorrespondences(new File("data/correspondences/wiki_2_geo_correspondences_binary.csv"), ds3, ds1);
+        correspondences.loadCorrespondences(new File("data/correspondences/open_2_geo_correspondences_binary.csv"), ds2, ds1);
+        correspondences.loadCorrespondences(new File("data/correspondences/wiki_2_otm_correspondences_binary.csv"), ds3, ds2);
 
 
         // write group size distribution
@@ -99,12 +99,14 @@ public class SightFusion_Main {
         strategy.activateDebugReport("data/output/debugResultsDatafusion.csv", -1, gs);
 
         // add attribute fusers
-        strategy.addAttributeFuser(Sight.NAME, new NameFuserShortestString(),new NameEvaluationRule());
-        strategy.addAttributeFuser(Sight.CITY,new CityFuserVoting(),new CityEvaluationRule());
+        strategy.addAttributeFuser(Sight.NAME, new NameFuserVoting(),new NameEvaluationRule());
+        strategy.addAttributeFuser(Sight.TYPES,new TypesFuserUniqueUnion(),new TypesEvaluationRule());
+        strategy.addAttributeFuser(Sight.DESCRIPTION,new DescriptionFuserShortestString(),new DescriptionEvaluationRule());
+        strategy.addAttributeFuser(Sight.CITY,new CityFuserFavorSource(),new CityEvaluationRule());
         strategy.addAttributeFuser(Sight.COUNTRY,new CountryFuserVoting(),new CountryEvaluationRule());
-        strategy.addAttributeFuser(Sight.LONGITUDE,new LongitudeFuserVoting(),new LongitudeEvaluationRule());
-        strategy.addAttributeFuser(Sight.LATITUDE,new LatitudeFuserVoting(),new LatitudeEvaluationRule());
-        strategy.addAttributeFuser(Sight.POPULARITY,new PopularityFuserFavorSource(),new LatitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LONGITUDE,new LongitudeFuserFavorSource(),new LongitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LATITUDE,new LatitudeFuserFavorSource(),new LatitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.POPULARITY,new PopularityFuserMostRecent(),new PopularityEvaluationRule());
 
         // create the fusion engine
         DataFusionEngine<Sight, Attribute> engine = new DataFusionEngine<>(strategy);

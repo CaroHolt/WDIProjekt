@@ -138,8 +138,6 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
     public static final Attribute POPULARITY = new Attribute("Popularity");
 
 
-
-
     @Override
     public boolean hasValue(Attribute attribute) {
         if(attribute==NAME)
@@ -166,5 +164,18 @@ public class Sight extends AbstractRecord<Attribute> implements Serializable{
     public String toString() {
         return String.format("[Sight %s: %s / %s / %s]", getIdentifier(), getName(),
                 getLongitude().toString(), getLatitude().toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return getIdentifier().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Sight){
+            return this.getIdentifier().equals(((Sight) obj).getIdentifier());
+        }else
+            return false;
     }
 }

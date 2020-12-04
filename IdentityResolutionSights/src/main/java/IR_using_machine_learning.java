@@ -1,10 +1,7 @@
 import java.io.File;
 
 
-import Blocking.SightBlockingKeyByCityGenerator;
-import Blocking.SightBlockingKeyByCountryGenerator;
-import Blocking.SightBlockingKeyByLocationGenerator;
-import Blocking.SightBlockingKeyByNameGenerator;
+import Blocking.*;
 import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
@@ -45,7 +42,7 @@ public class IR_using_machine_learning {
          *      - PAIR_WIKI_OTM
          *      - PAIR_OTM_GEO
          */
-        MatchingPair selected = MatchingPair.PAIR_WIKI_OTM;
+        MatchingPair selected = MatchingPair.PAIR_WIKI_GEO;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -124,6 +121,7 @@ public class IR_using_machine_learning {
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());*/
+        //StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGeneratorLight());
         StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
         blocker.setMeasureBlockSizes(true);
 

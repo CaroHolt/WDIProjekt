@@ -10,17 +10,19 @@ import java.text.DecimalFormat;
 
 public class LongitudeEvaluationRule extends EvaluationRule<Sight, Attribute> {
 
-    private static DecimalFormat df = new DecimalFormat("0.00");
-
+    private static Float acceptable_difference;
 
     @Override
     public boolean isEqual(Sight record1, Sight record2, Attribute schemaElement) {
-        if(record1.getLongitude()==0.0 && record2.getLongitude()==0.0)
+        if(record1.getLongitude()==null && record2.getLongitude()==null)
             return true;
-        else if(record1.getLongitude()==0.0 ^ record2.getLongitude()==0.0)
+        else if(record1.getLongitude()==null ^ record2.getLongitude()==null)
             return false;
-        else
-            return df.format(record1.getLongitude()) == df.format(record1.getLongitude());
+        else{
+            acceptable_difference = record1.getLongitude() - record2.getLongitude();
+            return Math.abs(acceptable_difference) <= 0.01;
+
+        }
     }
 
     @Override
