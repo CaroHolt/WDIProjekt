@@ -1,6 +1,7 @@
 import Blocking.SightBlockingKeyByCityGenerator;
 import Blocking.SightBlockingKeyByCountryGenerator;
 import Blocking.SightBlockingKeyByLocationGenerator;
+import Blocking.SightBlockingKeyByLocationGeneratorLight;
 import Blocking.SightBlockingKeyByNameGenerator;
 import Comparators.SightCityComparator;
 import Comparators.SightCityComparatorTokenJaccard;
@@ -104,6 +105,7 @@ public class IR_using_linear_combination_DS {
 //		NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
 //		StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());
 //      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
+//      StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGeneratorLight());
         blocker.setMeasureBlockSizes(true);
         //Write debug results to file:
         blocker.collectBlockSizeData("data/output/debugResultsBlocking_wikidata_2_otm.csv", 100);
