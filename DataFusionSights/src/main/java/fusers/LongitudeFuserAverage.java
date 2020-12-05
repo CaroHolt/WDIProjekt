@@ -22,7 +22,7 @@ public class LongitudeFuserAverage  extends AttributeValueFuser<Float, Sight, At
 
 	@Override
 	public Float getValue(Sight record, Correspondence<Attribute, Matchable> correspondence) {
-		return record.getLatitude();
+		return record.getLongitude();
 	}
 
 	@Override

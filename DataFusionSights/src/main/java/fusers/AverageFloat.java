@@ -29,8 +29,10 @@ public class AverageFloat<RecordType extends Matchable & Fusible<SchemaElementTy
 			Float count = 0.0f;
 		
 			for (FusibleValue<Float, RecordType, SchemaElementType> value : values) {
-				sum += value.getValue();
-				count++;
+				if(value != null){
+					sum += value.getValue();
+					count++;
+				}
 			}
 		
 			return new FusedValue<>(sum / count);

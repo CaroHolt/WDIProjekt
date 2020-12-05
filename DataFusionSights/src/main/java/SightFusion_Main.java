@@ -101,12 +101,12 @@ public class SightFusion_Main {
 
         // add attribute fusers
         strategy.addAttributeFuser(Sight.NAME, new NameFuserVoting(),new NameEvaluationRule());
-        strategy.addAttributeFuser(Sight.TYPES,new TypesFuserUnion(),new TypesEvaluationRule());
+        strategy.addAttributeFuser(Sight.TYPES,new TypesFuserUniqueUnion(),new TypesEvaluationRule());
         strategy.addAttributeFuser(Sight.DESCRIPTION,new DescriptionFuserLongestString(),new DescriptionEvaluationRule());
         strategy.addAttributeFuser(Sight.CITY,new CityFuserFavorSource(),new CityEvaluationRule());
         strategy.addAttributeFuser(Sight.COUNTRY,new CountryFuserVoting(),new CountryEvaluationRule());
-        strategy.addAttributeFuser(Sight.LONGITUDE,new LatitudeFuserFavorSource(),new LongitudeEvaluationRule());
-        strategy.addAttributeFuser(Sight.LATITUDE,new LongitudeFuserVoting(),new LatitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LONGITUDE,new LongitudeFuserFavorSource(),new LongitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LATITUDE,new LatitudeFuserFavorSource(),new LatitudeEvaluationRule());
         strategy.addAttributeFuser(Sight.POPULARITY,new PopularityFuserMostRecent(),new PopularityEvaluationRule());
 
         // create the fusion engine
