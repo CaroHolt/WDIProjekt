@@ -20,7 +20,7 @@ public class DescriptionEvaluationRule extends EvaluationRule<Sight, Attribute> 
     	// Normalize descriptions prior to comparison
 		String s1 = Normalizer.normalize(record1.getDescription(), Normalizer.Form.NFD)
 				.replaceAll("\\s+", "").replace("'", "").replace(".", "").trim().toLowerCase();
-		String s2 = Normalizer.normalize(record1.getDescription(), Normalizer.Form.NFD)
+		String s2 = Normalizer.normalize(record2.getDescription(), Normalizer.Form.NFD)
 				.replaceAll("\\s+", "").replace("'", "").replace(".", "").trim().toLowerCase();
 		
 		return sim.calculate(s1, s2) == 1.0;
