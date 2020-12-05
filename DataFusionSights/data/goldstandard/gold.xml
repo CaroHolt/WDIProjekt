@@ -6,7 +6,7 @@
     <types>
 	<type>museum</type>
 	<type>neoclassical architecture</type>
-	<type>building(s)</type>
+	<type>building</type>
 	<type>synagogue</type>
 	<type>landmark</type>
 	<type>tower</type>
@@ -31,7 +31,8 @@
 	<type>museum</type>
 	<type>art museum</type>
 	<type>building</type>
-	<type>art_galleries</type>
+	<type>other_museums</type>
+	<type>interesting_places</type>
 	<type>cultural</type>
     </types>
     <description>Finland&apos;s best-known art museum</description>
@@ -47,8 +48,8 @@
     <types>
 	<type>historic_architecture </type>
 	<type>architecture </type>
-	<type>fortifications</type>
-	<type>castles</type>
+	<type>fortification</type>
+	<type>castle</type>
 	<type>interesting_places</type>
     </types>
     <description>Schloss Johannisburg is a schloss in the town of Aschaffenburg</description>
@@ -64,11 +65,12 @@
     <types>
 	<type>historic_architecture </type>
 	<type>architecture </type>
-	<type>fortifications</type>
+	<type>fortification</type>
 	<type>art_gallery</type>
 	<type>interesting_places</type>
 	<type>cultural</type>
 	<type>historic</type>
+	<type>maritime_museums</type>
 	<type>museum</type>
     </types>
     <description>Restored stone fortification hosting a permanent collection of 25 pieces by artist Martín Chirino.</description>
@@ -146,9 +148,8 @@
     <id>wikidata_id_20424</id>
     <name>Museo de León</name>
     <types>
-	<type>museums</type>
-	<type>monument</type>
-	<type>historic_architecture</type>
+	<type>museum</type>
+	<type>archaeology</type>
     </types>
     <description>museum in the province and is dedicated to telling the history of the province through archaeology</description>
     <country>Spain</country>
@@ -242,8 +243,8 @@
     <name>Karlslunds herrgård</name>
     <types>
 	<type>historic</type>
-	<type>historic_architecture</type>
-	<type>museums</type>
+	<type>building</type>
+	<type>museum</type>
 	<type>cultural</type>
     </types>
     <description>manor house is a working life museum in the municipality of Örebro in Närke</description>
@@ -253,4 +254,253 @@
     <latitude>59.269444</latitude>
     <popularity>3</popularity>
   </sight>
+      <sight>
+         <id>wikidata_id_10712</id>
+         <name>Domschatz- und Diözesanmuseum Passau</name>
+         <types>
+            <type>museum</type>
+            <type>religion</type>
+            <type>cathedral</type>
+            <type>catholic_church</type>
+         </types>
+         <description>museum located in the oldtown of Passau, exhibiting liturgical vestments, monstrances, gothic panel paintings and other art objects</description>
+         <country>Germany</country>
+         <city>Passau</city>
+         <longitude>2.3488</longitude>
+         <latitude>48.85341</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_12069</id>
+         <name>Museum Aan de Stroom</name>
+         <types>
+            <type>museum</type>
+      	    <type>interesting_places</type>
+            <type>cultural</type>
+            <type>architecture</type>
+         </types>
+         <description>museum in Antwerp about the city, it's harbour and histroy in wold trade</description>
+         <country>Belgium</country>
+         <city>Antwerp</city>
+         <longitude>4.40473</longitude>
+         <latitude>51.22894</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_26362</id>
+         <name>Museum Weltkulturen</name>
+         <types>
+            <type>museum</type>
+      	    <type>archaeology</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+         </types>
+         <description>an archaeological and ethnological museum in Mannheim in square D5</description>
+         <country>Germany</country>
+         <city>Mannheim</city>
+         <longitude>8.46208</longitude>
+         <latitude>49.48884</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_10062</id>
+         <name>Neues Museum</name>
+         <types>
+            <type>museum</type>
+            <type>archaeology</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>history_museum</type>
+         </types>
+         <description>an archeological museum on the Museum Island in the historic centre of Berlin and part of the UNESCO World Heritage.</description>
+         <country>Germany</country>
+         <city>Berlin</city>
+         <longitude>13.39772</longitude>
+         <latitude>52.52017</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_11266</id>
+         <name>Mon Repos</name>
+         <types>
+             <type>other_buildings_and_structures</type>
+             <type>manor_houses</type>
+             <type>interesting_places</type>
+             <type>cultural</type>
+             <type>historic</type>
+             <type>historic_architecture</type>
+         </types>
+         <description>villa on the island of Corfu, Greece</description>
+         <country>Greece</country>
+         <city>Corfu Municipality</city>
+         <longitude>19.92616</longitude>
+         <latitude>39.60624</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_11677</id>
+         <name>Gevangenpoort</name>
+         <types>
+            <type>prison museum</type>
+            <type>prison</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>museum</type>
+            <type>art gallery</type>         </types>
+         <description>a former gate and medieval prison on the Buitenhof in The Hague, Netherlands</description>
+         <country>Netherlands</country>
+         <city>The Hague</city>
+         <longitude>4.31008</longitude>
+         <latitude>52.07953</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_11842</id>
+         <name>Palazzo Medici Riccardi</name>
+         <types>
+            <type>museum</type>
+            <type>palace</type>
+            <type>museum</type>
+            <type>palazzo</type>
+         </types>
+         <description>palace and museum in Florence, Italy</description>
+         <country>Italy</country>
+         <city>Florence</city>
+         <longitude>11.25567</longitude>
+         <latitude>43.7752</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_12907</id>
+         <name>Dublin City Gallery The Hugh Lane</name>
+         <types>
+            <type>museum</type>
+            <type>art museum</type>
+            <type>interesting_places</type>
+            <type>cultural</type>         </types>
+         <description>art gallery in Parnell Square North, Dublin</description>
+         <country>Ireland</country>
+         <city>Dublin</city>
+         <longitude>-6.26489</longitude>
+         <latitude>53.35452</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_13422</id>
+         <name>Ephraim-Palais</name>
+         <types>
+            <type>historic_architecture</type>
+            <type>palaces</type>
+            <type>architecture</type>
+            <type>museum</type>
+         </types>
+         <description>Rokoko building in Berlin.  Location for special exhibitions by the Stadtmuseum Berlin on wide-ranging themes related to the history and culture of Berlin.</description>
+         <country>Germany</country>
+         <city>Mitte</city>
+         <longitude>13.4072</longitude>
+         <latitude>52.5158</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_13946</id>
+         <name>Alte Pinakothek</name>
+         <types>
+            <type>national_museums</type>
+            <type>museums</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>art_galleries</type>         
+         </types>
+         <description>art museum in Munich</description>
+         <country>Germany</country>
+         <city>Maxvorstadt</city>
+         <longitude>11.57</longitude>
+         <latitude>48.148333</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_16146</id>
+         <name>Museo Extremeño e Iberoamericano de Arte Contemporáneo</name>
+         <types>
+            <type>museums</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>art_galleries</type>
+         </types>
+         <description>Museo Extremeno e Iberoamericano de Arte Contemporaneo</description>
+         <country>Spain</country>
+         <city>Badajoz</city>
+         <longitude>-6.971111111</longitude>
+         <latitude>38.87166667</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_16329</id>
+         <name>Musées de Sens</name>
+         <types>
+            <type>museums</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>other_museums monuments</type>         
+         </types>
+         <description>archaeological museum in Place de la Sens</description>
+         <country>France</country>
+         <city>Sens</city>
+         <longitude>3.28413</longitude>
+         <latitude>48.1975</latitude>
+         <popularity>3</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_20580</id>
+         <name>Iron Gates Region Museum</name>
+         <types>
+            <type>museums</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>other_museums</type>
+         </types>
+         <description>heritage site in Mehedinți County, Romania</description>
+         <country>Romania</country>
+         <city>Mehedinți County</city>
+         <longitude>22.666472</longitude>
+         <latitude>44.62493</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_31465</id>
+         <name>Münsterlandmuseum Burg Vischering</name>
+         <types>
+            <type>fortifications</type>
+            <type>historic</type>
+            <type>monuments_and_memorials</type>
+            <type>interesting_places</type>
+            <type>castles</type>
+            <type>monuments</type>
+         </types>
+         <description>museum in Germany</description>
+         <country>Germany</country>
+         <city>Lüdingshausen</city>
+         <longitude>7.442526</longitude>
+         <latitude>51.776505</latitude>
+         <popularity>7</popularity>
+      </sight>
+      <sight>
+         <id>wikidata_id_35140</id>
+         <name>Elephant Fountain</name>
+         <types>
+            <type>fountains</type>
+            <type>historic</type>
+            <type>monuments_and_memorials</type>
+            <type>urban_environment</type>
+            <type>cultural</type>
+            <type>interesting_places</type>
+            <type>monuments</type>
+         </types>
+         <description>fountain, Fontana dell'Elefante</description>
+         <country>Italy</country>
+         <city>Catania</city>
+         <longitude>15.08708</longitude>
+         <latitude>37.5025</latitude>
+         <popularity>3</popularity>
+      </sight>
 </sights>
