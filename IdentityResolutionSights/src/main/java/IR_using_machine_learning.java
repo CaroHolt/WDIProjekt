@@ -6,6 +6,7 @@ import Comparators.*;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.RuleLearner;
+import de.uni_mannheim.informatik.dws.winter.matching.blockers.Blocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.WekaMatchingRule;
@@ -43,6 +44,17 @@ public class IR_using_machine_learning {
          *      - PAIR_OTM_GEO
          */
         MatchingPair selected = MatchingPair.PAIR_WIKI_GEO;
+
+        /* Define Blocking strategy that should be applied
+         * The options are:
+         *      - NO_BLOCKING
+         *      - NAME_BLOCKING
+         *      - CITY_BLOCKING
+         *      - COUNTRY_BLOCKING
+         *      - LOCATION_BLOCKING
+         *      - LOCATION_3DEC_BLOCKING
+         */
+        BlockingStrategy blockingStrategy = BlockingStrategy.NAME_BLOCKING;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -117,12 +129,28 @@ public class IR_using_machine_learning {
         System.out.println(String.format("Matching rule is:\n%s", matchingRule.getModelDescription()));
 
         // create a blocker (blocking strategy)
-        /*NoBlocker<Sight, Attribute> blocker = new NoBlocker<>();
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());*/
-        //StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGeneratorLight());
-        StandardRecordBlocker<Sight, Attribute> blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
+        StandardRecordBlocker<Sight, Attribute> blocker;
+        switch (blockingStrategy){
+            case NAME_BLOCKING:
+                blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByNameGenerator());
+                break;
+            case CITY_BLOCKING:
+                blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCityGenerator());
+                break;
+            case COUNTRY_BLOCKING:
+                blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByCountryGenerator());
+                break;
+            case LOCATION_BLOCKING:
+                blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGenerator());
+                break;
+            case LOCATION_3DEC_BLOCKING:
+                blocker = new StandardRecordBlocker<Sight, Attribute>(new SightBlockingKeyByLocationGeneratorLight());
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + blockingStrategy);
+        }
+
         blocker.setMeasureBlockSizes(true);
 
         //Write debug results to file:
@@ -193,6 +221,15 @@ public class IR_using_machine_learning {
         MatchingPair(String info) {
             PAIRINFO = info;
         }
+    }
+
+    public enum BlockingStrategy{
+        NO_BLOCKING,
+        NAME_BLOCKING,
+        CITY_BLOCKING,
+        COUNTRY_BLOCKING,
+        LOCATION_BLOCKING,
+        LOCATION_3DEC_BLOCKING;
     }
 
 }

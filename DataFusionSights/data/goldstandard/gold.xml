@@ -6,7 +6,7 @@
     <types>
 	<type>museum</type>
 	<type>neoclassical architecture</type>
-	<type>building</type>
+	<type>building(s)</type>
 	<type>synagogue</type>
 	<type>landmark</type>
 	<type>tower</type>
@@ -31,8 +31,7 @@
 	<type>museum</type>
 	<type>art museum</type>
 	<type>building</type>
-	<type>other_museums</type>
-	<type>interesting_places</type>
+	<type>art_galleries</type>
 	<type>cultural</type>
     </types>
     <description>Finland&apos;s best-known art museum</description>
@@ -48,8 +47,8 @@
     <types>
 	<type>historic_architecture </type>
 	<type>architecture </type>
-	<type>fortification</type>
-	<type>castle</type>
+	<type>fortifications</type>
+	<type>castles</type>
 	<type>interesting_places</type>
     </types>
     <description>Schloss Johannisburg is a schloss in the town of Aschaffenburg</description>
@@ -65,12 +64,11 @@
     <types>
 	<type>historic_architecture </type>
 	<type>architecture </type>
-	<type>fortification</type>
+	<type>fortifications</type>
 	<type>art_gallery</type>
 	<type>interesting_places</type>
 	<type>cultural</type>
 	<type>historic</type>
-	<type>maritime_museums</type>
 	<type>museum</type>
     </types>
     <description>Restored stone fortification hosting a permanent collection of 25 pieces by artist Martín Chirino.</description>
@@ -148,8 +146,9 @@
     <id>wikidata_id_20424</id>
     <name>Museo de León</name>
     <types>
-	<type>museum</type>
-	<type>archaeology</type>
+	<type>museums</type>
+	<type>monument</type>
+	<type>historic_architecture</type>
     </types>
     <description>museum in the province and is dedicated to telling the history of the province through archaeology</description>
     <country>Spain</country>
@@ -243,8 +242,8 @@
     <name>Karlslunds herrgård</name>
     <types>
 	<type>historic</type>
-	<type>building</type>
-	<type>museum</type>
+	<type>historic_architecture</type>
+	<type>museums</type>
 	<type>cultural</type>
     </types>
     <description>manor house is a working life museum in the municipality of Örebro in Närke</description>

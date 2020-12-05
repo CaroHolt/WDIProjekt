@@ -28,7 +28,7 @@ public class TypesEvaluationRule extends EvaluationRule<Sight, Attribute> {
             }
         }
 
-        return types1.containsAll(types2) && types2.containsAll(types1);
+        return types1.containsAll(types2);
     }
 
     @Override

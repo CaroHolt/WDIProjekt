@@ -24,7 +24,10 @@ public class TypesFuserUnion extends AttributeValueFuser<List<String>, Sight, At
     @Override
     public void fuse(RecordGroup<Sight, Attribute> recordGroup, Sight fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
         FusedValue<List<String>, Sight, Attribute> fused = getFusedValue(recordGroup, schemaCorrespondences, schemaElement);
-        fusedRecord.setTypes(fused.getValue());
+        // Remove empty strings
+        List<String> tmpList= fused.getValue();
+        tmpList.remove("");
+        fusedRecord.setTypes(tmpList);
         fusedRecord.setAttributeProvenance(Sight.TYPES, fused.getOriginalIds());
     }
 

@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
 
+
 import evaluation.*;
 import fusers.*;
 import model.Sight;
@@ -57,8 +58,8 @@ public class SightFusion_Main {
 
         // Maintain Provenance
         // Scores (e.g. from rating)
-        ds1.setScore(3.0);
-        ds2.setScore(2.0);
+        ds1.setScore(2.0);
+        ds2.setScore(3.0);
         ds3.setScore(1.0);
 
         // Date (e.g. last update)
@@ -69,9 +70,9 @@ public class SightFusion_Main {
                 .parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
                 .toFormatter(Locale.ENGLISH);
 
-        ds1.setDate(LocalDateTime.parse("2012-01-01", formatter));
+        ds1.setDate(LocalDateTime.parse("2019-01-01", formatter));
         ds2.setDate(LocalDateTime.parse("2020-01-01", formatter));
-        ds3.setDate(LocalDateTime.parse("2008-01-01", formatter));
+        ds3.setDate(LocalDateTime.parse("2018-01-01", formatter));
 
         // load correspondences
         System.out.println("*\n*\tLoading correspondences\n*");
@@ -100,12 +101,12 @@ public class SightFusion_Main {
 
         // add attribute fusers
         strategy.addAttributeFuser(Sight.NAME, new NameFuserVoting(),new NameEvaluationRule());
-        strategy.addAttributeFuser(Sight.TYPES,new TypesFuserUniqueUnion(),new TypesEvaluationRule());
-        strategy.addAttributeFuser(Sight.DESCRIPTION,new DescriptionFuserShortestString(),new DescriptionEvaluationRule());
+        strategy.addAttributeFuser(Sight.TYPES,new TypesFuserUnion(),new TypesEvaluationRule());
+        strategy.addAttributeFuser(Sight.DESCRIPTION,new DescriptionFuserLongestString(),new DescriptionEvaluationRule());
         strategy.addAttributeFuser(Sight.CITY,new CityFuserFavorSource(),new CityEvaluationRule());
         strategy.addAttributeFuser(Sight.COUNTRY,new CountryFuserVoting(),new CountryEvaluationRule());
-        strategy.addAttributeFuser(Sight.LONGITUDE,new LongitudeFuserFavorSource(),new LongitudeEvaluationRule());
-        strategy.addAttributeFuser(Sight.LATITUDE,new LatitudeFuserFavorSource(),new LatitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LONGITUDE,new LatitudeFuserFavorSource(),new LongitudeEvaluationRule());
+        strategy.addAttributeFuser(Sight.LATITUDE,new LongitudeFuserVoting(),new LatitudeEvaluationRule());
         strategy.addAttributeFuser(Sight.POPULARITY,new PopularityFuserMostRecent(),new PopularityEvaluationRule());
 
         // create the fusion engine
