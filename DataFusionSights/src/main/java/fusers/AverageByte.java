@@ -7,6 +7,9 @@ import de.uni_mannheim.informatik.dws.winter.model.FusibleValue;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 
 public class AverageByte <RecordType extends Matchable & Fusible<SchemaElementType>, SchemaElementType extends Matchable> extends

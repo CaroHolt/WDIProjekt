@@ -59,8 +59,8 @@ public class SightFusion_Main {
         // Maintain Provenance
         // Scores (e.g. from rating)
         ds1.setScore(2.0);
-        ds2.setScore(3.0);
-        ds3.setScore(1.0);
+        ds2.setScore(1.0);
+        ds3.setScore(3.0);
 
         // Date (e.g. last update)
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
@@ -102,7 +102,7 @@ public class SightFusion_Main {
         // add attribute fusers
         strategy.addAttributeFuser(Sight.NAME, new NameFuserVoting(),new NameEvaluationRule());
         strategy.addAttributeFuser(Sight.TYPES,new TypesFuserUniqueUnion(),new TypesEvaluationRule());
-        strategy.addAttributeFuser(Sight.DESCRIPTION,new DescriptionFuserLongestString(),new DescriptionEvaluationRule());
+        strategy.addAttributeFuser(Sight.DESCRIPTION,new DescriptionFavorSource(),new DescriptionEvaluationRule());
         strategy.addAttributeFuser(Sight.CITY,new CityFuserFavorSource(),new CityEvaluationRule());
         strategy.addAttributeFuser(Sight.COUNTRY,new CountryFuserVoting(),new CountryEvaluationRule());
         strategy.addAttributeFuser(Sight.LONGITUDE,new LongitudeFuserFavorSource(),new LongitudeEvaluationRule());
@@ -128,9 +128,14 @@ public class SightFusion_Main {
         // evaluate
         DataFusionEvaluator<Sight, Attribute> evaluator = new DataFusionEvaluator<>(strategy, new RecordGroupFactory<Sight, Attribute>());
 
+        System.out.println("Density Fused Record:");
+        fusedDataSet.printDataSetDensityReport();
+
         double accuracy = evaluator.evaluate(fusedDataSet, gs, null);
 
         System.out.println(String.format("Accuracy: %.2f", accuracy));
+
+
     }
 
 

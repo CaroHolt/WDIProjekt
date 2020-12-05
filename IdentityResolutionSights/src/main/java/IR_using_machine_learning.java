@@ -43,7 +43,7 @@ public class IR_using_machine_learning {
          *      - PAIR_WIKI_OTM
          *      - PAIR_OTM_GEO
          */
-        MatchingPair selected = MatchingPair.PAIR_WIKI_GEO;
+        MatchingPair selected = MatchingPair.PAIR_OTM_GEO;
 
         /* Define Blocking strategy that should be applied
          * The options are:
@@ -54,7 +54,7 @@ public class IR_using_machine_learning {
          *      - LOCATION_BLOCKING
          *      - LOCATION_3DEC_BLOCKING
          */
-        BlockingStrategy blockingStrategy = BlockingStrategy.NAME_BLOCKING;
+        BlockingStrategy blockingStrategy = BlockingStrategy.LOCATION_3DEC_BLOCKING;
 
         // Add time measuring
         long startTime = System.nanoTime();
@@ -104,7 +104,6 @@ public class IR_using_machine_learning {
         matchingRule.addComparator(new SightNameComparatorEqual());
         matchingRule.addComparator(new SightNameComparatorJaccard());
         matchingRule.addComparator(new SightNameComparatorLevenshtein());
-        matchingRule.addComparator(new SightNameComparatorLowercaseJaccard());
         matchingRule.addComparator(new SightNameComparatorLowercasePunctuationJaccard());
         matchingRule.addComparator(new SightNameComparatorNGramJaccard());
 
