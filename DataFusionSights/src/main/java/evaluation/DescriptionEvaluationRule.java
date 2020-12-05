@@ -48,7 +48,6 @@ public class DescriptionEvaluationRule extends EvaluationRule<Sight, Attribute> 
             }
         }
 
-    }
 
     private Set<String> splitIntoTokens(String s){
         Set<String> tokens = new HashSet<>();

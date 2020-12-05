@@ -27,7 +27,8 @@ public class SightBlockingKeyByLocationGeneratorLight extends RecordBlockingKeyG
 			Float latitude = record.getLatitude();
 			Float longitude = record.getLongitude();
 			
-			String location = String.valueOf(latitude).substring(0,3)+","+String.valueOf(longitude).substring(0,3);
+			//String location = String.valueOf(latitude).substring(0,3)+","+String.valueOf(longitude).substring(0,3);
+			String location = String.valueOf(latitude).substring(0,String.valueOf(latitude).indexOf('.')+2) + ","+String.valueOf(longitude).substring(0,String.valueOf(longitude).indexOf('.')+2);
 			//String location = record.getLatitude().toString().substring(0,record.getLatitude().toString().indexOf('.'))+","+record.getLongitude().toString().substring(0,record.getLongitude().toString().indexOf('.'));  
 			resultCollector.next(new Pair<>(location.toString(), record));
 		}        
