@@ -43,7 +43,7 @@ public class IR_using_machine_learning {
          *      - PAIR_WIKI_OTM
          *      - PAIR_OTM_GEO
          */
-        MatchingPair selected = MatchingPair.PAIR_OTM_GEO;
+        MatchingPair selected = MatchingPair.PAIR_WIKI_GEO;
 
         /* Define Blocking strategy that should be applied
          * The options are:

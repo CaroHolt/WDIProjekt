@@ -19,11 +19,11 @@ public class DescriptionEvaluationRule extends EvaluationRule<Sight, Attribute> 
 
     @Override
     public boolean isEqual(Sight record1, Sight record2, Attribute schemaElement) {
-        if(record1.getDescription()== null && record2.getDescription()==null)
+        if (record1.getDescription() == null && record2.getDescription() == null)
             return true;
-        else if(record1.getDescription()== null ^ record2.getDescription()==null)
+        else if (record1.getDescription() == null ^ record2.getDescription() == null)
             return false;
-        else{
+        else {
             // Normalize descriptions prior to comparison
             String s1 = record1.getDescription().replaceAll("\\p{Punct}", "").toLowerCase();
             String s2 = record2.getDescription().replaceAll("\\p{Punct}", "").toLowerCase();
@@ -32,22 +32,21 @@ public class DescriptionEvaluationRule extends EvaluationRule<Sight, Attribute> 
             Set<String> tokens2 = splitIntoTokens(s2);
 
             int counter = 0;
-            for (String token : tokens2){
-                if(tokens1.contains(token)){
+            for (String token : tokens2) {
+                if (tokens1.contains(token)) {
                     counter = counter + 1;
                 }
             }
 
             int setSize80Percent = (int) (tokens2.size() * 0.7);
 
-            if(setSize80Percent <= counter){
+            if (setSize80Percent <= counter) {
                 return true;
-            }
-            else{
+            } else {
                 return false;
             }
         }
-
+    }
 
     private Set<String> splitIntoTokens(String s){
         Set<String> tokens = new HashSet<>();
