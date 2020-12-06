@@ -32,3 +32,5 @@ file for the WDI-Project "Integrated Sightseeing" by Group 7.
 	d. ../data/output: contains the .csv-files that result from the data fusion
 --------
 4. FinalReport: contains the final report in .pdf-format
+--------
+5. TeamContribution: contains the .xlx sheet that lists the contribution of our team members
