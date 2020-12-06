@@ -26,6 +26,9 @@ file for the WDI-Project "Integrated Sightseeing" by Group 7.
 3. DataFusionSights: Java Maven project which contains the files/data 
 	             created for Data Fusion
 
-
+	a. ../data/correspondences: contains the correspondences .csv-files as generated in Identity resolution
+	b. ../data/goldstandard: contains our gold standard (?)
+	c. ../data/input: contains the same files as 2.a.
+	d. ../data/output: contains the .csv-files that result from the data fusion
 --------
 4. FinalReport: contains the final report in .pdf-format
