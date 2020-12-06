@@ -47,7 +47,6 @@ public class IR_using_machine_learning {
 
         /* Define Blocking strategy that should be applied
          * The options are:
-         *      - NO_BLOCKING
          *      - NAME_BLOCKING
          *      - CITY_BLOCKING
          *      - COUNTRY_BLOCKING
